@@ -1,6 +1,10 @@
+![Beatles Quiz](imagem.png)
+
 # Quiz dos Beatles
 
 Bem-vindo ao Quiz dos Beatles! Neste jogo, você escutará um trecho de uma música dos Beatles aleatoriamente selecionada e terá que adivinhar qual música é. Você pode ver uma dica, revelar a resposta e passar para a próxima música.
+
+- Está disponível em: https://wdpedroborges.github.io/beatles-quiz/
 
 ## Como jogar
 
