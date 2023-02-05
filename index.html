@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Beatles Quiz</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript" src="script.js" defer></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<style type="text/css">
+	audio {
+		display: none;
+	}
+</style>
+<body>
+
+<div id="quiz">
+	<h1>Beatles Quiz</h1>
+	<input type="number" id="duracao" placeholder="Duração">
+	<button id="btnPlay"><i class="bi bi-play-fill"></i></button>
+	<div id="musica"></div>
+	<p id="resposta"></p>
+	<p id="dicas"></p>
+	<div>
+		<button id="btnRevelarResposta">Revelar resposta</button>
+		<button id="btnDica">Dica</button>
+		<button id="btnProxima">Próxima</button>
+	</div>
+</div>
+
+
+
+<template id="templateAudio">
+	<audio controls>
+		<source src="yesterday.mp3" type="audio/mpeg">
+		Seu navegador não suporta arquivos de áudio.
+	</audio>
+</template>
+</body>
+</html>
