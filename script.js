@@ -40,6 +40,7 @@ let incrementoInicial = incremento;
 let musicaEscolhida, audio, tempoAleatorio;
 
 const geraMusica = () => {
+	tocando = false;
 	musica.innerHTML = '';
 	let clone = templateAudio.content.cloneNode(true);
 	musica.appendChild(clone);
