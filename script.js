@@ -12,13 +12,26 @@ const btnRevelarResposta = document.querySelector('#btnRevelarResposta');
 const btnPlay = document.querySelector('#btnPlay');
 const btnProxima = document.querySelector('#btnProxima');
 const btnDica = document.querySelector('#btnDica');
+const btnNovoTrecho = document.querySelector('#btnNovoTrecho');
 const resposta = document.querySelector('#resposta');
 const dicas = document.querySelector('#dicas');
 const templateAudio = document.querySelector('#templateAudio');
-const duracao = document.querySelector('#duracao');
+const btnDuracao = document.querySelector('#btnDuracao');
+const toast = document.querySelector('#toast');
+const infoDicas = document.querySelector('#infoDicas');
+const limiteDicas = 3;
+let dicasUsadas = 0;
+infoDicas.textContent = dicasUsadas;
 
-duracao.addEventListener('change', () => {
-	incremento = parseInt(duracao.value);
+btnDuracao.addEventListener('click', () => {
+	if (dicasUsadas < limiteDicas) {
+		incremento += 1.5;
+		dicasUsadas++;
+		infoDicas.textContent = dicasUsadas;
+		exibeToast(`Agora a música vai tocar por ${incremento} segundos. Você tem mais ${limiteDicas - dicasUsadas} dica(s)`);
+	} else {
+		exibeToast('Você atingiu o seu limite de dicas.');
+	}
 });
 
 let musica = document.querySelector('#musica');
@@ -48,23 +61,49 @@ const geraMusica = () => {
 	});
 }
 
+const exibeToast = (msg, color = '#079ea6', tempo = 2000) => {
+	toast.textContent = msg;
+	toast.style.display = 'block'
+	toast.style.backgroundColor = color;
+	setTimeout(() => {
+		toast.style.display = 'none'
+	}, tempo);
+}
+
+let tocando = false;
 btnPlay.addEventListener('click', () => {
+	if (!tocando) {
+		btnPlay.querySelector('i').classList.remove('bi-play-fill');
+		btnPlay.querySelector('i').classList.add('bi-pause-fill');
+		audio.pause();
+		audio.currentTime = tempoAleatorio;
+		audio.play();
+		tocando = true;	
+	} else {
+		btnPlay.querySelector('i').classList.add('bi-play-fill');
+		btnPlay.querySelector('i').classList.remove('bi-pause-fill');
+		audio.pause();
+		tocando = false;
+	}
+});
+
+btnRevelarResposta.addEventListener('click', () => {
+	resposta.textContent = musicaEscolhida;
+	resposta.style.display = 'block';
+	incremento = 10;
 	btnPlay.querySelector('i').classList.remove('bi-play-fill');
 	btnPlay.querySelector('i').classList.add('bi-pause-fill');
 	audio.pause();
 	audio.currentTime = tempoAleatorio;
 	audio.play();
-})
-
-btnRevelarResposta.addEventListener('click', () => {
-	resposta.textContent = musicaEscolhida;
-	resposta.style.display = 'block';
+	tocando = true;
+	exibeToast('A música tocará por 10 segundos, agora que você revelou a resposta.')
 });
 
 btnProxima.addEventListener('click', () => {
+	dicasUsadas = 0;
 	jaFoi = false;
 	dicaAnterior = 0;
-	duracao.value = incrementoInicial;
 	incremento = incrementoInicial;
 	resposta.textContent = '';
 	dicas.textContent = '';
@@ -73,24 +112,45 @@ btnProxima.addEventListener('click', () => {
 	btnPlay.querySelector('i').classList.remove('bi-pause-fill');
 	btnPlay.querySelector('i').classList.add('bi-play-fill');
 	geraMusica();
+	exibeToast('Uma nova música foi gerada. Boa sorte.');
+});
+
+btnNovoTrecho.addEventListener('click', () => {
+	if (dicasUsadas < limiteDicas) {
+		tempoAleatorio = aleatorio(0, audio.duration - 15);
+		exibeToast(tempoAleatorio);
+		audio.currentTime = tempoAleatorio;
+		dicasUsadas++;
+		exibeToast(`Você tem mais ${limiteDicas - dicasUsadas} dica(s).`);
+		infoDicas.textContent = dicasUsadas;
+	} else {
+		exibeToast('Você atingiu o limite de dicas.');
+	}
 });
 
 let dicaAnterior = 0, jaFoi = false;
 btnDica.addEventListener('click', () => {
-	dicas.style.display = 'block';
-	let tmp = musicaEscolhida.split(' ');
-	if (tmp.length <= 2) {
-		tmp = tmp[1].split('');
-	} else {
-		if (!jaFoi) {
-			jaFoi = true;
+	if (dicasUsadas < limiteDicas) {
+		dicas.style.display = 'block';
+		let tmp = musicaEscolhida.split(' ');
+		if (tmp.length <= 2) {
+			tmp = tmp[1].split('');
+		} else {
+			if (!jaFoi) {
+				jaFoi = true;
+				dicaAnterior++;
+			}
+		}
+
+		if (dicaAnterior < tmp.length) {
+			dicas.textContent += `${tmp[dicaAnterior]} `;
 			dicaAnterior++;
 		}
-	}
-
-	if (dicaAnterior < tmp.length) {
-		dicas.textContent += `${tmp[dicaAnterior]} `;
-		dicaAnterior++;
+		dicasUsadas++;
+		exibeToast(`Você tem mais ${limiteDicas - dicasUsadas} dica(s).`);
+		infoDicas.textContent = dicasUsadas;
+	} else {
+		exibeToast('Você atingiu o limite de dicas.');
 	}
 });
 

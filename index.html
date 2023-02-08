@@ -14,21 +14,25 @@
 </style>
 <body>
 
+<div id="toast"></div>
+
+<h1>Beatles Quiz</h1>
 <div id="quiz">
-	<h1>Beatles Quiz</h1>
-	<input type="number" id="duracao" placeholder="Duração">
+	
+	<button id="btnDuracao">+</button>
 	<button id="btnPlay"><i class="bi bi-play-fill"></i></button>
 	<div id="musica"></div>
 	<p id="resposta"></p>
 	<p id="dicas"></p>
-	<div>
+	<div id="botoes">
 		<button id="btnRevelarResposta">Revelar resposta</button>
-		<button id="btnDica">Dica</button>
-		<button id="btnProxima">Próxima</button>
+		<button id="btnDica">Dica textual</button>
+		<button id="btnNovoTrecho">Novo trecho</button>
+		<button id="btnProxima"><i class="bi bi-arrow-right"></i></button>
 	</div>
 </div>
 
-
+<div id="infoDicas"></div>
 
 <template id="templateAudio">
 	<audio controls>

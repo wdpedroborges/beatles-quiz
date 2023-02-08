@@ -1,17 +1,87 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 *, *::before, *::after {
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
 }
 
+:root {
+	--primeira-cor: #1e0c42;
+	--segunda-cor: #f5be58;
+	--terceira-cor: #f0077b;
+	--quarta-cor: #079ea6;
+}
+
+h1 {
+	font-family: 'Satisfy', cursive;
+	font-size: 5rem;
+	color: var(--segunda-cor);
+	text-shadow: 1px 1px 75px #fff;
+	text-align: center;
+}
+
 body {
 	background-size: 30%;
-	background: linear-gradient(to right, rgba(0, 0, 0, .5), rgba(0, 0, 0, .95)), url('bg.png');
+	background: linear-gradient(to right, rgba(0, 0, 0, .75), rgba(0, 0, 0, .99)), url('bg.png');
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
 	animation: moveBanner 20s ease-in-out infinite;
+}
+
+#quiz {
+	background-color: rgba(255, 255, 255, .8);
+	padding: 2rem;
+	border-radius: 1rem 0 1rem 0;
+	border: 5px solid var(--segunda-cor);
+	min-width: 500px;
+	max-width: 75%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#toast {
+	display: none;
+	position: fixed;
+	top: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
+	background: var(--quarta-cor);
+	color: #fff;
+	padding: 1rem;
+	width: 50%;
+	font-size: 1.5rem;
+	font-weight: bolder;
+	text-align: center;
+	border-radius: 1rem;
+}
+
+#infoDicas {
+	position: fixed;
+	bottom: 1rem;
+	right: 1rem;
+	padding: 1rem;
+	font-size: 1.25rem;
+	font-weight: bolder;
+	text-align: center;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: var(--terceira-cor);
+	color: #fff;
+	line-height: 100%;
+}
+
+#botoes {
+	border-top: 1px solid var(--primeira-cor);
+	padding-top: 2rem;
 }
 
 button {
@@ -39,17 +109,21 @@ input:focus {
 }
 
 #btnRevelarResposta {
-	background-color: seagreen;
+	background-color: var(--primeira-cor);
 	color: #fff;
 }
 
 #btnProxima {
-	background-color: teal;
-	color: #fff;
+	background-color: transparent;
+	position: absolute;
+	top: 50%;
+	right: 1rem;
+	transform: translateY(-50%);
+	font-size: 3rem;
 }
 
-#btnDica {
-	background-color: orange;
+#btnDica, #btnNovoTrecho {
+	background-color: var(--segunda-cor);
 	color: #fff;
 }
 
@@ -58,17 +132,13 @@ input:focus {
 	font-size: 5rem;
 }
 
-#quiz {
-	background-color: rgba(255, 255, 255, .9);
-	border: 1px solid #eee;
-	padding: 1rem;
-	border-radius: 1rem;
-	width: 30%;
-	margin: 7% auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+#btnDuracao {
+	background: transparent;
+	font-size: 3rem;
+}
+
+#btnProxima, #btnDuracao, #btnPlay {
+	color: var(--primeira-cor);
 }
 
 #resposta, #dicas {
