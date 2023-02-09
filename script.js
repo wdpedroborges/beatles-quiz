@@ -73,6 +73,9 @@ const fecharModal = document.querySelector('#fecharModal');
 
 let limiteDicas = 3;
 let limiteToques = 2;
+let incremento = 1;
+let incrementoInicial = incremento;
+
 let toquesUsados = 0;
 let musicasTocadas = 1;
 let acertos = 0;
@@ -83,12 +86,25 @@ let houveTentativa = false;
 let incrementoLimiteToques = limiteToques;
 let toastAtivo = true;
 
+let configuracao = JSON.parse(localStorage.getItem('configuracao'));
+
+if (configuracao) {
+       limiteDicas = configuracao.limiteDicas;
+       limiteToques = configuracao.limiteToques;
+       incremento = configuracao.incremento;
+       toastAtivo = configuracao.toastAtivo;    
+}
+
 const toggleToast = document.getElementById('toggleToast');
 const switchToast = document.getElementById('switchToast');
 const config_tempoReproducao = document.querySelector('#config_tempoReproducao');
 const config_limiteToques = document.querySelector('#config_limiteToques');
 const config_limiteDicas = document.querySelector('#config_limiteDicas');
 const btnSalvar = document.querySelector('#btnSalvar');
+let musica = document.querySelector('#musica');
+
+
+let musicaEscolhida, audio, tempoAleatorio;
 
 toggleToast.addEventListener('click', () => {
        if (toastAtivo) {
@@ -122,11 +138,6 @@ const trataNovaDuracao = () => {
 }
 
 btnDuracao.addEventListener('click', trataNovaDuracao);
-
-let musica = document.querySelector('#musica');
-let incremento = 1;
-let incrementoInicial = incremento;
-let musicaEscolhida, audio, tempoAleatorio;
 
 const geraMusica = () => {
 	dicasSorteadas = [];
@@ -255,7 +266,7 @@ const trataDicaTextual = () => {
               let span = document.createElement('span');
               switch(dicaAtual) {
                      case 0:
-                            pontuacaoAtual -= 2;
+                            pontuacaoAtual -= 1;
                             span.textContent = `${musicaEscolhida.album} (${musicaEscolhida.ano})`;
                             li.textContent = `Do álbum `;
                             li.appendChild(span);
@@ -296,10 +307,38 @@ btnSalvar.addEventListener('click', () => {
        limiteDicas = parseInt(config_limiteDicas.value);
        limiteToques = parseInt(config_limiteToques.value);
 	incrementoInicial = parseFloat(config_tempoReproducao.value);
+
+       configuracao = {
+              limiteDicas,
+              limiteToques,
+              incremento,
+              toastAtivo
+       };
+
+       localStorage.setItem('configuracao', JSON.stringify(configuracao));
 	exibeToast('Configurações salvas.');
 });
 
 const trataEnvio = () => {
+
+       // exibe as dicas no final, independente de ter acertado ou errado, para que o jogador tenha acesso a essa informação e possa aprender, caso já não saiba
+       dicas.innerHTML = '';
+       let li_1 = document.createElement('li');
+       let span_1 = document.createElement('span');
+       span_1.textContent = `${musicaEscolhida.album} (${musicaEscolhida.ano})`;
+       li_1.textContent = `Do álbum `;
+       li_1.appendChild(span_1);
+       dicas.appendChild(li_1);
+
+       let li_2 = document.createElement('li');
+       let span_2 = document.createElement('span');
+       span_2.textContent = `${musicaEscolhida.autores}`;
+       li_2.textContent = `Composta por `;
+       li_2.appendChild(span_2);
+       dicas.appendChild(li_2);
+
+       dicas.style.display = 'block';
+
        resposta.classList.remove('borrado');
        respostaDada = document.getElementById('respostaUsuario').value;
        if (respostaDada === musicaEscolhida.titulo_normal && !errou) {
