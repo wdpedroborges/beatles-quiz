@@ -67,7 +67,7 @@ const dicas = document.querySelector('#dicas');
 const templateAudio = document.querySelector('#templateAudio');
 const btnDuracao = document.querySelector('#btnDuracao');
 const toast = document.querySelector('#toast');
-const infoDicas = document.querySelector('#infoDicas');
+const infoStreak = document.querySelector('#infoStreak');
 const modal = document.querySelector('.bg-modal');
 const fecharModal = document.querySelector('#fecharModal');
 const limiteDicas = 3;
@@ -76,14 +76,17 @@ let toquesUsados = 0;
 let musicasTocadas = 0;
 let acertos = 0;
 let desempenho = 0;
+let streak = 0;
+let errou = false;
+let houveTentativa = false;
 let incrementoLimiteToques = limiteToques;
-const tempoReproducao = document.querySelector('#tempoReproducao');
+const config_tempoReproducao = document.querySelector('#config_tempoReproducao');
 const btnSalvar = document.querySelector('#btnSalvar');
 
 let pontuacao = 0;
 let pontuacaoAtual = 10;
 let dicasUsadas = 0;
-infoDicas.textContent = dicasUsadas;
+infoStreak.textContent = streak;
 document.getElementById('pontuacaoJogador').textContent = pontuacao;
 
 btnDuracao.addEventListener('click', () => {
@@ -91,7 +94,6 @@ btnDuracao.addEventListener('click', () => {
               pontuacaoAtual -= 1;
 		incremento += 0.5;
 		dicasUsadas++;
-		infoDicas.textContent = dicasUsadas;
 		exibeToast(`Agora a música vai tocar por ${incremento} segundos. Você tem mais ${limiteDicas - dicasUsadas} dica(s)`);
 	} else {
 		exibeToast('Você atingiu o seu limite de dicas.');
@@ -129,7 +131,7 @@ const geraMusica = () => {
 	});
 }
 
-const exibeToast = (msg, color = '#079ea6', tempo = 2000) => {
+const exibeToast = (msg, color = '#f5be58', tempo = 2000) => {
 	toast.textContent = msg;
 	toast.style.display = 'block'
 	toast.style.backgroundColor = color;
@@ -163,26 +165,37 @@ btnPlay.addEventListener('click', () => {
 });
 
 btnProxima.addEventListener('click', () => {
-       desempenho = (pontuacao / (musicasTocadas * 10)) * 100 || 0;
-       musicasTocadas++;
-       document.getElementById('pontuacaoJogador').textContent = `${pontuacao} (${Math.round(desempenho).toFixed(0)}%)`;
-       pontuacaoAtual = 10;
-       document.querySelector('#vinil img').style.animation = '';
-       document.querySelector('#respostaUsuario').value = '';
-	dicasSorteadas = [];
-	dicasUsadas = 0;
-       limiteToques = 3;
-       toquesUsados = 0;
-       infoDicas.textContent = dicasUsadas;
-	incremento = incrementoInicial;
-	resposta.textContent = '';
-       resposta.classList.add('borrado');
-	dicas.textContent = '';
-	dicas.style.display = 'none';
-	btnPlay.querySelector('i').classList.remove('bi-pause-fill');
-	btnPlay.querySelector('i').classList.add('bi-play-fill');
-	geraMusica();
-	exibeToast('Uma nova música foi gerada. Boa sorte.');
+       if (houveTentativa) {
+              document.querySelector('#btnEnviar').style.display = 'inline-block';
+              document.getElementById('respostaUsuario').style.border = '3px solid #1e0c42';
+              btnDica.style.display = 'inline-block';
+              btnNovoTrecho.style.display = 'inline-block';
+              btnDuracao.style.display = 'inline-block';
+              errou = false;
+              houveTentativa = false;
+              desempenho = (pontuacao / (musicasTocadas * 10)) * 100 || 0;
+              musicasTocadas++;
+              document.getElementById('pontuacaoJogador').textContent = `${pontuacao} (${Math.round(desempenho).toFixed(0)}%)`;
+              pontuacaoAtual = 10;
+              document.querySelector('#vinil img').style.animation = '';
+              document.querySelector('#respostaUsuario').value = '';
+              dicasSorteadas = [];
+              dicasUsadas = 0;
+              limiteToques = 3;
+              toquesUsados = 0;
+              infoStreak.textContent = streak;
+              incremento = incrementoInicial;
+              resposta.textContent = '';
+              resposta.classList.add('borrado');
+              dicas.textContent = '';
+              dicas.style.display = 'none';
+              btnPlay.querySelector('i').classList.remove('bi-pause-fill');
+              btnPlay.querySelector('i').classList.add('bi-play-fill');
+              geraMusica();
+              exibeToast('Uma nova música foi gerada. Boa sorte.');
+       } else {
+              exibeToast('Você deve palpitar antes de partir para a próxima.');
+       }
 });
 
 btnNovoTrecho.addEventListener('click', () => {
@@ -193,7 +206,6 @@ btnNovoTrecho.addEventListener('click', () => {
 		audio.currentTime = tempoAleatorio;
 		dicasUsadas++;
 		exibeToast(`Você tem mais ${limiteDicas - dicasUsadas} dica(s).`);
-		infoDicas.textContent = dicasUsadas;
               pontuacaoAtual -= 1;
 	} else {
 		exibeToast('Você atingiu o limite de dicas.');
@@ -234,7 +246,6 @@ btnDica.addEventListener('click', () => {
 		dicasUsadas++;
               dicaAtual++;
 		exibeToast(`Você tem mais ${limiteDicas - dicasUsadas} dica(s).`);
-		infoDicas.textContent = dicasUsadas;
 		dicasSorteadas.push(numeroSorteado);
 
 	} else {
@@ -251,24 +262,57 @@ fecharModal.addEventListener('click', () => {
 });
 
 btnSalvar.addEventListener('click', () => {
-	incremento = parseFloat(tempoReproducao.value)
-	incrementoInicial = parseFloat(tempoReproducao.value);
+	incremento = parseFloat(config_tempoReproducao.value)
+	incrementoInicial = parseFloat(config_tempoReproducao.value);
 	exibeToast('Configurações salvas.');
 });
 
 const trataEnvio = () => {
        resposta.classList.remove('borrado');
        respostaDada = document.getElementById('respostaUsuario').value;
-       if (respostaDada === musicaEscolhida.titulo_normal) {
+       if (respostaDada === musicaEscolhida.titulo_normal && !errou) {
               resposta.textContent = musicaEscolhida.titulo_normal;
               incremento = 10;
+              streak++;
               pontuacao += pontuacaoAtual;
-              exibeToast('Acertou!', 'darkgreen');
+
+              switch(streak) {
+                     case 1:
+                     case 2:
+                            exibeToast('Parabéns, você acertou!', 'darkgreen');
+                            break;
+                     case 3:
+                            exibeToast('Uau, é seu terceiro acerto seguido!', 'darkgreen');
+                            break;
+                     case 5:
+                            exibeToast('Incrível, cinco acertos seguidos não é pra qualquer um!', 'darkgreen');
+                            break;
+                     case 7:
+                            exibeToast('Fabuloso, são sete vezes sem errar!', 'darkgreen');
+                            break;
+                     case 10:
+                            exibeToast('Estou sem palavras! DEZ acertos seguidos!', 'darkgreen');
+                            break;
+                     case 15:
+                            exibeToast('Ok... Isso não é normal! 15 acertos seguidos!', 'darkgreen');
+                            break;
+                     case 25:
+                            exibeToast('Isso sequer deveria ser possível! Você está trapaceando?', 'darkgreen');
+                            break;
+                     case 50:
+                            exibeToast('Você é mesmo humano?', 'darkgreen');
+                            break;
+              }
+
+              document.getElementById('respostaUsuario').style.border = '3px solid green';
        } else {
-              exibeToast('Errou!', 'brown');
+              errou = true;
+              exibeToast('Oops! Você errou! Continue tentando.', 'brown');
               resposta.textContent = musicaEscolhida.titulo_normal;
               incremento = 10;
+              streak = 0;
               pontuacaoAtual = 0;
+              document.getElementById('respostaUsuario').style.border = '3px solid brown';
        }
 
        btnPlay.querySelector('i').classList.remove('bi-play-fill');
@@ -278,6 +322,12 @@ const trataEnvio = () => {
        audio.currentTime = tempoAleatorio;
        audio.play();
        tocando = true;
+       document.querySelector('#btnEnviar').style.display = 'none';
+       btnDica.style.display = 'none';
+       btnNovoTrecho.style.display = 'none';
+       btnDuracao.style.display = 'none';
+       houveTentativa = true;
+       infoStreak.textContent = streak;
 }
 
 document.addEventListener("keydown", (event) => {

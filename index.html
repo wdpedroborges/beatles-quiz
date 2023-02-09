@@ -38,9 +38,12 @@
 	<div id="configuracoes" class="modal">
 		<i class="bi bi-x" id="fecharModal"></i>
 		<h2>Configurações</h2>
-		<label for="tempoReproducao">Tempo de reprodução: </label>
-		<input type="number" id="tempoReproducao">
-
+		<label for="config_tempoReproducao">Tempo de reprodução: </label>
+		<input type="number" id="config_tempoReproducao" value="1">
+		<label for="config_limiteToques">Limite de toques: </label>
+		<input type="number" id="config_limiteToques" value="2">
+		<label for="config_limiteDicas">Limite de dicas: </label>
+		<input type="number" id="config_limiteDicas" value="3">
 		<button id="btnSalvar">Salvar</button>
 	</div>
 </div>
@@ -249,7 +252,7 @@
 	</datalist>
 </div>
 
-<div id="infoDicas"></div>
+<div id="infoStreak"></div>
 
 <template id="templateAudio">
 	<audio controls>
