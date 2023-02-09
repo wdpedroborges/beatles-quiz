@@ -77,7 +77,6 @@ body {
 }
 
 #botoes {
-	border-top: 1px solid var(--primeira-cor);
 	padding-top: 2rem;
 }
 
@@ -113,7 +112,7 @@ input:focus {
 #btnProxima {
 	background-color: transparent;
 	position: absolute;
-	top: 50%;
+	top: 34%;
 	right: 1rem;
 	transform: translateY(-50%);
 	font-size: 3rem;
@@ -130,11 +129,11 @@ input:focus {
 }
 
 #btnDuracao {
-	background: transparent;
-	font-size: 3rem;
+	background: var(--segunda-cor);
+	color: #fff;
 }
 
-#btnProxima, #btnDuracao, #btnPlay {
+#btnProxima, #btnPlay {
 	color: var(--primeira-cor);
 }
 
