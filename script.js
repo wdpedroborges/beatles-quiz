@@ -199,15 +199,15 @@ btnDica.addEventListener('click', () => {
 		let dicaEscolhida;
 		switch(numeroSorteado) {
 			case 0:
-				dicaEscolhida = `Pertence ao álbum ${musicaEscolhida.album}`;
+				dicaEscolhida = `Do álbum ${musicaEscolhida.album}`;
 				dicasSorteadas.push(0);
 				break;
 			case 1:
-				dicaEscolhida = `Foi escrita por ${musicaEscolhida.autores}`;
+				dicaEscolhida = `Composta por ${musicaEscolhida.autores}`;
 				dicasSorteadas.push(1);
 				break;
 			case 2:
-				dicaEscolhida = `É do ano ${musicaEscolhida.ano}`;
+				dicaEscolhida = `Lançada em ${musicaEscolhida.ano}`;
 				dicasSorteadas.push(2);
 				break;
 		}
