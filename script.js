@@ -141,7 +141,7 @@ btnPlay.addEventListener('click', () => {
 		audio.currentTime = tempoAleatorio;
 		audio.play();
 		tocando = true;
-              document.querySelector('#vinil img').style.animation = 'rotate 1s linear infinite';
+              document.querySelector('#vinil img').style.animation = 'rotate 5s linear infinite';
 	} else {
 		btnPlay.querySelector('i').classList.add('bi-play-fill');
 		btnPlay.querySelector('i').classList.remove('bi-pause-fill');
@@ -257,7 +257,7 @@ const trataEnvio = () => {
 
        btnPlay.querySelector('i').classList.remove('bi-play-fill');
        btnPlay.querySelector('i').classList.add('bi-pause-fill');
-       document.querySelector('#vinil img').style.animation = 'rotate 1s linear infinite';
+       document.querySelector('#vinil img').style.animation = 'rotate 5s linear infinite';
        audio.pause();
        audio.currentTime = tempoAleatorio;
        audio.play();
