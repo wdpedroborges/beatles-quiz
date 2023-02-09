@@ -71,6 +71,9 @@ const infoDicas = document.querySelector('#infoDicas');
 const modal = document.querySelector('.bg-modal');
 const fecharModal = document.querySelector('#fecharModal');
 const limiteDicas = 3;
+let limiteToques = 2;
+let toquesUsados = 0;
+let incrementoLimiteToques = limiteToques;
 const tempoReproducao = document.querySelector('#tempoReproducao');
 const btnSalvar = document.querySelector('#btnSalvar');
 
@@ -134,21 +137,26 @@ const exibeToast = (msg, color = '#079ea6', tempo = 2000) => {
 
 let tocando = false;
 btnPlay.addEventListener('click', () => {
-	if (!tocando) {
-		btnPlay.querySelector('i').classList.remove('bi-play-fill');
-		btnPlay.querySelector('i').classList.add('bi-pause-fill');
-		audio.pause();
-		audio.currentTime = tempoAleatorio;
-		audio.play();
-		tocando = true;
-              document.querySelector('#vinil img').style.animation = 'rotate 5s linear infinite';
-	} else {
-		btnPlay.querySelector('i').classList.add('bi-play-fill');
-		btnPlay.querySelector('i').classList.remove('bi-pause-fill');
-		audio.pause();
-		tocando = false;
-              document.querySelector('#vinil img').style.animation = '';
-	}
+       if (toquesUsados < limiteToques) {
+              toquesUsados++;
+              if (!tocando) {
+                     btnPlay.querySelector('i').classList.remove('bi-play-fill');
+                     btnPlay.querySelector('i').classList.add('bi-pause-fill');
+                     audio.pause();
+                     audio.currentTime = tempoAleatorio;
+                     audio.play();
+                     tocando = true;
+                     document.querySelector('#vinil img').style.animation = 'rotate 5s linear infinite';
+              } else {
+                     btnPlay.querySelector('i').classList.add('bi-play-fill');
+                     btnPlay.querySelector('i').classList.remove('bi-pause-fill');
+                     audio.pause();
+                     tocando = false;
+                     document.querySelector('#vinil img').style.animation = '';
+              }
+       } else {
+              exibeToast('Você atingiu seu limite de toques.');
+       }
 });
 
 btnProxima.addEventListener('click', () => {
@@ -158,6 +166,9 @@ btnProxima.addEventListener('click', () => {
        document.querySelector('#respostaUsuario').value = '';
 	dicasSorteadas = [];
 	dicasUsadas = 0;
+       limiteToques = 3;
+       toquesUsados = 0;
+       infoDicas.textContent = dicasUsadas;
 	incremento = incrementoInicial;
 	resposta.textContent = '';
        resposta.classList.add('borrado');
@@ -171,6 +182,7 @@ btnProxima.addEventListener('click', () => {
 
 btnNovoTrecho.addEventListener('click', () => {
 	if (dicasUsadas < limiteDicas) {
+              limiteToques += incrementoLimiteToques;
 		tempoAleatorio = aleatorio(0, audio.duration - 15);
 		exibeToast(tempoAleatorio);
 		audio.currentTime = tempoAleatorio;
