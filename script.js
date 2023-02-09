@@ -69,7 +69,12 @@ const templateAudio = document.querySelector('#templateAudio');
 const btnDuracao = document.querySelector('#btnDuracao');
 const toast = document.querySelector('#toast');
 const infoDicas = document.querySelector('#infoDicas');
+const modal = document.querySelector('.bg-modal');
+const fecharModal = document.querySelector('#fecharModal');
 const limiteDicas = 3;
+const tempoReproducao = document.querySelector('#tempoReproducao');
+const btnSalvar = document.querySelector('#btnSalvar');
+
 let dicasUsadas = 0;
 infoDicas.textContent = dicasUsadas;
 
@@ -105,8 +110,8 @@ const geraMusica = () => {
 		audio.addEventListener('timeupdate', function() {
 			if (audio.currentTime >= tempoAleatorio + incremento) { // para a a reprodução se o tempo atual for maior ou igual ao tempo gerado aleatoriamente + o incremento de 1 segundo
 				audio.pause();
-				btnPlay.querySelector('i').classList.add('bi-play-fill');
-				btnPlay.querySelector('i').classList.remove('bi-pause-fill');
+				btnPlay.querySelector('i').classList.add('bi-play-circle-fill');
+				btnPlay.querySelector('i').classList.remove('bi-pause-circle-fill');
 				audio.currentTime = tempoAleatorio;
 				tocando = false;
 			}
@@ -126,26 +131,26 @@ const exibeToast = (msg, color = '#079ea6', tempo = 2000) => {
 let tocando = false;
 btnPlay.addEventListener('click', () => {
 	if (!tocando) {
-		btnPlay.querySelector('i').classList.remove('bi-play-fill');
-		btnPlay.querySelector('i').classList.add('bi-pause-fill');
+		btnPlay.querySelector('i').classList.remove('bi-play-circle-fill');
+		btnPlay.querySelector('i').classList.add('bi-pause-circle-fill');
 		audio.pause();
 		audio.currentTime = tempoAleatorio;
 		audio.play();
 		tocando = true;	
 	} else {
-		btnPlay.querySelector('i').classList.add('bi-play-fill');
-		btnPlay.querySelector('i').classList.remove('bi-pause-fill');
+		btnPlay.querySelector('i').classList.add('bi-play-circle-fill');
+		btnPlay.querySelector('i').classList.remove('bi-pause-circle-fill');
 		audio.pause();
 		tocando = false;
 	}
 });
 
 btnRevelarResposta.addEventListener('click', () => {
-	resposta.textContent = `Música: ${musicaEscolhida.titulo_normal}`;
-	resposta.style.display = 'block';
+	resposta.textContent = musicaEscolhida.titulo_normal;
+	resposta.style.display = 'inline-block';
 	incremento = 10;
-	btnPlay.querySelector('i').classList.remove('bi-play-fill');
-	btnPlay.querySelector('i').classList.add('bi-pause-fill');
+	btnPlay.querySelector('i').classList.remove('bi-play-circle-fill');
+	btnPlay.querySelector('i').classList.add('bi-pause-circle-fill');
 	audio.pause();
 	audio.currentTime = tempoAleatorio;
 	audio.play();
@@ -161,8 +166,8 @@ btnProxima.addEventListener('click', () => {
 	dicas.textContent = '';
 	resposta.style.display = 'none';
 	dicas.style.display = 'none';
-	btnPlay.querySelector('i').classList.remove('bi-pause-fill');
-	btnPlay.querySelector('i').classList.add('bi-play-fill');
+	btnPlay.querySelector('i').classList.remove('bi-pause-circle-fill');
+	btnPlay.querySelector('i').classList.add('bi-play-circle-fill');
 	geraMusica();
 	exibeToast('Uma nova música foi gerada. Boa sorte.');
 });
@@ -189,38 +194,49 @@ const elementoNaLista = (elemento, lista) => {
 	return false;
 };
 
-let dicasSorteadas = [];
+let dicaAtual = 0;
 btnDica.addEventListener('click', () => {
 	if (dicasUsadas < limiteDicas) {
-		let numeroSorteado;
-		do {
-			numeroSorteado = aleatorio(0, 2);
-		} while(elementoNaLista(numeroSorteado, dicasSorteadas));
-		let dicaEscolhida;
-		switch(numeroSorteado) {
+		let li = document.createElement('li');
+		let span = document.createElement('span');
+		switch(dicaAtual) {
 			case 0:
-				dicaEscolhida = `Do álbum ${musicaEscolhida.album}`;
+				span.textContent = `${musicaEscolhida.album} (${musicaEscolhida.ano})`;
+				li.textContent = `Do álbum `;
+				li.appendChild(span);
 				dicasSorteadas.push(0);
 				break;
 			case 1:
-				dicaEscolhida = `Composta por ${musicaEscolhida.autores}`;
-				dicasSorteadas.push(1);
-				break;
-			case 2:
-				dicaEscolhida = `Lançada em ${musicaEscolhida.ano}`;
-				dicasSorteadas.push(2);
+				span.textContent = `${musicaEscolhida.autores}`;
+				li.textContent = `Composta por `;
+				li.appendChild(span);
 				break;
 		}
 		dicas.style.display = 'block';
-		let li = document.createElement('li');
-		li.textContent = dicaEscolhida;
 		dicas.appendChild(li);
 		dicasUsadas++;
+		if (dicaAtual)
 		exibeToast(`Você tem mais ${limiteDicas - dicasUsadas} dica(s).`);
 		infoDicas.textContent = dicasUsadas;
+		dicasSorteadas.push(numeroSorteado);
+
 	} else {
 		exibeToast('Você atingiu o limite de dicas.');
 	}
+});
+
+abrirConfig.addEventListener('click', () => {
+	modal.style.display = 'flex';
+});
+
+fecharModal.addEventListener('click', () => {
+	modal.style.display = 'none';
+});
+
+btnSalvar.addEventListener('click', () => {
+	incremento = parseFloat(tempoReproducao.value)
+	incrementoInicial = parseFloat(tempoReproducao.value);
+	exibeToast('Configurações salvas.');
 });
 
 geraMusica();

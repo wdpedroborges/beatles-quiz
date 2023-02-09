@@ -6,6 +6,29 @@
 	font-family: 'Poppins', sans-serif;
 }
 
+audio {
+	display: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--primeira-cor);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--segunda-cor);
+}
+
+::-moz-selection { /* para Firefox */
+    background-color: var(--primeira-cor);
+    color: var(--segunda-cor);
+  }
+  
+::selection {
+    background: var(--primeira-cor);
+    color: var(--segunda-cor);
+}
+
 :root {
 	--primeira-cor: #1e0c42;
 	--segunda-cor: #f5be58;
@@ -19,12 +42,13 @@ h1 {
 	color: var(--segunda-cor);
 	text-shadow: 1px 1px 75px #fff;
 	text-align: center;
+	margin-bottom: 2rem;
 }
 
 body {
-	background-image: linear-gradient(to bottom, var(--primeira-cor), var(--primeira-cor), #212121);
+	background-color: var(--primeira-cor);
 	background-size: 100%;
-	height: 100vh;
+	height: 100%;
 }
 
 #quiz {
@@ -32,8 +56,7 @@ body {
 	padding: 2rem;
 	border-radius: 1rem 0 1rem 0;
 	border: 5px solid var(--segunda-cor);
-	min-width: 500px;
-	max-width: 75%;
+	min-width: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -45,6 +68,7 @@ body {
 }
 
 #toast {
+	z-index: 1200;
 	display: none;
 	position: fixed;
 	bottom: 1rem;
@@ -76,8 +100,8 @@ body {
 	line-height: 100%;
 }
 
-#botoes {
-	padding-top: 2rem;
+.botoes {
+	padding-top: 1rem;
 }
 
 button {
@@ -110,12 +134,8 @@ input:focus {
 }
 
 #btnProxima {
-	background-color: transparent;
-	position: absolute;
-	top: 34%;
-	right: 1rem;
-	transform: translateY(-50%);
-	font-size: 3rem;
+	background-color: var(--primeira-cor);
+	color: #fff;
 }
 
 #btnDica, #btnNovoTrecho {
@@ -125,7 +145,9 @@ input:focus {
 
 #btnPlay {
 	background: transparent;
-	font-size: 5rem;
+	font-size: 7rem;
+	color: var(--primeira-cor);
+	padding: 0;
 }
 
 #btnDuracao {
@@ -133,12 +155,60 @@ input:focus {
 	color: #fff;
 }
 
-#btnProxima, #btnPlay {
-	color: var(--primeira-cor);
-}
 
 #resposta, #dicas {
+	margin-top: 0;
 	display: none;
+}
+
+.bg-modal {
+	z-index: 1000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, .9);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
+
+.modal {
+	width: 30%;
+	min-height: 500px;
+	background-color: #fff;
+	border-radius: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+#fecharModal {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-weight: bolder;
+	font-size: 2rem;
+	text-decoration-style: normal;
+	cursor: pointer;
+}
+
+#abrirConfig {
+	color: var(--segunda-cor);
+	font-weight: bolder;
+	font-size: 3rem;
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	cursor: pointer;
+}
+
+#abrirConfig:hover {
+	opacity: .75;
 }
 
 @keyframes moveBanner {

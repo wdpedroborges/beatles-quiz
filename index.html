@@ -27,28 +27,223 @@
 	<script type="text/javascript" src="script.js" defer></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
-<style type="text/css">
-	audio {
-		display: none;
-	}
-</style>
 <body>
 
 <div id="toast"></div>
 
+<i id="abrirConfig" class="bi bi-gear-fill"></i>
+
+<div class="bg-modal">
+	<div id="configuracoes" class="modal">
+		<i class="bi bi-x" id="fecharModal"></i>
+		<h2>Configurações</h2>
+		<label for="tempoReproducao">Tempo de reprodução: </label>
+		<input type="number" id="tempoReproducao">
+
+		<button id="btnSalvar">Salvar</button>
+	</div>
+</div>
+
 <h1>Beatles Quiz</h1>
 <div id="quiz">
-	<button id="btnPlay"><i class="bi bi-play-fill"></i></button>
+	<button id="btnPlay"><i class="bi bi-play-circle-fill"></i></button>
 	<div id="musica"></div>
-	<p id="resposta"></p>
+	<p>Música: <span id="resposta">...</span></p>
 	<ul id="dicas"></ul>
-	<div id="botoes">
+	<div class="botoes">
 		<button id="btnRevelarResposta">Revelar resposta</button>
+		<button id="btnProxima">Skip</button>
+	</div>
+	<div id="botoes">
 		<button id="btnDica">Dica textual</button>
 		<button id="btnNovoTrecho">Novo trecho</button>
 		<button id="btnDuracao">Mais tempo</button>
-		<button id="btnProxima"><i class="bi bi-arrow-right"></i></button>
+		
 	</div>
+
+	<input type="text" id="respostaUsuario" list="musicas">
+	<datalist id="musicas">
+		<option value="A Hard Day's Night">
+		<option value="Back In The U.S.S.R.">
+		<option value="Birthday">
+		<option value="Come Together">
+		<option value="Drive My Car">
+		<option value="Help!">
+		<option value="I Saw Her Standing There">
+		<option value="It Won't Be Long">
+		<option value="Magical Mystery Tour">
+		<option value="No Reply">
+		<option value="Sgt Peppers Lonely Hearts Club Band">
+		<option value="Taxman">
+		<option value="Two Of Us">
+		<option value="All I've Got To Do">
+		<option value="Dear Prudence">
+		<option value="Dig A Pony">
+		<option value="Eleanor Rigby">
+		<option value="I Should Have Known Better">
+		<option value="I'm A Loser">
+		<option value="Misery">
+		<option value="Norwegian Wood (The Bird Has Flown)">
+		<option value="Something">
+		<option value="The Fool On The Hill">
+		<option value="The Night Before">
+		<option value="With A Little Help From My Friends">
+		<option value="Yer Blues">
+		<option value="Across The Universe">
+		<option value="All My Loving">
+		<option value="Anna (Go To Him)">
+		<option value="Baby's In Black">
+		<option value="Flying">
+		<option value="Glass Onion">
+		<option value="I'm Only Sleeping">
+		<option value="If I Fell">
+		<option value="Lucy In The Sky With Diamonds">
+		<option value="Maxwell's Silver Hammer">
+		<option value="Mother Nature's Son">
+		<option value="You Won't See Me">
+		<option value="You've Got To Hide Your Love Away">
+		<option value="Blue Jay Way">
+		<option value="Chains">
+		<option value="Don't Bother Me">
+		<option value="Everybody's Got Something To Hide Except Me And My Monkey">
+		<option value="Getting Better">
+		<option value="I Me Mine">
+		<option value="I Need You">
+		<option value="I'm Happy Just To Dance With You">
+		<option value="Love You To">
+		<option value="Nowhere Man">
+		<option value="Ob-La-Di, Ob-La-Da">
+		<option value="Oh! Darling">
+		<option value="Rock And Roll Music">
+		<option value="And I Love Her">
+		<option value="Another Girl">
+		<option value="Boys">
+		<option value="Dig It">
+		<option value="Fixing A Hole">
+		<option value="Here, There And Everywhere">
+		<option value="I'll Follow The Sun">
+		<option value="Little Me">
+		<option value="Octopus's Garden">
+		<option value="Sexy Sadie">
+		<option value="Think For Yourself">
+		<option value="Wild Honey Pie">
+		<option value="Your Mother Should Know">
+		<option value="Ask Me Why">
+		<option value="Helter Skelter">
+		<option value="I Am The Walrus">
+		<option value="I Want You (She's So Heavy)">
+		<option value="Let It Be">
+		<option value="Mr. Moonlight">
+		<option value="She's Leaving Home">
+		<option value="Tell Me Why">
+		<option value="The Continuing Story Of Bungalow Bill">
+		<option value="The Word">
+		<option value="Till There Was You">
+		<option value="Yellow Submarine">
+		<option value="You're Going To Lose That Girl">
+		<option value="Being For The Benefit Of Mr Kite">
+		<option value="Can't Buy Me Love">
+		<option value="Hello Goodbye">
+		<option value="Here Comes The Sun">
+		<option value="Long, Long, Long">
+		<option value="Maggie Mae">
+		<option value="Medley_ A. Kansas City B. Hey, Hey, Hey, Hey">
+		<option value="Michelle">
+		<option value="Please Mister Postman">
+		<option value="Please Please Me">
+		<option value="She Said She Said">
+		<option value="Ticket To Ride">
+		<option value="While My Guitar Gently Weeps">
+		<option value="Act Naturally">
+		<option value="Any Time At All">
+		<option value="Because">
+		<option value="Eight Days A Week">
+		<option value="Good Day Sunshine">
+		<option value="Happiness Is A Warm Gun">
+		<option value="I've Got A Feeling">
+		<option value="Love Me Do">
+		<option value="Revolution 1">
+		<option value="Roll Over Beethoven">
+		<option value="Strawberry Fields Forever">
+		<option value="What Goes On">
+		<option value="Within You Without You">
+		<option value="And Your Bird Can Sing">
+		<option value="Girl">
+		<option value="Hold Me Tight">
+		<option value="Honey Pie">
+		<option value="I'll Cry Instead">
+		<option value="It's Only Love">
+		<option value="Martha My Dear">
+		<option value="One After 909">
+		<option value="P.S. I Love You">
+		<option value="Penny Lane">
+		<option value="When I'm Sixty-Four">
+		<option value="Words Of Love">
+		<option value="You Never Give Me Your Money">
+		<option value="Baby It's You">
+		<option value="Baby You're A Rich Man">
+		<option value="For No One">
+		<option value="Honey Don't">
+		<option value="I'm Looking Through You">
+		<option value="I'm So Tired">
+		<option value="Lovely Rita">
+		<option value="Savoy Truffle">
+		<option value="Sun King">
+		<option value="The Long And Winding Road">
+		<option value="Things We Said Today">
+		<option value="You Like Me Too Much">
+		<option value="You Really Got A Hold On Me">
+		<option value="All You Need Is Love">
+		<option value="Blackbird">
+		<option value="Cry Baby Cry">
+		<option value="Do You Want To Know A Secret">
+		<option value="Doctor Robert">
+		<option value="Every Little Thing">
+		<option value="For You Blue">
+		<option value="Good Morning Good Morning">
+		<option value="I Wanna Be Your Man">
+		<option value="In My Life">
+		<option value="Mean Mr. Mustard">
+		<option value="Tell Me What You See">
+		<option value="When I Get Home">
+		<option value="A Taste Of Honey">
+		<option value="Devil In Her Heart">
+		<option value="Get Back">
+		<option value="I Don't Want To Spoil The Party">
+		<option value="I Want To Tell You">
+		<option value="I`ve Just Seen A Face">
+		<option value="Piggies">
+		<option value="Polythene Pam">
+		<option value="Revolution 9">
+		<option value="Sgt Peppers..(Reprise)">
+		<option value="Wait">
+		<option value="You Can't Do That">
+		<option value="A Day In The Life">
+		<option value="Good Night">
+		<option value="Got To Get You Into My Life">
+		<option value="I'll Be Back">
+		<option value="If I Needed Someone">
+		<option value="Not A Second Time">
+		<option value="Rocky Raccoon">
+		<option value="She Came In Through The Bathroom Window">
+		<option value="There's A Place">
+		<option value="What You're Doing">
+		<option value="Yesterday">
+		<option value="Dizzy Miss Lizzy">
+		<option value="Don't Pass Me By">
+		<option value="Everybody's Trying To Be My Baby">
+		<option value="Golden Slumbers">
+		<option value="Money (That's What I Want)">
+		<option value="Run For Your Life">
+		<option value="Tomorrow Never Knows">
+		<option value="Twist And Shout">
+		<option value="Carry That Weight">
+		<option value="Why Don't We Do It In The Road_">
+		<option value="I Will">
+		<option value="The End">
+		<option value="Her Majesty">
+		<option value="Julia">
+	</datalist>
 </div>
 
 <div id="infoDicas"></div>
