@@ -93,6 +93,22 @@ body {
 	border-radius: 1rem;
 }
 
+#toggleToast {
+	background-color: #eee;
+	margin: 1rem 0;
+	width: 4rem;
+	border-radius: 1rem;
+	display: flex;
+	cursor: pointer;
+}
+
+#switchToast {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	background-color: green;
+}
+
 #infoStreak {
 	position: fixed;
 	bottom: 1rem;
@@ -354,6 +370,10 @@ li span {
 	}
 
 	#toast {
+		width: 90%;
+	}
+
+	.modal {
 		width: 90%;
 	}
 }
