@@ -160,8 +160,8 @@ btnProxima.addEventListener('click', () => {
 	dicasUsadas = 0;
 	incremento = incrementoInicial;
 	resposta.textContent = '';
+       resposta.classList.add('borrado');
 	dicas.textContent = '';
-	resposta.style.display = 'none';
 	dicas.style.display = 'none';
 	btnPlay.querySelector('i').classList.remove('bi-pause-fill');
 	btnPlay.querySelector('i').classList.add('bi-play-fill');
@@ -240,17 +240,16 @@ btnSalvar.addEventListener('click', () => {
 });
 
 const trataEnvio = () => {
+       resposta.classList.remove('borrado');
        respostaDada = document.getElementById('respostaUsuario').value;
        if (respostaDada === musicaEscolhida.titulo_normal) {
               resposta.textContent = musicaEscolhida.titulo_normal;
-              resposta.style.display = 'inline-block';
               incremento = 10;
               pontuacao += pontuacaoAtual;
               exibeToast('Acertou!');
        } else {
               exibeToast('Errou!');
               resposta.textContent = musicaEscolhida.titulo_normal;
-              resposta.style.display = 'inline-block';
               incremento = 10;
               pontuacaoAtual = 0;
        }

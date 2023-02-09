@@ -214,7 +214,20 @@ input:focus {
 
 #resposta, #dicas {
 	margin-top: 0;
-	display: none;
+}
+
+.borrado {
+	display: inline-block;
+	filter: blur(.25rem);
+	height: 1rem;
+}
+
+.borrado:after {
+	content: '  ?????????????';
+}
+
+li span {
+	font-style: italic;
 }
 
 .bg-modal {
