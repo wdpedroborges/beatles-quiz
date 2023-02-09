@@ -4,29 +4,13 @@
 *, *::before, *::after {
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
+	-webkit-user-select: none; /* Safari */
+	-ms-user-select: none; /* IE 10 and IE 11 */
+	user-select: none; /* Standard syntax */
 }
 
 audio {
 	display: none;
-}
-
-::-webkit-scrollbar {
-    width: 10px;
-    background-color: var(--primeira-cor);
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: var(--segunda-cor);
-}
-
-::-moz-selection { /* para Firefox */
-    background-color: var(--primeira-cor);
-    color: var(--segunda-cor);
-  }
-  
-::selection {
-    background: var(--primeira-cor);
-    color: var(--segunda-cor);
 }
 
 :root {
@@ -152,11 +136,13 @@ button:hover {
 input {
 	padding: 1rem;
 	border: none;
-	border-bottom: 1px solid #212121;
-	margin-bottom: 1rem;
+	border: 3px solid var(--primeira-cor);
+	color: var(--primeira-cor);
+	font-weight: bolder;
+	margin-top: 1rem;
 	background: transparent;
 	font-size: 1rem;
-	width: 50%;
+	width: 90%;
 	text-align: center;
 }
 

@@ -73,6 +73,9 @@ const fecharModal = document.querySelector('#fecharModal');
 const limiteDicas = 3;
 let limiteToques = 2;
 let toquesUsados = 0;
+let musicasTocadas = 0;
+let acertos = 0;
+let desempenho = 0;
 let incrementoLimiteToques = limiteToques;
 const tempoReproducao = document.querySelector('#tempoReproducao');
 const btnSalvar = document.querySelector('#btnSalvar');
@@ -155,12 +158,14 @@ btnPlay.addEventListener('click', () => {
                      document.querySelector('#vinil img').style.animation = '';
               }
        } else {
-              exibeToast('Você atingiu seu limite de toques.');
+              exibeToast('Você atingiu seu limite de toques para este trecho.');
        }
 });
 
 btnProxima.addEventListener('click', () => {
-       document.getElementById('pontuacaoJogador').textContent = pontuacao;
+       desempenho = (pontuacao / (musicasTocadas * 10)) * 100 || 0;
+       musicasTocadas++;
+       document.getElementById('pontuacaoJogador').textContent = `${pontuacao} (${Math.round(desempenho).toFixed(0)}%)`;
        pontuacaoAtual = 10;
        document.querySelector('#vinil img').style.animation = '';
        document.querySelector('#respostaUsuario').value = '';
@@ -258,9 +263,9 @@ const trataEnvio = () => {
               resposta.textContent = musicaEscolhida.titulo_normal;
               incremento = 10;
               pontuacao += pontuacaoAtual;
-              exibeToast('Acertou!');
+              exibeToast('Acertou!', 'darkgreen');
        } else {
-              exibeToast('Errou!');
+              exibeToast('Errou!', 'brown');
               resposta.textContent = musicaEscolhida.titulo_normal;
               incremento = 10;
               pontuacaoAtual = 0;
