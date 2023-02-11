@@ -83,6 +83,7 @@ const trataTrechosGerados = () => {
                      tempoAleatorio = parseInt(trecho.getAttribute('tempo'));
                      audio.currentTime = parseInt(trecho.getAttribute('tempo'));
                      audio.play();
+                     document.querySelector('#vinil img').style.animation = 'rotate 5s linear infinite';
               });
        });
 }
