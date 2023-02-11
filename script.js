@@ -242,6 +242,7 @@ const trataProxima = () => {
               document.querySelector('#respostaUsuario').value = '';
               dicasSorteadas = [];
               dicasUsadas = 0;
+              dicaAtual = 0;
               limiteToques = 3;
               toquesUsados = 0;
               infoStreak.textContent = streak;
