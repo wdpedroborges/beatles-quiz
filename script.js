@@ -59,10 +59,10 @@ const toggleToast = document.getElementById('toggleToast');
 const switchToast = document.getElementById('switchToast');
 
 let trechosGerados = [];
+const escolhaTrechosGerados = document.getElementById('escolhaTrechosGerados');
+const listaTrechos = document.getElementById('listaTrechos');
 
 const trataTrechosGerados = () => {
-       const escolhaTrechosGerados = document.getElementById('escolhaTrechosGerados');
-       const listaTrechos = document.getElementById('listaTrechos');
        listaTrechos.innerHTML = '';
        let ul = document.createElement('ul');
        listaTrechos.appendChild(ul);
@@ -217,6 +217,8 @@ btnPlay.addEventListener('click', () => {
 
 const trataProxima = () => {
        if (houveTentativa) {
+              trechosGerados = [];
+              listaTrechos.innerHTML = '';
               document.querySelector('#btnEnviar').style.display = 'inline-block';
               document.getElementById('respostaUsuario').style.border = '3px solid #1e0c42';
               btnDica.style.display = 'inline-block';
