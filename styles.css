@@ -9,6 +9,15 @@
 	user-select: none; /* Standard syntax */
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--primeira-cor);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--segunda-cor);
+}
+
 ul {
 	padding: 0;
 	margin: 0;
@@ -262,7 +271,7 @@ li span {
 	background-color: #fff;
 	border-radius: 1rem;
 	position: relative;
-	overflow: scroll;
+	overflow-y: scroll;
 	box-shadow: 1px 1px 25px var(--segunda-cor);
 	padding: 1rem;
 }

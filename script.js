@@ -320,6 +320,12 @@ fecharModal.addEventListener('click', () => {
 	modal.style.display = 'none';
 });
 
+document.addEventListener('click', (e) => {
+       if (e.target !== modal.querySelector('.modal') && e.target === modal) {
+              modal.style.display = 'none';
+       }
+});
+
 btnSalvar.addEventListener('click', () => {
 	incremento = parseFloat(config_tempoReproducao.value);
        limiteDicas = parseInt(config_limiteDicas.value);
