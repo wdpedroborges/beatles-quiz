@@ -149,7 +149,6 @@ const trataNovaDuracao = () => {
 btnDuracao.addEventListener('click', trataNovaDuracao);
 
 const geraMusica = () => {
-	dicasSorteadas = [];
 	tocando = false;
 	musica.innerHTML = '';
 	let clone = templateAudio.content.cloneNode(true);
@@ -180,7 +179,7 @@ const geraMusica = () => {
        
 }
 
-const exibeToast = (msg, color = '#f5be58', tempo = 2000, essencial = false) => {
+const exibeToast = (msg, color = 'green', tempo = 2000, essencial = false) => {
        if (toastAtivo || essencial) {
               toast.textContent = msg;
               toast.style.display = 'block'
@@ -233,7 +232,6 @@ const trataProxima = () => {
               pontuacaoAtual = 10;
               document.querySelector('#vinil img').style.animation = '';
               document.querySelector('#respostaUsuario').value = '';
-              dicasSorteadas = [];
               dicasUsadas = 0;
               dicaAtual = 0;
               limiteToques = 3;
@@ -290,7 +288,6 @@ const trataDicaTextual = () => {
                             span.textContent = `${albumEscolhido.album}`;
                             li.textContent = `Do álbum `;
                             li.appendChild(span);
-                            dicasSorteadas.push(0);
                             break;
                      case 1:
                             // pontuacaoAtual -= 1;
@@ -304,7 +301,6 @@ const trataDicaTextual = () => {
               dicasUsadas++;
               dicaAtual++;
               exibeToast(`Você tem mais ${limiteDicas - dicasUsadas} dica(s).`);
-              dicasSorteadas.push(numeroSorteado);
 
        } else {
               exibeToast('Você atingiu o limite de dicas ou não é possível pegar mais dicas desse tipo.');
@@ -338,7 +334,7 @@ btnSalvar.addEventListener('click', () => {
        restricaoAlbuns();
 
        localStorage.setItem('configuracao', JSON.stringify(configuracao));
-	exibeToast('Configurações salvas.', color = '#f5be58', tempo = 2000, essencial = true);
+	exibeToast('Configurações salvas.', color = 'green', tempo = 2000, essencial = true);
 });
 
 const trataEnvio = () => {
