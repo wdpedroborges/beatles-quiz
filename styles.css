@@ -301,6 +301,7 @@ li span {
 }
 
 .modal {
+	z-index: 2500;
 	min-width: 50%;
 	height: 75vh;
 	background-color: #fff;
@@ -560,8 +561,8 @@ li span {
 	}
 
 	#listaTrechos ul li {
-		padding: 10px;
-		font-size: 1rem;
+		padding: 7px;
+		font-size: .9rem;
 		display: block;
 	}
 
@@ -587,7 +588,7 @@ li span {
 	}
 
 	#toast {
-		bottom: 90%;
+		bottom: 87%;
 		width: 90%;
 	}
 
@@ -597,7 +598,7 @@ li span {
 	}
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
 	#listaTrechos ul li {
 		font-size: .75rem;
 	}
