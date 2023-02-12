@@ -143,7 +143,7 @@ const trataNovaDuracao = () => {
               dicasUsadas++;
               exibeToast(`Agora a música vai tocar por ${incremento} segundos. Você tem mais ${limiteDicas - dicasUsadas} dica(s)`);
        } else {
-              exibeToast('Você atingiu o seu limite de dicas.');
+              exibeToast('Você atingiu o seu limite de dicas.', 'brown');
        }
 }
 
@@ -217,6 +217,7 @@ btnPlay.addEventListener('click', () => {
 
 const trataProxima = () => {
        if (houveTentativa) {
+              respostaUsuario.removeAttribute('readonly');
               document.querySelector('.prosseguimento').style.bottom = '9.5rem';
               trechosGerados = [];
               listaTrechos.innerHTML = '';
@@ -249,7 +250,7 @@ const trataProxima = () => {
               geraMusica();
               exibeToast('Uma nova música foi gerada. Boa sorte.');
        } else {
-              exibeToast('Você deve palpitar antes de partir para a próxima.');
+              exibeToast('Você deve palpitar antes de partir para a próxima.', 'brown');
        }
 }
 
@@ -264,7 +265,7 @@ const trataNovoTrecho = () => {
               exibeToast(`Novo trecho gerado. Você tem mais ${limiteDicas - dicasUsadas} dica(s).`);
               pontuacaoAtual -= 1;
        } else {
-              exibeToast('Você atingiu o limite de dicas.');
+              exibeToast('Você atingiu o limite de dicas.', 'brown');
        }
 }
 
@@ -305,7 +306,7 @@ const trataDicaTextual = () => {
               exibeToast(`Você tem mais ${limiteDicas - dicasUsadas} dica(s).`);
 
        } else {
-              exibeToast('Você atingiu o limite de dicas ou não é possível pegar mais dicas desse tipo.');
+              exibeToast('Você atingiu o limite de dicas ou não é possível pegar mais dicas desse tipo.', 'brown');
        }
 };
 

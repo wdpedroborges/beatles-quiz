@@ -29,10 +29,6 @@
 </head>
 <body>
 
-<div id="escolhaTrechosGerados">
-	<div id="listaTrechos"></div>
-</div>
-
 <div id="toast"></div>
 
 <div class="pontuacaoFlutuante">Pontuação: <span id="pontuacaoJogador"></span></div>
@@ -96,7 +92,12 @@
 		<button tabindex="-1" id="btnNovoTrecho"><i class="bi bi-plus-lg"></i> Novo trecho</button>
 		<button tabindex="-1" id="btnDuracao"><i class="bi bi-stopwatch"></i> Mais tempo</button>
 	</div>
-	<input type="text" id="respostaUsuario" list="musicas" placeholder="Sua resposta" spellcheck="false" tabindex="1">
+	<i id="lupa" class="bi bi-search"></i>
+	<div id="divRespostaUsuario">
+		<i class="bi bi-search"></i>
+		<input type="text" id="respostaUsuario" list="musicas" placeholder="Sua resposta" spellcheck="false" tabindex="1">
+	</div>
+	
 	<div class="botoes prosseguimento">
 		<button tabindex="-1" id="btnEnviar">Enviar <i class="bi bi-send"></i></button>
 		<button tabindex="-1" id="btnProxima">Próxima <i class="bi bi-arrow-right-short"></i></button>
@@ -329,6 +330,9 @@
 		<option value="Let It Be">
 		<option value="You Know My Name (Look Up The Number)">
 	</datalist>
+</div>
+<div id="escolhaTrechosGerados">
+	<div id="listaTrechos"></div>
 </div>
 
 <div id="infoStreak"></div>
