@@ -371,6 +371,14 @@ li span {
 	opacity: .75;
 }
 
+.revelacao {
+	text-align: center;
+}
+
+.revelacao #dicas {
+	list-style: none;
+}
+
 @keyframes moveBanner {
 	0% {
 		background-position: 50% 0%;
@@ -471,7 +479,6 @@ li span {
 		position: fixed;
 		background-color: var(--segunda-cor);
 		text-align: center;
-		border-top: 3px solid #fff;
 	}
 
 	#escolhaTrechosGerados h3 {

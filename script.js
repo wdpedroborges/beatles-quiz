@@ -59,6 +59,7 @@ const switchToast = document.getElementById('switchToast');
 let trechosGerados = [];
 const escolhaTrechosGerados = document.getElementById('escolhaTrechosGerados');
 const listaTrechos = document.getElementById('listaTrechos');
+const respostaUsuario = document.getElementById('respostaUsuario');
 
 const trataTrechosGerados = () => {
        listaTrechos.innerHTML = '';
@@ -220,10 +221,11 @@ const trataProxima = () => {
               trechosGerados = [];
               listaTrechos.innerHTML = '';
               document.querySelector('#btnEnviar').style.display = 'inline-block';
-              document.getElementById('respostaUsuario').style.border = '3px solid #1e0c42';
+              respostaUsuario.style.border = '3px solid #1e0c42';
               btnDica.style.display = 'inline-block';
               btnNovoTrecho.style.display = 'inline-block';
               btnDuracao.style.display = 'inline-block';
+              document.querySelector('#escolhaTrechosGerados').style.display = 'block';
               errou = false;
               houveTentativa = false;
               desempenho = (pontuacao / (musicasTocadas * 10)) * 100 || 0;
@@ -286,7 +288,7 @@ const trataDicaTextual = () => {
                      case 0:
                             pontuacaoAtual -= 1;
                             span.textContent = `${albumEscolhido.album}`;
-                            li.textContent = `Do álbum `;
+                            li.textContent = `• Do álbum `;
                             li.appendChild(span);
                             break;
                      case 1:
@@ -344,7 +346,7 @@ const trataEnvio = () => {
        let li_1 = document.createElement('li');
        let span_1 = document.createElement('span');
        span_1.textContent = `${albumEscolhido.album}`;
-       li_1.textContent = `Do álbum `;
+       li_1.textContent = `• Do álbum `;
        li_1.appendChild(span_1);
        dicas.appendChild(li_1);
 
@@ -358,7 +360,7 @@ const trataEnvio = () => {
        dicas.style.display = 'block';
 
        resposta.classList.remove('borrado');
-       respostaDada = document.getElementById('respostaUsuario').value;
+       respostaDada = respostaUsuario.value;
 
        let nomeNormalizado = musicaEscolhida.slice(3);
        if (respostaDada === nomeNormalizado && !errou) {
@@ -394,7 +396,7 @@ const trataEnvio = () => {
                             break;
               }
 
-              document.getElementById('respostaUsuario').style.border = '3px solid green';
+              respostaUsuario.style.border = '3px solid green';
        } else {
               errou = true;
               exibeToast('Oops! Você errou! Continue tentando.', 'brown');
@@ -402,7 +404,7 @@ const trataEnvio = () => {
               incremento = 10;
               streak = 0;
               pontuacaoAtual = 0;
-              document.getElementById('respostaUsuario').style.border = '3px solid brown';
+              respostaUsuario.style.border = '3px solid brown';
        }
 
        btnPlay.querySelector('i').classList.remove('bi-play-fill');
@@ -416,6 +418,7 @@ const trataEnvio = () => {
        btnDica.style.display = 'none';
        btnNovoTrecho.style.display = 'none';
        btnDuracao.style.display = 'none';
+       document.querySelector('#escolhaTrechosGerados').style.display = 'none';
        houveTentativa = true;
        infoStreak.textContent = streak;
 }
