@@ -421,12 +421,14 @@ const trataEnvio = () => {
        document.querySelector('#escolhaTrechosGerados').style.display = 'none';
        houveTentativa = true;
        infoStreak.textContent = streak;
+       respostaUsuario.setAttribute('readonly', 'true');
 }
 
 document.addEventListener("keydown", (event) => {
        switch(event.key) {
               case 'Enter':
-                     trataEnvio();
+                     if (!houveTentativa)
+                            trataEnvio();
                      break;
               case '1':
                      trataDicaTextual();
