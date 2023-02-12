@@ -235,8 +235,7 @@ const exibeToast = (msg, color = 'green', tempo = 2000, essencial = false) => {
        }
 }
 
-let tocando = false;
-btnPlay.addEventListener('click', () => {
+const trataPlay = () => {
        if (toquesUsados < limiteToques) {
               toquesUsados++;
               if (!tocando) {
@@ -257,7 +256,10 @@ btnPlay.addEventListener('click', () => {
        } else {
               exibeToast('Você atingiu seu limite de toques para este trecho.');
        }
-});
+}
+
+let tocando = false;
+btnPlay.addEventListener('click', trataPlay);
 
 const trataProxima = () => {
        if (houveTentativa) {
@@ -414,7 +416,7 @@ const trataEnvio = () => {
        respostaDada = respostaUsuario.value;
 
        let nomeNormalizado = musicaEscolhida.slice(3);
-       if (respostaDada === nomeNormalizado && !errou) {
+       if (respostaDada.toLowerCase() === nomeNormalizado.toLowerCase() && !errou) {
               pontuacao += pontuacaoAtual;
               resposta.textContent = nomeNormalizado;
               incremento = 10;
