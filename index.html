@@ -86,17 +86,19 @@
 		<img src="vinil.png" tabindex="-1">
 		<button id="btnPlay" tabindex="-1"><i class="bi bi-play-fill"></i></button>
 	</div>
-	<div id="musica"></div>
-	<p>Música: <span id="resposta" class="borrado"></span></p>
-	<ul id="dicas"></ul>
+	<div class="revelacao">
+			<div id="musica"></div>
+			<p>Música: <span id="resposta" class="borrado"></span></p>
+			<ul id="dicas"></ul>
+	</div>
 
-	<div class="botoes">
+	<div class="botoes dicas">
 		<button tabindex="-1" id="btnDica"><i class="bi bi-chat-left-dots-fill"></i> Dica textual</button>
 		<button tabindex="-1" id="btnNovoTrecho"><i class="bi bi-plus-lg"></i> Novo trecho</button>
 		<button tabindex="-1" id="btnDuracao"><i class="bi bi-stopwatch"></i> Mais tempo</button>
 	</div>
 	<input type="text" id="respostaUsuario" list="musicas" placeholder="Sua resposta" spellcheck="false" tabindex="1">
-	<div class="botoes">
+	<div class="botoes prosseguimento">
 		<button tabindex="-1" id="btnEnviar">Enviar <i class="bi bi-send"></i></button>
 		<button tabindex="-1" id="btnProxima">Próxima <i class="bi bi-arrow-right-short"></i></button>
 	</div>	

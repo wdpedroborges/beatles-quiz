@@ -17,8 +17,6 @@ const restricaoAlbuns = () => {
               }
        });
 
-       exibeToast(`${considerados.length} álbuns serão considerados.`, color = '#f5be58', tempo = 2000, essencial = true);
-
        albunsConsiderados = considerados;
 }
 
@@ -84,6 +82,8 @@ const trataTrechosGerados = () => {
                      audio.currentTime = parseInt(trecho.getAttribute('tempo'));
                      audio.play();
                      document.querySelector('#vinil img').style.animation = 'rotate 5s linear infinite';
+                     btnPlay.querySelector('i').classList.remove('bi-play-fill');
+                     btnPlay.querySelector('i').classList.add('bi-pause-fill');
               });
        });
 }
@@ -217,6 +217,7 @@ btnPlay.addEventListener('click', () => {
 
 const trataProxima = () => {
        if (houveTentativa) {
+              document.querySelector('.prosseguimento').style.bottom = '9.5rem';
               trechosGerados = [];
               listaTrechos.innerHTML = '';
               document.querySelector('#btnEnviar').style.display = 'inline-block';
@@ -343,6 +344,7 @@ btnSalvar.addEventListener('click', () => {
 const trataEnvio = () => {
        // exibe as dicas no final, independente de ter acertado ou errado, para que o jogador tenha acesso a essa informação e possa aprender, caso já não saiba
        dicas.innerHTML = '';
+       document.querySelector('.prosseguimento').style.bottom = '10%';
        let li_1 = document.createElement('li');
        let span_1 = document.createElement('span');
        span_1.textContent = `${albumEscolhido.album}`;
