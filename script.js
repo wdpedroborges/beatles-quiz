@@ -288,7 +288,7 @@ const trataDicaTextual = () => {
                      case 0:
                             pontuacaoAtual -= 1;
                             span.textContent = `${albumEscolhido.album}`;
-                            li.textContent = `• Do álbum `;
+                            li.textContent = `Do álbum `;
                             li.appendChild(span);
                             break;
                      case 1:
@@ -346,7 +346,7 @@ const trataEnvio = () => {
        let li_1 = document.createElement('li');
        let span_1 = document.createElement('span');
        span_1.textContent = `${albumEscolhido.album}`;
-       li_1.textContent = `• Do álbum `;
+       li_1.textContent = `Do álbum `;
        li_1.appendChild(span_1);
        dicas.appendChild(li_1);
 
