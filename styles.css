@@ -393,6 +393,10 @@ li span {
 	font-weight: normal;
 }
 
+label[for="config_limiteDicas"] {
+	margin-bottom: 1rem;
+}
+
 #listaTrechos ul {
 	list-style: none;
 	padding: 0;
@@ -478,6 +482,10 @@ li span {
 	body {
 		padding: 0;
 		margin: 0;
+	}
+
+	.opcoes {
+		font-size: .75rem;
 	}
 
 	#respostaUsuario {
@@ -582,6 +590,7 @@ li span {
 		top: 1rem;
 		left: 1rem;
 		cursor: pointer;
+		z-index: 3000;
 	}
 
 	.revelacao #dicas {
