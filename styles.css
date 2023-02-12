@@ -66,7 +66,6 @@ body {
 	background-color: var(--segunda-cor);
 	color: #fff;
 	padding: 1rem;
-	border-radius: 1rem;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -441,10 +440,6 @@ li span {
 		border: 2px solid #fff;
 	}
 
-	.pontuacaoFlutuante {
-		font-size: 1rem;
-	}
-
 	#vinil {
 		position: absolute;
 		top: 55%;
@@ -471,7 +466,6 @@ li span {
 	.revelacao {
 		position: absolute;
 		top: 22%;
-		z-index: 1000;
 		width: 100%;
 		display: block;
 		position: fixed;
@@ -505,7 +499,6 @@ li span {
 		background-color: var(--segunda-cor);
 		color: #fff;
 		padding: 5px;
-		border-radius: 0;
 		font-size: 1rem;
 	}
 
@@ -521,5 +514,9 @@ li span {
 
 	.revelacao #dicas {
 		list-style: none;
+	}
+
+	#toast {
+		width: 90%;
 	}
 }
