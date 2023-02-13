@@ -49,6 +49,7 @@ body {
 	height: 100%;
 	overflow: hidden;
     margin: 0;
+    padding-top: 10rem;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -97,7 +98,7 @@ h1 {
 }
 
 .pontuacaoFlutuante {
-	background-color: var(--segunda-cor);
+	background-color: transparent;
 	color: #fff;
 	padding: 1rem;
 	position: fixed;
@@ -107,7 +108,10 @@ h1 {
 	font-weight: bolder;
 	line-height: 150%;
 	text-align: center;
-	font-size: 2rem;
+	font-size: 3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #toast {
@@ -225,7 +229,7 @@ input:focus {
 
 #btnPlay {
 	background: var(--segunda-cor);
-	font-size: 4rem;
+	font-size: 5rem;
 	width: 5rem;
 	height: 5rem;
 	border-radius: 50%;
@@ -435,6 +439,26 @@ label[for="config_limiteDicas"] {
 	display: none;
 }
 
+#moedinha {
+	height: 2rem;
+	width: 2rem;
+	margin-right: 1rem;
+}
+
+h1, .pontuacaoFlutuante, #abrirConfig {
+	position: static;
+}
+
+#cabecalho {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
 @keyframes moveBanner {
 	0% {
 		background-position: 50% 0%;
@@ -468,15 +492,6 @@ label[for="config_limiteDicas"] {
 	#quiz {
 		background-color: transparent;
 		border: none;
-	}
-
-	h1 {
-		font-size: 2.5rem;
-		position: absolute;
-		width: 100%;
-		top: .5rem;
-		left: 50%;
-		transform: translateX(-50%);
 	}
 
 	body {
@@ -531,7 +546,7 @@ label[for="config_limiteDicas"] {
 	}
 
 	#vinil img {
-		width: 325px;
+		width: 300px;
 	}
 
 	#escolhaTrechosGerados {
@@ -575,26 +590,35 @@ label[for="config_limiteDicas"] {
 		display: block;
 	}
 
+	h1 {
+		position: static;
+		font-size: 2.5rem;
+		width: 50%;
+	}
+
 	.pontuacaoFlutuante {
-		background-color: var(--segunda-cor);
-		color: #fff;
-		padding: 5px;
-		font-size: 1rem;
+		position: static;
+		padding: 10px;
+		font-size: 2.5rem;
+		height: 2rem;
+		border-radius: 10px;
 	}
 
 	#abrirConfig {
+		position: static;
 		color: var(--segunda-cor);
-		font-weight: bolder;
-		font-size: 1rem;
-		position: absolute;
-		top: 1rem;
-		left: 1rem;
+		font-size: 2.5rem;
 		cursor: pointer;
 		z-index: 3000;
+		margin-right: 2rem;
 	}
 
 	.revelacao #dicas {
 		list-style: none;
+	}
+
+	#divRespostaUsuario i {
+		display: none;
 	}
 
 	#toast {
@@ -609,6 +633,15 @@ label[for="config_limiteDicas"] {
 }
 
 @media screen and (max-width: 500px) {
+	h1 {
+		font-size: 2rem;
+	}
+	#vinil {
+		top: 52%;
+	}
+	#vinil img {
+		width: 250px;
+	}
 	#listaTrechos ul li {
 		font-size: .75rem;
 	}

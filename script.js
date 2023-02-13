@@ -122,13 +122,18 @@ const trataTrechosGerados = () => {
        let todosTrechosGerados = [... document.querySelectorAll('.trecho-gerado')];
        todosTrechosGerados.forEach(trecho => {
               trecho.addEventListener('click', () => {
-                     console.log(trecho.getAttribute('tempo'));
-                     tempoAleatorio = parseInt(trecho.getAttribute('tempo'));
-                     audio.currentTime = parseInt(trecho.getAttribute('tempo'));
-                     audio.play();
-                     document.querySelector('#vinil img').style.animation = 'rotate 5s linear infinite';
-                     btnPlay.querySelector('i').classList.remove('bi-play-fill');
-                     btnPlay.querySelector('i').classList.add('bi-pause-fill');
+              	       if (toquesUsados < limiteToques) {
+							toquesUsados++;
+							console.log(trecho.getAttribute('tempo'));
+							tempoAleatorio = parseInt(trecho.getAttribute('tempo'));
+							audio.currentTime = parseInt(trecho.getAttribute('tempo'));
+							audio.play();
+							document.querySelector('#vinil img').style.animation = 'rotate 5s linear infinite';
+							btnPlay.querySelector('i').classList.remove('bi-play-fill');
+							btnPlay.querySelector('i').classList.add('bi-pause-fill');
+              	       } else {
+              	       		exibeToast('Você atingiu seu limite de toques.', 'brown');
+              	       }
               });
        });
 }
