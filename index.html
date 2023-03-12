@@ -1,33 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="Bem-vindo ao Quiz dos Beatles! Neste jogo, você escutará um trecho de uma música dos Beatles aleatoriamente selecionada e terá que adivinhar qual música é. Você pode ver uma dica, revelar a resposta e passar para a próxima música.">
-	<meta name="keywords" content="quiz, beatles, jogo">
-	<meta name="robots" content="index, follow">
-	<meta name="author" content="Pedro Borges">
-	<meta name="revisit-after" content="7 days">
-	<meta http-equiv="content-language" content="pt-BR">
-	<meta name="copyright" content="Pedro Borges">
-    <meta property="og:title" content="Beatles Quiz">
-    <meta property="og:description" content="Bem-vindo ao Quiz dos Beatles! Neste jogo, você escutará um trecho de uma música dos Beatles aleatoriamente selecionada e terá que adivinhar qual música é. Você pode ver uma dica, revelar a resposta e passar para a próxima música.">
-	<meta property="og:image" content="vinil.png">
-	<meta property="og:image:type" content="image/png">
-	<meta property="og:image:width" content="250">
-	<meta property="og:image:height" content="250">
-	<meta property="og:type" content="website">
-    <meta property="twitter:title" content="Pedro Borges">
-    <meta property="twitter:description" content="Bem-vindo ao Quiz dos Beatles! Neste jogo, você escutará um trecho de uma música dos Beatles aleatoriamente selecionada e terá que adivinhar qual música é. Você pode ver uma dica, revelar a resposta e passar para a próxima música.">
-    <meta property="twitter:image" content="bg.png">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/png" href="vinil.png"/>
-	<title>Beatles Quiz</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="icon.png"/>
 	<link rel="stylesheet" type="text/css" href="styles.css">
-	<link rel="stylesheet" type="text/css" href="loader.css">
 	<script type="text/javascript" src="script.js" defer></script>
-	<script type="text/javascript" src="loader.js" defer></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="loader.css">
+	<script type="text/javascript" src="loader.js" defer></script>
+	<title>Beatles Quiz</title>
 </head>
 <body>
 
@@ -38,320 +20,112 @@
 	</div>
 </div>
 
-<div id="toast"></div>
+<div id="resultadoFinal" class="bgModal">
+	<div class="modal">
+		<i class="bi bi-x-lg fecharModal"></i>
+		<h2>Resultado Final</h2>
 
-<div class="bg-modal">
-	<div id="configuracoes" class="modal">
-		<i class="bi bi-x" id="fecharModal"></i>
+		<p class="recorde">Recorde de pontuação: <span id="recordePontuacao">10</span></p>
+		<p class="recorde">Recorde de tempo: <span id="recordeTempo">10</span></p>
+		<p class="recorde">Recorde de streak: <span id="recordeStreak">10</span></p>
+		<p>Fases jogadas: <span id="fasesJogadas">10</span></p>
+		<p>Melhor streak: <span id="melhorStreak">10</span></p>
+		<p>Melhor tempo: <span id="melhorTempo">10</span></p>
+		<p>Pontuação: <span id="pontuacao">100</span></p>
+		<p>Desempenho: <span id="desempenho">100%</span></p>
+
+		<button id="btnCompartilhar"><i class="bi bi-share"></i> Compartilhar </button>
+	</div>
+</div>
+
+<div id="configuracoes" class="bgModal">
+	<div class="modal">
+		<i class="bi bi-x-lg fecharModal"></i>
 		<h2>Configurações</h2>
-		<label for="config_tempoReproducao">Tempo de reprodução: </label>
-		<input type="number" id="config_tempoReproducao" value="1">
-		<label for="config_limiteToques">Limite de toques: </label>
-		<input type="number" id="config_limiteToques" value="2">
-		<label for="config_limiteDicas">Limite de dicas: </label>
-		<input type="number" id="config_limiteDicas" value="3">
 
-		<label for="config_limiteDicas">Álbuns considerados: </label>
-		<ul class="opcoes">
+		<details>
+			<summary>Configurações básicas</summary>
 			<div>
-				<li><input checked class="check" type="checkbox" id="0" name="A Hard Day's Night"> <label for="0"> A Hard Day's Night</label></li>
-				<li><input checked class="check" type="checkbox" id="1" name="Abbey Road"> <label for="1"> Abbey Road</label></li>
-				<li><input checked class="check" type="checkbox" id="2" name="Beatles For Sale"> <label for="2"> Beatles For Sale</label></li>
-				<li><input checked class="check" type="checkbox" id="3" name="Help!"> <label for="3"> Help!</label></li>
-				<li><input checked class="check" type="checkbox" id="4" name="Let It Be"> <label for="4"> Let It Be</label></li>
-				<li><input checked class="check" type="checkbox" id="5" name="Magical Mystery Tour"> <label for="5"> Magical Mystery Tour</label></li>
-				<li><input checked class="check" type="checkbox" id="6" name="Please Please Me"> <label for="6"> Please Please Me</label></li>
-				<li><input checked class="check" type="checkbox" id="7" name="Revolver"> <label for="7"> Revolver</label></li>
-				<li><input checked class="check" type="checkbox" id="8" name="Rubber Soul"> <label for="8"> Rubber Soul</label></li>
+				<h3>Tempo de jogo (em minutos)</h3>
+				<input type="number" id="tempoJogo" placeholder="Tempo em minutos" value="5">
 			</div>
+
 			<div>
-				<li><input checked class="check" type="checkbox" id="9" name="Sgt. Pepper's Lonely Hearts Club Band"> <label for="9"> Sgt. Pepper's Lonely Hearts Club Band</label></li>
-				<li><input checked class="check" type="checkbox" id="10" name="The Beatles (White Album) [Disco 1]"> <label for="10"> The Beatles (White Album) [Disco 1]</label></li>
-				<li><input checked class="check" type="checkbox" id="11" name="The Beatles (White Album) [Disco 2]"> <label for="11"> The Beatles (White Album) [Disco 2]</label></li>
-				<li><input checked class="check" type="checkbox" id="12" name="With The Beatles"> <label for="12"> With The Beatles</label></li>
-				<li><input unchecked class="check" type="checkbox" id="13" name="Yellow Submarine"> <label for="13"> Yellow Submarine (Filme)</label></li>
-				<li><input checked class="check" type="checkbox" id="14" name="Past Matters, Volume One"> <label for="14"> Past Matters, Volume One</label></li>
-				<li><input checked class="check" type="checkbox" id="15" name="Past Matters, Volume Two"> <label for="15"> Past Matters, Volume Two</label></li>
+				<h3>Tempo por pergunta (em segundos)</h3>
+				<input type="number" id="tempoPorPergunta" placeholder="Tempo em segundos" value="30">
 			</div>
-		</ul>
-	
-		<label for="config_toast" for="toggleToast">Toast</label>
-		<div id="toggleToast"><div id="switchToast"></div></div>
-		<button id="btnSalvar">Salvar</button>
+
+			<div>
+				<h3>Número máximo de ocorrências por questão</h3>
+				<input type="number" id="numMaxOcorrencias" placeholder="Digite um valor inteiro" value="1">
+			</div>
+
+			<div>
+				<h3>Repetir questões erradas</h3>
+				<input type="radio" id="simRepetir" name="repetir"> <label for="simRepetir">Sim</label>
+				<input checked type="radio" id="naoRepetir" name="repetir"> <label for="naoRepetir">Não</label>
+			</div>
+
+			<div>
+				<h3>Finalizar partida ao se usar todas as questões</h3>
+				<input type="radio" id="simFinalizar" name="finalizar"> <label for="simFinalizar">Sim</label>
+				<input checked type="radio" id="naoFinalizar" name="finalizar"> <label for="naoFinalizar">Não</label>
+			</div>
+
+			<div>
+				<h3>Múltipla-escolha</h3>
+				<input type="radio" id="simMultiplaEscolha" name="multiplaEscolha"> <label for="simMultiplaEscolha">Sim</label>
+				<input checked type="radio" id="naoMultiplaEscolha" name="multiplaEscolha"> <label for="naoMultiplaEscolha">Não</label>
+			</div>
+
+			<div>
+				<h3>Quantidade de sugestões/alternativas</h3>
+				<input type="number" id="quantidadeSugestoes" placeholder="Quantidade" value="3">
+			</div>
+
+			<div>
+				<h3>Quebrar áudio em trechos</h3>
+				<input checked type="radio" id="simQuebra" name="quebra"> <label for="simQuebra">Sim</label>
+				<input type="radio" id="naoQuebra" name="quebra"> <label for="naoQuebra">Não</label>
+			</div>
+
+			<div>
+				<h3>Quantidade de trechos</h3>
+				<input type="number" id="quantidadeTrechos" placeholder="Quantidade" value="3">
+			</div>
+		</details>
+
+		<details id="configFiltros">
+			<summary>Filtros</summary>
+		</details>
 	</div>
 </div>
 
-<div id="cabecalho">
-	<i id="abrirConfig" class="bi bi-gear-fill"></i>
-	<h1>Beatles Quiz</h1>
-	<div class="pontuacaoFlutuante"><img src="moedinha.png" id="moedinha"> <span id="pontuacaoJogador"></span></div>
+<div id="dicas" class="bgModal">
+	<div class="modal">
+		<i class="bi bi-x-lg fecharModal"></i>
+		<h2>Dicas</h2>
+		<div id="secaoDicas"></div>
+	</div>
 </div>
 
+<div class="temporizador" id="tempoGeral"></div>
+<div class="temporizador" id="tempoPergunta"></div>
+
+<div id="controles">
+	<button id="btnConfig"><i class="bi bi-gear"></i></button>
+	<button id="btnDica"><i class="bi bi-card-list"></i></button>
+	<button id="btnProxima"><i class="bi bi-arrow-right"></i></button>
+</div>
 <div id="quiz">
-	<div id="vinil">
-		<img src="vinil.png" tabindex="-1">
-		<button id="btnPlay" tabindex="-1"><i class="bi bi-play-fill"></i></button>
-	</div>
-	<div class="revelacao">
-			<div id="musica"></div>
-			<p>Música: <span id="resposta" class="borrado"></span></p>
-			<ul id="dicas"></ul>
-	</div>
-
-	<div class="botoes dicas">
-		<button tabindex="-1" id="btnDica"><i class="bi bi-chat-left-dots-fill"></i> Dica textual</button>
-		<button tabindex="-1" id="btnNovoTrecho"><i class="bi bi-plus-lg"></i> Novo trecho</button>
-		<button tabindex="-1" id="btnDuracao"><i class="bi bi-stopwatch"></i> Mais tempo</button>
-	</div>
-	<i id="lupa" class="bi bi-search"></i>
-	<div id="divRespostaUsuario">
-		<i class="bi bi-search"></i>
-		<input type="text" id="respostaUsuario" list="musicas" placeholder="Sua resposta" spellcheck="false" tabindex="1">
-	</div>
-	
-	<div class="botoes prosseguimento">
-		<button tabindex="-1" id="btnEnviar">Enviar <i class="bi bi-send"></i></button>
-		<button tabindex="-1" id="btnProxima">Próxima <i class="bi bi-arrow-right-short"></i></button>
-	</div>	
-	<datalist id="musicas">
-		<option value="A Hard Day's Night">
-		<option value="Back In The U.S.S.R.">
-		<option value="Birthday">
-		<option value="Come Together">
-		<option value="Drive My Car">
-		<option value="Help!">
-		<option value="I Saw Her Standing There">
-		<option value="It Won't Be Long">
-		<option value="Magical Mystery Tour">
-		<option value="No Reply">
-		<option value="Sgt Peppers Lonely Hearts Club Band">
-		<option value="Taxman">
-		<option value="Two Of Us">
-		<option value="All I've Got To Do">
-		<option value="Dear Prudence">
-		<option value="Dig A Pony">
-		<option value="Eleanor Rigby">
-		<option value="I Should Have Known Better">
-		<option value="I'm A Loser">
-		<option value="Misery">
-		<option value="Norwegian Wood (The Bird Has Flown)">
-		<option value="Something">
-		<option value="The Fool On The Hill">
-		<option value="The Night Before">
-		<option value="With A Little Help From My Friends">
-		<option value="Yer Blues">
-		<option value="Across The Universe">
-		<option value="All My Loving">
-		<option value="Anna (Go To Him)">
-		<option value="Baby's In Black">
-		<option value="Flying">
-		<option value="Glass Onion">
-		<option value="I'm Only Sleeping">
-		<option value="If I Fell">
-		<option value="Lucy In The Sky With Diamonds">
-		<option value="Maxwell's Silver Hammer">
-		<option value="Mother Nature's Son">
-		<option value="You Won't See Me">
-		<option value="You've Got To Hide Your Love Away">
-		<option value="Blue Jay Way">
-		<option value="Chains">
-		<option value="Don't Bother Me">
-		<option value="Everybody's Got Something To Hide Except Me And My Monkey">
-		<option value="Getting Better">
-		<option value="I Me Mine">
-		<option value="I Need You">
-		<option value="I'm Happy Just To Dance With You">
-		<option value="Love You To">
-		<option value="Nowhere Man">
-		<option value="Ob-La-Di, Ob-La-Da">
-		<option value="Oh! Darling">
-		<option value="Rock And Roll Music">
-		<option value="And I Love Her">
-		<option value="Another Girl">
-		<option value="Boys">
-		<option value="Dig It">
-		<option value="Fixing A Hole">
-		<option value="Here, There And Everywhere">
-		<option value="I'll Follow The Sun">
-		<option value="Little Child">
-		<option value="Octopus's Garden">
-		<option value="Sexy Sadie">
-		<option value="Think For Yourself">
-		<option value="Wild Honey Pie">
-		<option value="Your Mother Should Know">
-		<option value="Ask Me Why">
-		<option value="Helter Skelter">
-		<option value="I Am The Walrus">
-		<option value="I Want You (She's So Heavy)">
-		<option value="Let It Be">
-		<option value="Mr. Moonlight">
-		<option value="She's Leaving Home">
-		<option value="Tell Me Why">
-		<option value="The Continuing Story Of Bungalow Bill">
-		<option value="The Word">
-		<option value="Till There Was You">
-		<option value="Yellow Submarine">
-		<option value="You're Going To Lose That Girl">
-		<option value="Being For The Benefit Of Mr Kite">
-		<option value="Can't Buy Me Love">
-		<option value="Hello Goodbye">
-		<option value="Here Comes The Sun">
-		<option value="Long, Long, Long">
-		<option value="Maggie Mae">
-		<option value="Kansas City - Hey, Hey, Hey, Hey">
-		<option value="Michelle">
-		<option value="Please Mister Postman">
-		<option value="Please Please Me">
-		<option value="She Said She Said">
-		<option value="Ticket To Ride">
-		<option value="While My Guitar Gently Weeps">
-		<option value="Act Naturally">
-		<option value="Any Time At All">
-		<option value="Because">
-		<option value="Eight Days A Week">
-		<option value="Good Day Sunshine">
-		<option value="Happiness Is A Warm Gun">
-		<option value="I've Got A Feeling">
-		<option value="Love Me Do">
-		<option value="Revolution 1">
-		<option value="Roll Over Beethoven">
-		<option value="Strawberry Fields Forever">
-		<option value="What Goes On">
-		<option value="Within You Without You">
-		<option value="And Your Bird Can Sing">
-		<option value="Girl">
-		<option value="Hold Me Tight">
-		<option value="Honey Pie">
-		<option value="I'll Cry Instead">
-		<option value="It's Only Love">
-		<option value="Martha My Dear">
-		<option value="One After 909">
-		<option value="P.S. I Love You">
-		<option value="Penny Lane">
-		<option value="When I'm Sixty-Four">
-		<option value="Words Of Love">
-		<option value="You Never Give Me Your Money">
-		<option value="Baby It's You">
-		<option value="Baby You're A Rich Man">
-		<option value="For No One">
-		<option value="Honey Don't">
-		<option value="I'm Looking Through You">
-		<option value="I'm So Tired">
-		<option value="Lovely Rita">
-		<option value="Savoy Truffle">
-		<option value="Sun King">
-		<option value="The Long And Winding Road">
-		<option value="Things We Said Today">
-		<option value="You Like Me Too Much">
-		<option value="You Really Got A Hold On Me">
-		<option value="All You Need Is Love">
-		<option value="Blackbird">
-		<option value="Cry Baby Cry">
-		<option value="Do You Want To Know A Secret">
-		<option value="Doctor Robert">
-		<option value="Every Little Thing">
-		<option value="For You Blue">
-		<option value="Good Morning Good Morning">
-		<option value="I Wanna Be Your Man">
-		<option value="In My Life">
-		<option value="Mean Mr. Mustard">
-		<option value="Tell Me What You See">
-		<option value="When I Get Home">
-		<option value="A Taste Of Honey">
-		<option value="Devil In Her Heart">
-		<option value="Get Back">
-		<option value="I Don't Want To Spoil The Party">
-		<option value="I Want To Tell You">
-		<option value="I`ve Just Seen A Face">
-		<option value="Piggies">
-		<option value="Polythene Pam">
-		<option value="Revolution 9">
-		<option value="Sgt Peppers..(Reprise)">
-		<option value="Wait">
-		<option value="You Can't Do That">
-		<option value="A Day In The Life">
-		<option value="Good Night">
-		<option value="Got To Get You Into My Life">
-		<option value="I'll Be Back">
-		<option value="If I Needed Someone">
-		<option value="Not A Second Time">
-		<option value="Rocky Raccoon">
-		<option value="She Came In Through The Bathroom Window">
-		<option value="There's A Place">
-		<option value="What You're Doing">
-		<option value="Yesterday">
-		<option value="Dizzy Miss Lizzy">
-		<option value="Don't Pass Me By">
-		<option value="Everybody's Trying To Be My Baby">
-		<option value="Golden Slumbers">
-		<option value="Money (That's What I Want)">
-		<option value="Run For Your Life">
-		<option value="Tomorrow Never Knows">
-		<option value="Twist And Shout">
-		<option value="Carry That Weight">
-		<option value="Why Don't We Do It In The Road">
-		<option value="I Will">
-		<option value="The End">
-		<option value="Her Majesty">
-		<option value="Julia">
-		<option value="Only A Northern Song">
-		<option value="All Together Now">
-		<option value="Hey Bulldog">
-		<option value="It's All Too Much">
-		<option value="All You Need Is Love">
-		<option value="Pepperland">
-		<option value="Sea Of Time">
-		<option value="Sea Of Holes">
-		<option value="Sea Of Monsters">
-		<option value="March Of The Meanies">
-		<option value="Pepperland Laid Waste">
-		<option value="Yellow Submarine In Pepperland">
-		<option value="Love Me Do">
-		<option value="From Me To You">
-		<option value="Thank You Girl">
-		<option value="She Loves You">
-		<option value="I'll Get You">
-		<option value="I Want To Hold Your Hand">
-		<option value="This Boy">
-		<option value="Komm, Gib Mir Deine Hand">
-		<option value="Sie Liebt Dich">
-		<option value="Long Tall Sally">
-		<option value="I Call Your Name">
-		<option value="Slow Down">
-		<option value="Matchbox">
-		<option value="I Feel Fine">
-		<option value="She's A Woman">
-		<option value="Bad Boy">
-		<option value="Yes It Is">
-		<option value="I'm Down">
-		<option value="Day Tripper">
-		<option value="We Can Work It Out">
-		<option value="Paperback Writer">
-		<option value="Rain">
-		<option value="Lady Madonna">
-		<option value="The Inner Light">
-		<option value="Hey Jude">
-		<option value="Revolution">
-		<option value="Get Back">
-		<option value="Don't Let Me Down">
-		<option value="The Ballad Of John And Yoko">
-		<option value="Old Brown Shoe">
-		<option value="Across The Universe">
-		<option value="Let It Be">
-		<option value="You Know My Name (Look Up The Number)">
-	</datalist>
-</div>
-<div id="escolhaTrechosGerados">
-	<div id="listaTrechos"></div>
+	<div id="pergunta"></div>
+	<div id="respostaCorreta">Resposta</div>
 </div>
 
-<div id="infoStreak"></div>
-
-<template id="templateAudio">
-	<audio controls>
-		<source src="yesterday.mp3" type="audio/mpeg">
-		Seu navegador não suporta arquivos de áudio.
-	</audio>
-</template>
+<div id="controlesUsuario">
+	<div id="sugestoes"></div>
+	<button id="btnEnviar"><i class="bi bi-send-fill"></i></button>
+	<input type="text" id="respostaUsuario" placeholder="Sua resposta" spellcheck="false">
+</div>
 </body>
 </html>

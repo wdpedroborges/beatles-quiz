@@ -1,9 +1,377 @@
-let novoDataset = [{album: "A Hard Day's Night", musicas: ["01 A Hard Day's Night", "02 I Should Have Known Better", "03 If I Fell", "04 I'm Happy Just To Dance With You", "05 And I Love Her", "06 Tell Me Why", "07 Can't Buy Me Love", "08 Any Time At All", "09 I'll Cry Instead", "10 Things We Said Today", "11 When I Get Home", "12 You Can't Do That", "13 I'll Be Back"]}, {album: "Abbey Road", musicas: ["01 Come Together", "02 Something", "03 Maxwell's Silver Hammer", "04 Oh! Darling", "05 Octopus's Garden", "06 I Want You (She's So Heavy)", "07 Here Comes The Sun", "08 Because", "09 You Never Give Me Your Money", "10 Sun King", "11 Mean Mr. Mustard", "12 Polythene Pam", "13 She Came In Through The Bathroom Window", "14 Golden Slumbers", "15 Carry That Weight", "16 The End", "17 Her Majesty"]}, {album: "Beatles For Sale", musicas: ["01 No Reply", "02 I'm A Loser", "03 Baby's In Black", "04 Rock And Roll Music", "05 I'll Follow The Sun", "06 Mr. Moonlight", "07 Kansas City - Hey, Hey, Hey, Hey", "08 Eight Days A Week", "09 Words Of Love", "10 Honey Don't", "11 Every Little Thing", "12 I Don't Want To Spoil The Party", "13 What You're Doing", "14 Everybody's Trying To Be My Baby"]}, {album: "Help!", musicas: ["01 Help!", "02 The Night Before", "03 You've Got To Hide Your Love Away", "04 I Need You", "05 Another Girl", "06 You're Going To Lose That Girl", "07 Ticket To Ride", "08 Act Naturally", "09 It's Only Love", "10 You Like Me Too Much", "11 Tell Me What You See", "12 I`ve Just Seen A Face", "13 Yesterday", "14 Dizzy Miss Lizzy"]}, {album: "Let It Be", musicas: ["01 Two Of Us", "02 Dig A Pony", "03 Across The Universe", "04 I Me Mine", "05 Dig It", "06 Let It Be", "07 Maggie Mae", "08 I've Got A Feeling", "09 One After 909", "10 The Long And Winding Road", "11 For You Blue", "12 Get Back"]}, {album: "Magical Mystery Tour", musicas: ["01 Magical Mystery Tour", "02 The Fool On The Hill", "03 Flying", "04 Blue Jay Way", "05 Your Mother Should Know", "06 I Am The Walrus", "07 Hello Goodbye", "08 Strawberry Fields Forever", "09 Penny Lane", "10 Baby You're A Rich Man", "11 All You Need Is Love"]}, {album: "Please Please Me", musicas: ["01 I Saw Her Standing There", "02 Misery", "03 Anna (Go To Him)", "04 Chains", "05 Boys", "06 Ask Me Why", "07 Please Please Me", "08 Love Me Do", "09 P.S. I Love You", "10 Baby It's You", "11 Do You Want To Know A Secret", "12 A Taste Of Honey", "13 There's A Place", "14 Twist And Shout"]}, {album: "Revolver", musicas: ["01 Taxman", "02 Eleanor Rigby", "03 I'm Only Sleeping", "04 Love You To", "05 Here, There And Everywhere", "06 Yellow Submarine", "07 She Said She Said", "08 Good Day Sunshine", "09 And Your Bird Can Sing", "10 For No One", "11 Doctor Robert", "12 I Want To Tell You", "13 Got To Get You Into My Life", "14 Tomorrow Never Knows"]}, {album: "Rubber Soul", musicas: ["01 Drive My Car", "02 Norwegian Wood (The Bird Has Flown)", "03 You Won't See Me", "04 Nowhere Man", "05 Think For Yourself", "06 The Word", "07 Michelle", "08 What Goes On", "09 Girl", "10 I'm Looking Through You", "11 In My Life", "12 Wait", "13 If I Needed Someone", "14 Run For Your Life"]}, {album: "Sgt. Pepper's Lonely Hearts Club Band", musicas: ["01 Sgt Peppers Lonely Hearts Club Band", "02 With A Little Help From My Friends", "03 Lucy In The Sky With Diamonds", "04 Getting Better", "05 Fixing A Hole", "06 She's Leaving Home", "07 Being For The Benefit Of Mr Kite", "08 Within You Without You", "09 When I'm Sixty-Four", "10 Lovely Rita", "11 Good Morning Good Morning", "12 Sgt Peppers..(Reprise)", "13 A Day In The Life"]}, {album: "The Beatles (White Album) [Disc 1]", musicas: ["01 Back In The U.S.S.R.", "02 Dear Prudence", "03 Glass Onion", "04 Ob-La-Di, Ob-La-Da", "05 Wild Honey Pie", "06 The Continuing Story Of Bungalow Bill", "07 While My Guitar Gently Weeps", "08 Happiness Is A Warm Gun", "09 Martha My Dear", "10 I'm So Tired", "11 Blackbird", "12 Piggies", "13 Rocky Raccoon", "14 Don't Pass Me By", "15 Why Don't We Do It In The Road", "16 I Will", "17 Julia"]}, {album: "The Beatles (White Album) [Disc 2]", musicas: ["01 Birthday", "02 Yer Blues", "03 Mother Nature's Son", "04 Everybody's Got Something To Hide Except Me And My Monkey", "05 Sexy Sadie", "06 Helter Skelter", "07 Long, Long, Long", "08 Revolution 1", "09 Honey Pie", "10 Savoy Truffle", "11 Cry Baby Cry", "12 Revolution 9", "13 Good Night"]}, {album: "With The Beatles", musicas: ["01 It Won't Be Long", "02 All I've Got To Do", "03 All My Loving", "04 Don't Bother Me", "05 Little Child", "06 Till There Was You", "07 Please Mister Postman", "08 Roll Over Beethoven", "09 Hold Me Tight", "10 You Really Got A Hold On Me", "11 I Wanna Be Your Man", "12 Devil In Her Heart", "13 Not A Second Time", "14 Money (That's What I Want)"]}, {album: "Yellow Submarine", musicas: ["01 Yellow Submarine", "02 Only A Northern Song", "03 All Together Now", "04 Hey Bulldog", "05 It's All Too Much", "06 All You Need Is Love", "07 Pepperland", "08 Sea Of Time", "09 Sea Of Holes", "10 Sea Of Monsters", "11 March Of The Meanies", "12 Pepperland Laid Waste", "13 Yellow Submarine In Pepperland"]}, {album: "Past Masters, Volume One", musicas: ["01 Love Me Do", "02 From Me To You", "03 Thank You Girl", "04 She Loves You", "05 I'll Get You", "06 I Want To Hold Your Hand", "07 This Boy", "08 Komm, Gib Mir Deine Hand", "09 Sie Liebt Dich", "10 Long Tall Sally", "11 I Call Your Name", "12 Slow Down", "13 Matchbox", "14 I Feel Fine", "15 She's A Woman", "16 Bad Boy", "17 Yes It Is", "18 I'm Down"]}, {album: "Past Masters, Volume Two", musicas: ["01 Day Tripper", "02 We Can Work It Out", "03 Paperback Writer", "04 Rain", "05 Lady Madonna", "06 The Inner Light", "07 Hey Jude", "08 Revolution", "09 Get Back", "10 Don't Let Me Down", "11 The Ballad Of John And Yoko", "12 Old Brown Shoe", "13 Across The Universe", "14 Let It Be", "15 You Know My Name (Look Up The Number)"]}];
-let autores = [{"titulo":"12-Bar Original","ano":"1965","album":"Anthology 2","autores":"Lennon, McCartney, Harrison, e Starkey"},{"titulo":"A Beginning","ano":"1968","album":"Anthology 3","autores":"Martin"},{"titulo":"A Day in the Life","ano":"1967","album":"Sgt. Pepper's Lonely Hearts Club Band","autores":"Lennon e McCartney"},{"titulo":"A Hard Day's Night","ano":"1964","album":"A Hard Day's Night","autores":"Lennon"},{"titulo":"A Shot of Rhythm and Blues","ano":"","album":"Live at the BBC","autores":""},{"titulo":"A Taste of Honey","ano":"1963","album":"Please Please Me ","autores":"Scott/Marlow"},{"titulo":"Across the Universe","ano":"1968","album":"Let It Be","autores":"Lennon"},{"titulo":"Act Naturally","ano":"1965","album":"Help! /Yesterday and Today ","autores":"Russell / Morrison"},{"titulo":"Ain't She Sweet","ano":"1961","album":"Anthology 1","autores":"Yellen / Ager"},{"titulo":"All I've Got To Do","ano":"1963","album":"With the Beatles /Meet the Beatles! ","autores":"Lennon"},{"titulo":"All My Loving","ano":"1963","album":"With the Beatles /Meet the Beatles! ","autores":"McCartney"},{"titulo":"All Things Must Pass","ano":"1969","album":"Anthology 3","autores":"Harrison"},{"titulo":"All Together Now","ano":"1967","album":"Yellow Submarine","autores":"McCartney, com Lennon"},{"titulo":"All You Need Is Love","ano":"1967","album":"Yellow Submarine","autores":"Lennon"},{"titulo":"And I Love Her","ano":"1964","album":"A Hard Day's Night","autores":"McCartney"},{"titulo":"And Your Bird Can Sing","ano":"1966","album":"Revolver / Yesterday and Today ","autores":"Lennon"},{"titulo":"Anna (Go to Him)","ano":"1963","album":"Please Please Me ","autores":"Alexander"},{"titulo":"Another Girl","ano":"1965","album":"Help!","autores":"McCartney"},{"titulo":"Any Time at All","ano":"1964","album":"A Hard Day's Night / Something New ","autores":"Lennon"},{"titulo":"Ask Me Why","ano":"1962","album":"Please Please Me ","autores":"Lennon"},{"titulo":"Baby It's You","ano":"1963","album":"Please Please Me ","autores":"Bacharach, David, Williams"},{"titulo":"Baby You're a Rich Man","ano":"1967","album":"Magical Mystery Tour","autores":"Lennon com McCartney"},{"titulo":"Baby's in Black","ano":"1964","album":"Beatles for Sale / Beatles '65 ","autores":"Lennon e McCartney"},{"titulo":"Back in the USSR","ano":"1968","album":"The Beatles","autores":"McCartney"},{"titulo":"Bad Boy","ano":"1965","album":"Past Masters, Volume One, Beatles VI ","autores":"Williams"},{"titulo":"Bad to Me","ano":"1963","album":"","autores":"Lennon"},{"titulo":"Because","ano":"1969","album":"Abbey Road","autores":"Lennon"},{"titulo":"Being for the Benefit of Mr. Kite!","ano":"1967","album":"Sgt. Pepper's Lonely Hearts Club Band","autores":"Lennon"},{"titulo":"Bésame Mucho","ano":"1962","album":"Anthology 1","autores":"Velázquez"},{"titulo":"Birthday","ano":"1968","album":"The Beatles","autores":"McCartney"},{"titulo":"Blackbird","ano":"1968","album":"The Beatles","autores":"McCartney"},{"titulo":"Blue Jay Way","ano":"1967","album":"Magical Mystery Tour","autores":"Harrison"},{"titulo":"Boys","ano":"1963","album":"Please Please Me ","autores":"Dixon/Farrell"},{"titulo":"Can't Buy Me Love","ano":"1964","album":"A Hard Day's Night","autores":"McCartney"},{"titulo":"Carol","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Carnival of Light","ano":"1967","album":"—","autores":"McCartney e Lennon"},{"titulo":"Carry That Weight","ano":"1969","album":"Abbey Road","autores":"McCartney"},{"titulo":"Cayenne","ano":"","album":"Anthology 1","autores":"McCartney"},{"titulo":"Chains","ano":"1963","album":"Please Please Me ","autores":"Goffin / King"},{"titulo":"Christmas Time (Is Here Again)","ano":"1967","album":"","autores":"Lennon, McCartney, Harrison, e Starkey"},{"titulo":"Clarabella","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Come and Get It","ano":"1969","album":"Anthology 3","autores":"McCartney"},{"titulo":"Come Together","ano":"1969","album":"Abbey Road","autores":"Lennon"},{"titulo":"Cry Baby Cry","ano":"1968","album":"The Beatles","autores":"Lennon, com McCartney"},{"titulo":"Cry for a Shadow","ano":"1961","album":"Anthology 1","autores":"Harrison e Lennon"},{"titulo":"Crying, Waiting, Hoping","ano":"","album":"Live at the BBC","autores":"Buddy Holly"},{"titulo":"Day Tripper","ano":"1965","album":"Past Masters, Volume Two, The Beatles 1, Yesterday and Today ","autores":"Lennon e McCartney"},{"titulo":"Dear Prudence","ano":"1968","album":"The Beatles","autores":"Lennon"},{"titulo":"Devil in Her Heart","ano":"1963","album":"With the Beatles /The Beatles' Second Album ","autores":"Drapkin"},{"titulo":"Dig a Pony","ano":"1969","album":"Let It Be","autores":"Lennon"},{"titulo":"Dig It","ano":"1969","album":"Let It Be","autores":"Lennon, McCartney, Harrison e Starkey"},{"titulo":"Dizzy Miss Lizzy","ano":"1965","album":"Help! / Beatles VI ","autores":"Williams"},{"titulo":"Do You Want to Know a Secret","ano":"1963","album":"Please Please Me ","autores":"Lennon"},{"titulo":"Doctor Robert","ano":"1966","album":"Revolver /Yesterday and Today ","autores":"Lennon"},{"titulo":"Don't Bother Me","ano":"1963","album":"With the Beatles /Meet the Beatles! ","autores":"Harrison"},{"titulo":"Don't Ever Change","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Don't Let Me Down","ano":"1969","album":"Past Masters, Volume Two, Hey Jude /Let It Be...Naked","autores":"Lennon"},{"titulo":"Don't Pass Me By","ano":"1968","album":"The Beatles","autores":"Starkey"},{"titulo":"Drive My Car","ano":"1965","album":"Rubber Soul /Yesterday and Today ","autores":"McCartney, com Lennon"},{"titulo":"Eight Days a Week","ano":"1964","album":"Beatles for Sale /Beatles VI ","autores":"Lennon e McCartney"},{"titulo":"Eleanor Rigby","ano":"1966","album":"Revolver","autores":"McCartney"},{"titulo":"Every Little Thing","ano":"1964","album":"Beatles for Sale /Beatles VI ","autores":"McCartney"},{"titulo":"Everybody's Got Something to Hide Except Me and My Monkey","ano":"1968","album":"The Beatles","autores":"Lennon"},{"titulo":"Everybody's Trying to Be My Baby","ano":"1964","album":"Beatles for Sale / Beatles '65 ","autores":"Carl Perkins"},{"titulo":"Fixing a Hole","ano":"1967","album":"Sgt. Pepper's Lonely Hearts Club Band","autores":"McCartney"},{"titulo":"Flying","ano":"1967","album":"Magical Mystery Tour","autores":"Harrison, Lennon, McCartney, Starkey"},{"titulo":"For No One","ano":"1966","album":"Revolver","autores":"McCartney"},{"titulo":"For You Blue","ano":"1969","album":"Let It Be","autores":"Harrison"},{"titulo":"Free as a Bird","ano":"1977 (1994)","album":"Anthology 1","autores":"Lennon, McCartney, Harrison, Starkey"},{"titulo":"From Me to You","ano":"1963","album":"Past Masters, Volume One, The Beatles 1","autores":"Lennon e McCartney"},{"titulo":"Get Back","ano":"1969","album":"Let It Be","autores":"McCartney"},{"titulo":"Getting Better","ano":"1967","album":"Sgt. Pepper's Lonely Hearts Club Band","autores":"McCartney, com Lennon"},{"titulo":"Girl","ano":"1965","album":"Rubber Soul","autores":"Lennon"},{"titulo":"Glass Onion","ano":"1968","album":"The Beatles","autores":"Lennon"},{"titulo":"Golden Slumbers","ano":"1969","album":"Abbey Road","autores":"McCartney"},{"titulo":"Good Day Sunshine","ano":"1966","album":"Revolver","autores":"McCartney"},{"titulo":"Good Morning Good Morning","ano":"1967","album":"Sgt. Pepper's Lonely Hearts Club Band","autores":"Lennon"},{"titulo":"Good Night","ano":"1968","album":"The Beatles","autores":"Lennon"},{"titulo":"Got to Get You into My Life","ano":"1966","album":"Revolver","autores":"McCartney"},{"titulo":"Hallelujah, I Love Her So","ano":"","album":"Anthology 1","autores":"Charles"},{"titulo":"Happiness Is a Warm Gun","ano":"1968","album":"The Beatles","autores":"Lennon"},{"titulo":"Hello, Goodbye","ano":"1967","album":"Magical Mystery Tour","autores":"McCartney"},{"titulo":"Hello Little Girl","ano":"1962","album":"Anthology 1","autores":"Lennon e McCartney"},{"titulo":"Help!","ano":"1965","album":"Help!","autores":"Lennon e McCartney"},{"titulo":"Helter Skelter","ano":"1968","album":"The Beatles","autores":"McCartney"},{"titulo":"Her Majesty","ano":"1969","album":"Abbey Road","autores":"McCartney"},{"titulo":"Here Comes the Sun","ano":"1969","album":"Abbey Road","autores":"Harrison"},{"titulo":"Here, There and Everywhere","ano":"1966","album":"Revolver","autores":"McCartney"},{"titulo":"Hey Bulldog","ano":"1968","album":"Yellow Submarine","autores":"Lennon"},{"titulo":"Hey Jude","ano":"1968","album":"Past Masters, Volume Two, The Beatles 1, Hey Jude ","autores":"McCartney"},{"titulo":"Hold Me Tight","ano":"1963","album":"With the Beatles /Meet the Beatles! ","autores":"McCartney"},{"titulo":"Honey Don't","ano":"1964","album":"Beatles for Sale /Beatles '65 ","autores":"Perkins"},{"titulo":"Honey Pie","ano":"1968","album":"The Beatles","autores":"McCartney"},{"titulo":"How Do You Do It?","ano":"1962","album":"Anthology 1","autores":"Murray"},{"titulo":"I Am the Walrus","ano":"1967","album":"Magical Mystery Tour","autores":"Lennon"},{"titulo":"I Call Your Name","ano":"1964","album":"Past Masters, Volume One, The Beatles' Second Album ","autores":"Lennon"},{"titulo":"I Don't Want to Spoil the Party","ano":"1964","album":"Beatles for Sale /Beatles VI ","autores":"Lennon"},{"titulo":"I Feel Fine","ano":"1964","album":"Past Masters, Volume One, The Beatles 1, Beatles '65 ","autores":"Lennon"},{"titulo":"I Forgot to Remember to Forget","ano":"","album":"Live at the BBC","autores":""},{"titulo":"I Got a Woman","ano":"","album":"Live at the BBC","autores":""},{"titulo":"I Got to Find My Baby","ano":"","album":"Live at the BBC","autores":""},{"titulo":"I Just Don't Understand","ano":"","album":"Live at the BBC","autores":""},{"titulo":"I Me Mine","ano":"1970","album":"Let It Be","autores":"Harrison"},{"titulo":"I Need You","ano":"1965","album":"Help!","autores":"Harrison"},{"titulo":"I Saw Her Standing There","ano":"1963","album":"Please Please Me ","autores":"McCartney"},{"titulo":"I Should Have Known Better","ano":"1964","album":"A Hard Day's Night","autores":"Lennon"},{"titulo":"I Wanna Be Your Man","ano":"1963","album":"With the Beatles /Meet the Beatles! ","autores":"McCartney, com Lennon"},{"titulo":"I Want to Hold Your Hand","ano":"1963","album":"Past Masters, Volume One, The Beatles 1, Meet the Beatles! ","autores":"Lennon e McCartney"},{"titulo":"I Want to Tell You","ano":"1966","album":"Revolver","autores":"Harrison"},{"titulo":"I Want You (She's So Heavy)","ano":"1969","album":"Abbey Road","autores":"Lennon"},{"titulo":"I Will","ano":"1968","album":"The Beatles","autores":"McCartney"},{"titulo":"If I Fell","ano":"1964","album":"A Hard Day's Night","autores":"Lennon"},{"titulo":"If I Needed Someone","ano":"1965","album":"Rubber Soul / Yesterday and Today ","autores":"Harrison"},{"titulo":"If You've Got Trouble","ano":"1965","album":"Anthology 2","autores":"Lennon e McCartney"},{"titulo":"I'll Be Back","ano":"1964","album":"A Hard Day's Night /Beatles '65 ","autores":"Lennon"},{"titulo":"I'll Be on My Way","ano":"","album":"Live at the BBC","autores":"Lennon e McCartney"},{"titulo":"I'll Cry Instead","ano":"1964","album":"A Hard Day's Night /Something New ","autores":"Lennon"},{"titulo":"I'll Follow the Sun","ano":"1964","album":"Beatles for Sale /Beatles '65 ","autores":"McCartney"},{"titulo":"I'll Get You","ano":"1963","album":"Past Masters, Volume One, The Beatles' Second Album ","autores":"Lennon e McCartney"},{"titulo":"I'm a Loser","ano":"1964","album":"Beatles for Sale /Beatles '65 ","autores":"Lennon"},{"titulo":"I'm Down","ano":"1965","album":"Past Masters, Volume One","autores":"McCartney"},{"titulo":"I'm Gonna Sit Right Down and Cry (Over You)","ano":"","album":"Live at the BBC","autores":""},{"titulo":"I'm Happy Just to Dance with You","ano":"1964","album":"A Hard Day's Night","autores":"Lennon"},{"titulo":"I'm Looking Through You","ano":"1965","album":"Rubber Soul","autores":"McCartney"},{"titulo":"I'm Only Sleeping","ano":"1966","album":"Revolver / Yesterday and Today ","autores":"Lennon e McCartney"},{"titulo":"I'm So Tired","ano":"1968","album":"The Beatles","autores":"Lennon"},{"titulo":"In My Life","ano":"1965","album":"Rubber Soul","autores":"Lennon com McCartney"},{"titulo":"In Spite of All the Danger","ano":"","album":"Anthology 1","autores":"McCartney e Harrison"},{"titulo":"It Won't Be Long","ano":"1963","album":"With the Beatles /Meet the Beatles! ","autores":"Lennon"},{"titulo":"It's All Too Much","ano":"1967","album":"Yellow Submarine","autores":"Harrison"},{"titulo":"It's Only Love","ano":"1965","album":"Help! /Rubber Soul ","autores":"Lennon"},{"titulo":"I've Got a Feeling","ano":"1969","album":"Let It Be","autores":"McCartney, com Lennon"},{"titulo":"I've Just Seen a Face","ano":"1965","album":"Help! /Rubber Soul ","autores":"McCartney"},{"titulo":"Johnny B. Goode","ano":"","album":"Live at the BBC","autores":"Berry"},{"titulo":"Julia","ano":"1968","album":"The Beatles","autores":"Lennon"},{"titulo":"Junk","ano":"1968","album":"Anthology 3","autores":"McCartney"},{"titulo":"Kansas City/Hey, Hey, Hey, Hey","ano":"1964","album":"Beatles for Sale /Beatles VI ","autores":"Leiber / Stoller / Penniman"},{"titulo":"Keep Your Hands off My Baby","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Komm Gib Mir Deine Hand (Versão alemã de I Want to Hold Your Hand)","ano":"1964","album":"Past Masters, Volume One, Something New ","autores":"Lennon e McCartney"},{"titulo":"Lady Madonna","ano":"1968","album":"Past Masters, Volume Two, The Beatles 1, Hey Jude ","autores":"McCartney"},{"titulo":"Leave My Kitten Alone","ano":"1964","album":"Anthology 1","autores":"Turner / McDougall"},{"titulo":"Lend Me Your Comb","ano":"1963","album":"Anthology 1","autores":"Twomey / Wise / Weisman"},{"titulo":"Let It Be","ano":"1969","album":"Let It Be","autores":"McCartney"},{"titulo":"Like Dreamers Do","ano":"1962","album":"Anthology 1","autores":"McCartney"},{"titulo":"Little Child","ano":"1963","album":"With the Beatles /Meet the Beatles! ","autores":"Lennon e McCartney"},{"titulo":"Lonesome Tears in My Eyes","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Long, Long, Long","ano":"1968","album":"The Beatles","autores":"Harrison"},{"titulo":"Long Tall Sally","ano":"1964","album":"Past Masters, Volume One, The Beatles' Second Album ","autores":"Blackwell / Johnson / Penniman"},{"titulo":"Love Me Do","ano":"1962","album":"Please Please Me","autores":"McCartney"},{"titulo":"Love Me Tender","ano":"","album":"","autores":"Fosdick / Poulton"},{"titulo":"Love of the Loved","ano":"","album":"","autores":""},{"titulo":"Love You To","ano":"1966","album":"Revolver","autores":"Harrison"},{"titulo":"Lovely Rita","ano":"1967","album":"Sgt. Pepper's Lonely Hearts Club Band","autores":"McCartney"},{"titulo":"Loving You","ano":"","album":"","autores":"Leiber / Stoller"},{"titulo":"Lucille","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Lucy in the Sky with Diamonds","ano":"1967","album":"Sgt. Pepper's Lonely Hearts Club Band","autores":"Lennon, com McCartney"},{"titulo":"Maggie Mae","ano":"1969","album":"Let It Be","autores":"(Traditional) arr. Lennon, McCartney, Harrison, Starkey"},{"titulo":"Magical Mystery Tour","ano":"1967","album":"Magical Mystery Tour","autores":"McCartney"},{"titulo":"Mailman, Bring Me No More Blues","ano":"1969","album":"Anthology 3","autores":"Katz / Roberts / Clayton"},{"titulo":"Martha My Dear","ano":"1968","album":"The Beatles","autores":"McCartney"},{"titulo":"Matchbox","ano":"1964","album":"Past Masters, Volume One, Something New ","autores":"Perkins / Jefferson"},{"titulo":"Maxwell's Silver Hammer","ano":"1969","album":"Abbey Road","autores":"McCartney"},{"titulo":"Mean Mr. Mustard","ano":"1969","album":"Abbey Road","autores":"Lennon"},{"titulo":"Memphis, Tennessee","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Michelle","ano":"1965","album":"Rubber Soul","autores":"McCartney"},{"titulo":"Misery","ano":"1963","album":"Please Please Me","autores":"Lennon"},{"titulo":"Money (That's What I Want)","ano":"1963","album":"With the Beatles /The Beatles' Second Album ","autores":"Gordy"},{"titulo":"Mother Nature's Son","ano":"1968","album":"The Beatles","autores":"McCartney"},{"titulo":"Mr. Moonlight","ano":"1964","album":"Beatles for Sale /Beatles '65 ","autores":"Johnson"},{"titulo":"No Reply","ano":"1964","album":"Beatles for Sale /Beatles '65 ","autores":"Lennon, com McCartney"},{"titulo":"Norwegian Wood (This Bird Has Flown)","ano":"1965","album":"Rubber Soul","autores":"Lennon"},{"titulo":"Not a Second Time","ano":"1963","album":"With the Beatles /Meet the Beatles! ","autores":"Lennon"},{"titulo":"Not Guilty","ano":"1968","album":"Anthology 3","autores":"Harrison"},{"titulo":"Nothin' Shakin'","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Nowhere Man","ano":"1965","album":"Rubber Soul /Yesterday and Today ","autores":"Lennon"},{"titulo":"Ob-La-Di, Ob-La-Da","ano":"1968","album":"The Beatles","autores":"McCartney"},{"titulo":"Octopus's Garden","ano":"1969","album":"Abbey Road","autores":"Starkey, com Harrison"},{"titulo":"Oh! Darling","ano":"1969","album":"Abbey Road","autores":"McCartney"},{"titulo":"Old Brown Shoe","ano":"1969","album":"Past Masters, Volume Two, Hey Jude ","autores":"Harrison"},{"titulo":"One After 909","ano":"1969","album":"Let It Be","autores":"Lennon e McCartney"},{"titulo":"Only a Northern Song","ano":"1967","album":"Yellow Submarine","autores":"Harrison"},{"titulo":"Ooh! My Soul","ano":"","album":"Live at the BBC","autores":"Penniman"},{"titulo":"Paperback Writer","ano":"1966","album":"Past Masters, Volume Two, The Beatles 1, Hey Jude ","autores":"McCartney, com Lennon"},{"titulo":"Penny Lane","ano":"1967","album":"Magical Mystery Tour","autores":"McCartney"},{"titulo":"Piggies","ano":"1968","album":"The Beatles","autores":"Harrison"},{"titulo":"Please Mr. Postman","ano":"1963","album":"With the Beatles /The Beatles' Second Album ","autores":"Dobbins/Garrett/Holland/Bateman/Gorman"},{"titulo":"Please Please Me","ano":"1962","album":"Please Please Me ","autores":"Lennon"},{"titulo":"Polythene Pam","ano":"1969","album":"Abbey Road","autores":"Lennon"},{"titulo":"P.S. I Love You","ano":"1962","album":"Please Please Me ","autores":"McCartney"},{"titulo":"Rain","ano":"1966","album":"Past Masters, Volume Two, Hey Jude ","autores":"Lennon, com McCartney"},{"titulo":"Real Love","ano":"1979 (1995)","album":"Anthology 2","autores":"Lennon, com McCartney, Harrison e Starkey"},{"titulo":"Revolution","ano":"1968","album":"Past Masters, Volume Two, Hey Jude ","autores":"Lennon"},{"titulo":"Revolution 1","ano":"1968","album":"The Beatles","autores":"Lennon"},{"titulo":"Revolution 9","ano":"1968","album":"The Beatles","autores":"Lennon, com Harrison e Starkey"},{"titulo":"Rip It Up/Shake, Rattle and Roll/Blue Suede Shoes","ano":"1969","album":"Anthology 3","autores":"Blackwell-Marascalco (Rip It Up) /Calhoun (Shake, Rattle, and Roll) /Perkins (Blue Suede Shoes)"},{"titulo":"Rock and Roll Music","ano":"1964","album":"Beatles for Sale /Beatles '65 ","autores":"Berry"},{"titulo":"Rocky Raccoon","ano":"1968","album":"The Beatles","autores":"McCartney"},{"titulo":"Roll Over Beethoven","ano":"1964","album":"With the Beatles /The Beatles' Second Album ","autores":"Berry"},{"titulo":"Run for Your Life","ano":"1965","album":"Rubber Soul","autores":"Lennon"},{"titulo":"Savoy Truffle","ano":"1968","album":"The Beatles","autores":"Harrison"},{"titulo":"Searchin'","ano":"1962","album":"Anthology 1","autores":"Leiber / Stoller"},{"titulo":"September in the Rain","ano":"","album":"","autores":""},{"titulo":"Sexy Sadie","ano":"1968","album":"The Beatles","autores":"Lennon"},{"titulo":"Sgt. Pepper's Lonely Hearts Club Band","ano":"1967","album":"Sgt. Pepper's Lonely Hearts Club Band","autores":"McCartney"},{"titulo":"Sgt. Pepper's Lonely Hearts Club Band (Reprise)","ano":"1968","album":"Sgt. Pepper's Lonely Hearts Club Band","autores":"McCartney"},{"titulo":"She Came in Through the Bathroom Window","ano":"1969","album":"Abbey Road","autores":"McCartney"},{"titulo":"She Loves You","ano":"1963","album":"Past Masters, Volume One, The Beatles 1, The Beatles' Second Album ","autores":"McCartney(principal compositor) e Lennon"},{"titulo":"She Said She Said","ano":"1966","album":"Revolver","autores":"Lennon"},{"titulo":"She's a Woman","ano":"1964","album":"Past Masters, Volume One, Beatles '65 ","autores":"McCartney"},{"titulo":"She's Leaving Home","ano":"1967","album":"Sgt. Pepper's Lonely Hearts Club Band","autores":"McCartney"},{"titulo":"Shout","ano":"1964","album":"Anthology 1","autores":"Isley/Isley/Isley"},{"titulo":"Sie Liebt Dich (Versão alemã de She Loves You)","ano":"1964","album":"Past Masters, Volume One","autores":"McCartney(Compositor Principal) e Lennon"},{"titulo":"Slow Down","ano":"1964","album":"Past Masters, Volume One, Something New ","autores":"Williams"},{"titulo":"So How Come (No One Loves Me)","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Soldier of Love","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Some Other Guy","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Something","ano":"1969","album":"Abbey Road","autores":"Harrison"},{"titulo":"Step Inside Love/Los Paranoias","ano":"1968","album":"Anthology 3","autores":"McCartney (Step Inside Love) McCartney, Lennon, Harrison and Starkey (Las Paranoias)"},{"titulo":"Strawberry Fields Forever","ano":"1967","album":"Magical Mystery Tour","autores":"Lennon"},{"titulo":"Sun King","ano":"1969","album":"Abbey Road","autores":"Lennon"},{"titulo":"Sure to Fall (In Love with You)","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Sweet Little Sixteen","ano":"","album":"Live at the BBC","autores":"Berry"},{"titulo":"Take Good Care of My Baby","ano":"","album":"","autores":"Goffin / King"},{"titulo":"Taxman","ano":"1966","album":"Revolver","autores":"Harrison"},{"titulo":"Teddy Boy","ano":"1969","album":"Anthology 3","autores":"McCartney"},{"titulo":"Tell Me What You See","ano":"1965","album":"Help! /Beatles VI ","autores":"McCartney"},{"titulo":"Tell Me Why","ano":"1964","album":"A Hard Day's Night","autores":"Lennon"},{"titulo":"Thank You Girl","ano":"1963","album":"Past Masters, Volume One, The Beatles' Second Album ","autores":"Lennon e McCartney"},{"titulo":"That Means a Lot","ano":"1965","album":"Anthology 2","autores":"Lennon e McCartney"},{"titulo":"That'll Be the Day","ano":"","album":"Anthology 1","autores":"Allison/Holly/Petty"},{"titulo":"That's All Right (Mama)","ano":"","album":"Live at the BBC","autores":""},{"titulo":"The Ballad of John and Yoko","ano":"1969","album":"Past Masters, Volume Two, The Beatles 1, Hey Jude ","autores":"Lennon, com McCartney"},{"titulo":"The Continuing Story of Bungalow Bill","ano":"1968","album":"The Beatles","autores":"Lennon"},{"titulo":"The End","ano":"1969","album":"Abbey Road","autores":"McCartney"},{"titulo":"The Fool on the Hill","ano":"1967","album":"Magical Mystery Tour","autores":"McCartney"},{"titulo":"The Hippy Hippy Shake","ano":"","album":"Live at the BBC","autores":""},{"titulo":"The Honeymoon Song","ano":"","album":"Live at the BBC","autores":""},{"titulo":"The Inner Light","ano":"1968","album":"Past Masters, Volume Two","autores":"Harrison"},{"titulo":"The Long and Winding Road","ano":"1969","album":"Let It Be","autores":"McCartney"},{"titulo":"The Night Before","ano":"1965","album":"Help!","autores":"McCartney"},{"titulo":"The Sheik of Araby","ano":"1962","album":"Anthology 1","autores":"Smith/Wheeler-Snyder"},{"titulo":"The Word","ano":"1965","album":"Rubber Soul","autores":"Lennon"},{"titulo":"There's A Place","ano":"1963","album":"Please Please Me ","autores":"Lennon"},{"titulo":"Things We Said Today","ano":"1964","album":"A Hard Day's Night /Something New ","autores":"McCartney"},{"titulo":"Think For Yourself","ano":"1965","album":"Rubber Soul","autores":"Harrison"},{"titulo":"This Boy","ano":"1963","album":"Past Masters, Volume One, Meet the Beatles! ","autores":"Lennon, com McCartney"},{"titulo":"Three Cool Cats","ano":"1962","album":"Anthology 1","autores":"Leiber / Stoller"},{"titulo":"Ticket to Ride","ano":"1965","album":"Help!","autores":"Lennon e McCartney"},{"titulo":"Till There Was You","ano":"1963","album":"With the Beatles /Meet the Beatles! ","autores":"Willson"},{"titulo":"To Know Her is to Love Her","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Tomorrow Never Knows","ano":"1966","album":"Revolver","autores":"Lennon"},{"titulo":"Too Much Monkey Business","ano":"","album":"Live at the BBC","autores":""},{"titulo":"Twist and Shout","ano":"1963","album":"Please Please Me ","autores":"Medley / Russell"},{"titulo":"Two of Us","ano":"1969","album":"Let It Be","autores":"McCartney"},{"titulo":"Wait","ano":"1965","album":"Rubber Soul","autores":"Lennon e McCartney"},{"titulo":"We Can Work It Out","ano":"1965","album":"Past Masters, Volume Two, The Beatles 1, Yesterday and Today ","autores":"McCartney, com Lennon"},{"titulo":"What Goes On","ano":"1965","album":"Rubber Soul /Yesterday and Today ","autores":"Lennon, com McCartney e Starkey"},{"titulo":"What You're Doing","ano":"1964","album":"Beatles for Sale /Beatles VI ","autores":"McCartney"},{"titulo":"What's The New Mary Jane","ano":"1968","album":"Anthology 3","autores":"Lennon"},{"titulo":"When I Get Home","ano":"1964","album":"A Hard Day's Night / Something New","autores":"Lennon"},{"titulo":"When I'm Sixty-Four","ano":"1967","album":"Sgt. Pepper's Lonely Hearts Club Band","autores":"McCartney"},{"titulo":"While My Guitar Gently Weeps","ano":"1968","album":"The Beatles","autores":"Harrison"},{"titulo":"Why Don't We Do It in the Road?","ano":"1968","album":"The Beatles","autores":"McCartney"},{"titulo":"Wild Honey Pie","ano":"1968","album":"The Beatles","autores":"McCartney"},{"titulo":"With a Little Help from My Friends","ano":"1967","album":"Sgt. Pepper's Lonely Hearts Club Band","autores":"McCartney, com Lennon"},{"titulo":"Within You Without You","ano":"1967","album":"Sgt. Pepper's Lonely Hearts Club Band","autores":"Harrison"},{"titulo":"Words of Love","ano":"1964","album":"Beatles for Sale /Beatles VI ","autores":"Holly"},{"titulo":"Yellow Submarine","ano":"1966","album":"Revolver","autores":"McCartney"},{"titulo":"Yer Blues","ano":"1968","album":"The Beatles","autores":"Lennon"},{"titulo":"Yes It Is","ano":"1965","album":"Past Masters, Volume One, Beatles VI ","autores":"Lennon"},{"titulo":"Yesterday","ano":"1965","album":"Help! /Yesterday and Today ","autores":"McCartney"},{"titulo":"You Can't Do That","ano":"1964","album":"A Hard Day's Night /The Beatles' Second Album ","autores":"Lennon, com McCartney"},{"titulo":"You Know My Name (Look Up the Number)","ano":"1969","album":"Past Masters, Volume Two","autores":"Lennon"},{"titulo":"You Know What to Do","ano":"1964","album":"Anthology 1","autores":"Harrison"},{"titulo":"You Like Me Too Much","ano":"1965","album":"Help! /Beatles VI ","autores":"Harrison"},{"titulo":"You Never Give Me Your Money","ano":"1969","album":"Abbey Road","autores":"McCartney"},{"titulo":"You've Really Got a Hold on Me","ano":"1963","album":"With the Beatles /The Beatles' Second Album ","autores":"Robinson"},{"titulo":"You Won't See Me","ano":"1965","album":"Rubber Soul","autores":"McCartney"},{"titulo":"You'll Be Mine","ano":"1960","album":"Anthology 1","autores":"Lennon e McCartney"},{"titulo":"Young Blood","ano":"1963","album":"Live at the BBC","autores":"Leiber / Stoller"},{"titulo":"Your Mother Should Know","ano":"1967","album":"Magical Mystery Tour","autores":"McCartney"},{"titulo":"You're Going to Lose That Girl","ano":"1965","album":"Help!","autores":"Lennon"},{"titulo":"You've Got to Hide Your Love Away","ano":"1965","album":"Help!","autores":"Lennon"}];
+const pergunta = document.getElementById('pergunta');
+const tempoGeral = document.getElementById('tempoGeral');
+const tempoPergunta = document.getElementById('tempoPergunta');
+const btnConfig = document.getElementById('btnConfig');
+const btnDica = document.getElementById('btnDica');
+const btnProxima = document.getElementById('btnProxima');
+const btnEnviar = document.getElementById('btnEnviar');
+const respostaCorreta = document.getElementById('respostaCorreta');
+const sugestoes = document.getElementById('sugestoes');
+const respostaUsuario = document.getElementById('respostaUsuario');
+const controlesUsuario = document.getElementById('controlesUsuario');
+const btnCompartilhar = document.getElementById('btnCompartilhar');
 
-const levenshteinDistance = (a, b) => {
+const configuracoes = document.getElementById('configuracoes');
+const dicas = document.getElementById('dicas');
+const resultadoFinal = document.getElementById('resultadoFinal');
+
+let dataset = [
+    ['Nome', 'Álbum', 'Áudio'],
+    [["A Hard Day's Night","A Hard Day's Night","musicas/01 A Hard Day's Night.mp3"],["I Should Have Known Better","A Hard Day's Night","musicas/02 I Should Have Known Better.mp3"],["If I Fell","A Hard Day's Night","musicas/03 If I Fell.mp3"],["I'm Happy Just To Dance With You","A Hard Day's Night","musicas/04 I'm Happy Just To Dance With You.mp3"],["And I Love Her","A Hard Day's Night","musicas/05 And I Love Her.mp3"],["Tell Me Why","A Hard Day's Night","musicas/06 Tell Me Why.mp3"],["Can't Buy Me Love","A Hard Day's Night","musicas/07 Can't Buy Me Love.mp3"],["Any Time At All","A Hard Day's Night","musicas/08 Any Time At All.mp3"],["I'll Cry Instead","A Hard Day's Night","musicas/09 I'll Cry Instead.mp3"],["Things We Said Today","A Hard Day's Night","musicas/10 Things We Said Today.mp3"],["When I Get Home","A Hard Day's Night","musicas/11 When I Get Home.mp3"],["You Can't Do That","A Hard Day's Night","musicas/12 You Can't Do That.mp3"],["I'll Be Back","A Hard Day's Night","musicas/13 I'll Be Back.mp3"],["Come Together","Abbey Road","musicas/01 Come Together.mp3"],["Something","Abbey Road","musicas/02 Something.mp3"],["Maxwell's Silver Hammer","Abbey Road","musicas/03 Maxwell's Silver Hammer.mp3"],["Oh! Darling","Abbey Road","musicas/04 Oh! Darling.mp3"],["Octopus's Garden","Abbey Road","musicas/05 Octopus's Garden.mp3"],["I Want You (She's So Heavy)","Abbey Road","musicas/06 I Want You (She's So Heavy).mp3"],["Here Comes The Sun","Abbey Road","musicas/07 Here Comes The Sun.mp3"],["Because","Abbey Road","musicas/08 Because.mp3"],["You Never Give Me Your Money","Abbey Road","musicas/09 You Never Give Me Your Money.mp3"],["Sun King","Abbey Road","musicas/10 Sun King.mp3"],["Mean Mr. Mustard","Abbey Road","musicas/11 Mean Mr. Mustard.mp3"],["Polythene Pam","Abbey Road","musicas/12 Polythene Pam.mp3"],["She Came In Through The Bathroom Window","Abbey Road","musicas/13 She Came In Through The Bathroom Window.mp3"],["Golden Slumbers","Abbey Road","musicas/14 Golden Slumbers.mp3"],["Carry That Weight","Abbey Road","musicas/15 Carry That Weight.mp3"],["The End","Abbey Road","musicas/16 The End.mp3"],["Her Majesty","Abbey Road","musicas/17 Her Majesty.mp3"],["No Reply","Beatles For Sale","musicas/01 No Reply.mp3"],["I'm A Loser","Beatles For Sale","musicas/02 I'm A Loser.mp3"],["Baby's In Black","Beatles For Sale","musicas/03 Baby's In Black.mp3"],["Rock And Roll Music","Beatles For Sale","musicas/04 Rock And Roll Music.mp3"],["I'll Follow The Sun","Beatles For Sale","musicas/05 I'll Follow The Sun.mp3"],["Mr. Moonlight","Beatles For Sale","musicas/06 Mr. Moonlight.mp3"],["Kansas City - Hey, Hey, Hey, Hey","Beatles For Sale","musicas/07 Kansas City - Hey, Hey, Hey, Hey.mp3"],["Eight Days A Week","Beatles For Sale","musicas/08 Eight Days A Week.mp3"],["Words Of Love","Beatles For Sale","musicas/09 Words Of Love.mp3"],["Honey Don't","Beatles For Sale","musicas/10 Honey Don't.mp3"],["Every Little Thing","Beatles For Sale","musicas/11 Every Little Thing.mp3"],["I Don't Want To Spoil The Party","Beatles For Sale","musicas/12 I Don't Want To Spoil The Party.mp3"],["What You're Doing","Beatles For Sale","musicas/13 What You're Doing.mp3"],["Everybody's Trying To Be My Baby","Beatles For Sale","musicas/14 Everybody's Trying To Be My Baby.mp3"],["Help!","Help!","musicas/01 Help!.mp3"],["The Night Before","Help!","musicas/02 The Night Before.mp3"],["You've Got To Hide Your Love Away","Help!","musicas/03 You've Got To Hide Your Love Away.mp3"],["I Need You","Help!","musicas/04 I Need You.mp3"],["Another Girl","Help!","musicas/05 Another Girl.mp3"],["You're Going To Lose That Girl","Help!","musicas/06 You're Going To Lose That Girl.mp3"],["Ticket To Ride","Help!","musicas/07 Ticket To Ride.mp3"],["Act Naturally","Help!","musicas/08 Act Naturally.mp3"],["It's Only Love","Help!","musicas/09 It's Only Love.mp3"],["You Like Me Too Much","Help!","musicas/10 You Like Me Too Much.mp3"],["Tell Me What You See","Help!","musicas/11 Tell Me What You See.mp3"],["I`ve Just Seen A Face","Help!","musicas/12 I`ve Just Seen A Face.mp3"],["Yesterday","Help!","musicas/13 Yesterday.mp3"],["Dizzy Miss Lizzy","Help!","musicas/14 Dizzy Miss Lizzy.mp3"],["Two Of Us","Let It Be","musicas/01 Two Of Us.mp3"],["Dig A Pony","Let It Be","musicas/02 Dig A Pony.mp3"],["Across The Universe","Let It Be","musicas/03 Across The Universe.mp3"],["I Me Mine","Let It Be","musicas/04 I Me Mine.mp3"],["Dig It","Let It Be","musicas/05 Dig It.mp3"],["Let It Be","Let It Be","musicas/06 Let It Be.mp3"],["Maggie Mae","Let It Be","musicas/07 Maggie Mae.mp3"],["I've Got A Feeling","Let It Be","musicas/08 I've Got A Feeling.mp3"],["One After 909","Let It Be","musicas/09 One After 909.mp3"],["The Long And Winding Road","Let It Be","musicas/10 The Long And Winding Road.mp3"],["For You Blue","Let It Be","musicas/11 For You Blue.mp3"],["Get Back","Let It Be","musicas/12 Get Back.mp3"],["Magical Mystery Tour","Magical Mystery Tour","musicas/01 Magical Mystery Tour.mp3"],["The Fool On The Hill","Magical Mystery Tour","musicas/02 The Fool On The Hill.mp3"],["Flying","Magical Mystery Tour","musicas/03 Flying.mp3"],["Blue Jay Way","Magical Mystery Tour","musicas/04 Blue Jay Way.mp3"],["Your Mother Should Know","Magical Mystery Tour","musicas/05 Your Mother Should Know.mp3"],["I Am The Walrus","Magical Mystery Tour","musicas/06 I Am The Walrus.mp3"],["Hello Goodbye","Magical Mystery Tour","musicas/07 Hello Goodbye.mp3"],["Strawberry Fields Forever","Magical Mystery Tour","musicas/08 Strawberry Fields Forever.mp3"],["Penny Lane","Magical Mystery Tour","musicas/09 Penny Lane.mp3"],["Baby You're A Rich Man","Magical Mystery Tour","musicas/10 Baby You're A Rich Man.mp3"],["All You Need Is Love","Magical Mystery Tour","musicas/11 All You Need Is Love.mp3"],["I Saw Her Standing There","Please Please Me","musicas/01 I Saw Her Standing There.mp3"],["Misery","Please Please Me","musicas/02 Misery.mp3"],["Anna (Go To Him)","Please Please Me","musicas/03 Anna (Go To Him).mp3"],["Chains","Please Please Me","musicas/04 Chains.mp3"],["Boys","Please Please Me","musicas/05 Boys.mp3"],["Ask Me Why","Please Please Me","musicas/06 Ask Me Why.mp3"],["Please Please Me","Please Please Me","musicas/07 Please Please Me.mp3"],["Love Me Do","Please Please Me","musicas/08 Love Me Do.mp3"],["P.S. I Love You","Please Please Me","musicas/09 P.S. I Love You.mp3"],["Baby It's You","Please Please Me","musicas/10 Baby It's You.mp3"],["Do You Want To Know A Secret","Please Please Me","musicas/11 Do You Want To Know A Secret.mp3"],["A Taste Of Honey","Please Please Me","musicas/12 A Taste Of Honey.mp3"],["There's A Place","Please Please Me","musicas/13 There's A Place.mp3"],["Twist And Shout","Please Please Me","musicas/14 Twist And Shout.mp3"],["Taxman","Revolver","musicas/01 Taxman.mp3"],["Eleanor Rigby","Revolver","musicas/02 Eleanor Rigby.mp3"],["I'm Only Sleeping","Revolver","musicas/03 I'm Only Sleeping.mp3"],["Love You To","Revolver","musicas/04 Love You To.mp3"],["Here, There And Everywhere","Revolver","musicas/05 Here, There And Everywhere.mp3"],["Yellow Submarine","Revolver","musicas/06 Yellow Submarine.mp3"],["She Said She Said","Revolver","musicas/07 She Said She Said.mp3"],["Good Day Sunshine","Revolver","musicas/08 Good Day Sunshine.mp3"],["And Your Bird Can Sing","Revolver","musicas/09 And Your Bird Can Sing.mp3"],["For No One","Revolver","musicas/10 For No One.mp3"],["Doctor Robert","Revolver","musicas/11 Doctor Robert.mp3"],["I Want To Tell You","Revolver","musicas/12 I Want To Tell You.mp3"],["Got To Get You Into My Life","Revolver","musicas/13 Got To Get You Into My Life.mp3"],["Tomorrow Never Knows","Revolver","musicas/14 Tomorrow Never Knows.mp3"],["Drive My Car","Rubber Soul","musicas/01 Drive My Car.mp3"],["Norwegian Wood (The Bird Has Flown)","Rubber Soul","musicas/02 Norwegian Wood (The Bird Has Flown).mp3"],["You Won't See Me","Rubber Soul","musicas/03 You Won't See Me.mp3"],["Nowhere Man","Rubber Soul","musicas/04 Nowhere Man.mp3"],["Think For Yourself","Rubber Soul","musicas/05 Think For Yourself.mp3"],["The Word","Rubber Soul","musicas/06 The Word.mp3"],["Michelle","Rubber Soul","musicas/07 Michelle.mp3"],["What Goes On","Rubber Soul","musicas/08 What Goes On.mp3"],["Girl","Rubber Soul","musicas/09 Girl.mp3"],["I'm Looking Through You","Rubber Soul","musicas/10 I'm Looking Through You.mp3"],["In My Life","Rubber Soul","musicas/11 In My Life.mp3"],["Wait","Rubber Soul","musicas/12 Wait.mp3"],["If I Needed Someone","Rubber Soul","musicas/13 If I Needed Someone.mp3"],["Run For Your Life","Rubber Soul","musicas/14 Run For Your Life.mp3"],["Sgt Peppers Lonely Hearts Club Band","Sgt. Pepper's Lonely Hearts Club Band","musicas/01 Sgt Peppers Lonely Hearts Club Band.mp3"],["With A Little Help From My Friends","Sgt. Pepper's Lonely Hearts Club Band","musicas/02 With A Little Help From My Friends.mp3"],["Lucy In The Sky With Diamonds","Sgt. Pepper's Lonely Hearts Club Band","musicas/03 Lucy In The Sky With Diamonds.mp3"],["Getting Better","Sgt. Pepper's Lonely Hearts Club Band","musicas/04 Getting Better.mp3"],["Fixing A Hole","Sgt. Pepper's Lonely Hearts Club Band","musicas/05 Fixing A Hole.mp3"],["She's Leaving Home","Sgt. Pepper's Lonely Hearts Club Band","musicas/06 She's Leaving Home.mp3"],["Being For The Benefit Of Mr Kite","Sgt. Pepper's Lonely Hearts Club Band","musicas/07 Being For The Benefit Of Mr Kite.mp3"],["Within You Without You","Sgt. Pepper's Lonely Hearts Club Band","musicas/08 Within You Without You.mp3"],["When I'm Sixty-Four","Sgt. Pepper's Lonely Hearts Club Band","musicas/09 When I'm Sixty-Four.mp3"],["Lovely Rita","Sgt. Pepper's Lonely Hearts Club Band","musicas/10 Lovely Rita.mp3"],["Good Morning Good Morning","Sgt. Pepper's Lonely Hearts Club Band","musicas/11 Good Morning Good Morning.mp3"],["Sgt Peppers..(Reprise)","Sgt. Pepper's Lonely Hearts Club Band","musicas/12 Sgt Peppers..(Reprise).mp3"],["A Day In The Life","Sgt. Pepper's Lonely Hearts Club Band","musicas/13 A Day In The Life.mp3"],["Back In The U.S.S.R.","The Beatles (White Album) [Disc 1]","musicas/01 Back In The U.S.S.R..mp3"],["Dear Prudence","The Beatles (White Album) [Disc 1]","musicas/02 Dear Prudence.mp3"],["Glass Onion","The Beatles (White Album) [Disc 1]","musicas/03 Glass Onion.mp3"],["Ob-La-Di, Ob-La-Da","The Beatles (White Album) [Disc 1]","musicas/04 Ob-La-Di, Ob-La-Da.mp3"],["Wild Honey Pie","The Beatles (White Album) [Disc 1]","musicas/05 Wild Honey Pie.mp3"],["The Continuing Story Of Bungalow Bill","The Beatles (White Album) [Disc 1]","musicas/06 The Continuing Story Of Bungalow Bill.mp3"],["While My Guitar Gently Weeps","The Beatles (White Album) [Disc 1]","musicas/07 While My Guitar Gently Weeps.mp3"],["Happiness Is A Warm Gun","The Beatles (White Album) [Disc 1]","musicas/08 Happiness Is A Warm Gun.mp3"],["Martha My Dear","The Beatles (White Album) [Disc 1]","musicas/09 Martha My Dear.mp3"],["I'm So Tired","The Beatles (White Album) [Disc 1]","musicas/10 I'm So Tired.mp3"],["Blackbird","The Beatles (White Album) [Disc 1]","musicas/11 Blackbird.mp3"],["Piggies","The Beatles (White Album) [Disc 1]","musicas/12 Piggies.mp3"],["Rocky Raccoon","The Beatles (White Album) [Disc 1]","musicas/13 Rocky Raccoon.mp3"],["Don't Pass Me By","The Beatles (White Album) [Disc 1]","musicas/14 Don't Pass Me By.mp3"],["Why Don't We Do It In The Road","The Beatles (White Album) [Disc 1]","musicas/15 Why Don't We Do It In The Road.mp3"],["I Will","The Beatles (White Album) [Disc 1]","musicas/16 I Will.mp3"],["Julia","The Beatles (White Album) [Disc 1]","musicas/17 Julia.mp3"],["Birthday","The Beatles (White Album) [Disc 2]","musicas/01 Birthday.mp3"],["Yer Blues","The Beatles (White Album) [Disc 2]","musicas/02 Yer Blues.mp3"],["Mother Nature's Son","The Beatles (White Album) [Disc 2]","musicas/03 Mother Nature's Son.mp3"],["Everybody's Got Something To Hide Except Me And My Monkey","The Beatles (White Album) [Disc 2]","musicas/04 Everybody's Got Something To Hide Except Me And My Monkey.mp3"],["Sexy Sadie","The Beatles (White Album) [Disc 2]","musicas/05 Sexy Sadie.mp3"],["Helter Skelter","The Beatles (White Album) [Disc 2]","musicas/06 Helter Skelter.mp3"],["Long, Long, Long","The Beatles (White Album) [Disc 2]","musicas/07 Long, Long, Long.mp3"],["Revolution 1","The Beatles (White Album) [Disc 2]","musicas/08 Revolution 1.mp3"],["Honey Pie","The Beatles (White Album) [Disc 2]","musicas/09 Honey Pie.mp3"],["Savoy Truffle","The Beatles (White Album) [Disc 2]","musicas/10 Savoy Truffle.mp3"],["Cry Baby Cry","The Beatles (White Album) [Disc 2]","musicas/11 Cry Baby Cry.mp3"],["Revolution 9","The Beatles (White Album) [Disc 2]","musicas/12 Revolution 9.mp3"],["Good Night","The Beatles (White Album) [Disc 2]","musicas/13 Good Night.mp3"],["It Won't Be Long","With The Beatles","musicas/01 It Won't Be Long.mp3"],["All I've Got To Do","With The Beatles","musicas/02 All I've Got To Do.mp3"],["All My Loving","With The Beatles","musicas/03 All My Loving.mp3"],["Don't Bother Me","With The Beatles","musicas/04 Don't Bother Me.mp3"],["Little Child","With The Beatles","musicas/05 Little Child.mp3"],["Till There Was You","With The Beatles","musicas/06 Till There Was You.mp3"],["Please Mister Postman","With The Beatles","musicas/07 Please Mister Postman.mp3"],["Roll Over Beethoven","With The Beatles","musicas/08 Roll Over Beethoven.mp3"],["Hold Me Tight","With The Beatles","musicas/09 Hold Me Tight.mp3"],["You Really Got A Hold On Me","With The Beatles","musicas/10 You Really Got A Hold On Me.mp3"],["I Wanna Be Your Man","With The Beatles","musicas/11 I Wanna Be Your Man.mp3"],["Devil In Her Heart","With The Beatles","musicas/12 Devil In Her Heart.mp3"],["Not A Second Time","With The Beatles","musicas/13 Not A Second Time.mp3"],["Money (That's What I Want)","With The Beatles","musicas/14 Money (That's What I Want).mp3"],["Yellow Submarine","Yellow Submarine","musicas/01 Yellow Submarine.mp3"],["Only A Northern Song","Yellow Submarine","musicas/02 Only A Northern Song.mp3"],["All Together Now","Yellow Submarine","musicas/03 All Together Now.mp3"],["Hey Bulldog","Yellow Submarine","musicas/04 Hey Bulldog.mp3"],["It's All Too Much","Yellow Submarine","musicas/05 It's All Too Much.mp3"],["All You Need Is Love","Yellow Submarine","musicas/06 All You Need Is Love.mp3"],["Pepperland","Yellow Submarine","musicas/07 Pepperland.mp3"],["Sea Of Time","Yellow Submarine","musicas/08 Sea Of Time.mp3"],["Sea Of Holes","Yellow Submarine","musicas/09 Sea Of Holes.mp3"],["Sea Of Monsters","Yellow Submarine","musicas/10 Sea Of Monsters.mp3"],["March Of The Meanies","Yellow Submarine","musicas/11 March Of The Meanies.mp3"],["Pepperland Laid Waste","Yellow Submarine","musicas/12 Pepperland Laid Waste.mp3"],["Yellow Submarine In Pepperland","Yellow Submarine","musicas/13 Yellow Submarine In Pepperland.mp3"],["Love Me Do","Past Masters, Volume One","musicas/01 Love Me Do.mp3"],["From Me To You","Past Masters, Volume One","musicas/02 From Me To You.mp3"],["Thank You Girl","Past Masters, Volume One","musicas/03 Thank You Girl.mp3"],["She Loves You","Past Masters, Volume One","musicas/04 She Loves You.mp3"],["I'll Get You","Past Masters, Volume One","musicas/05 I'll Get You.mp3"],["I Want To Hold Your Hand","Past Masters, Volume One","musicas/06 I Want To Hold Your Hand.mp3"],["This Boy","Past Masters, Volume One","musicas/07 This Boy.mp3"],["Komm, Gib Mir Deine Hand","Past Masters, Volume One","musicas/08 Komm, Gib Mir Deine Hand.mp3"],["Sie Liebt Dich","Past Masters, Volume One","musicas/09 Sie Liebt Dich.mp3"],["Long Tall Sally","Past Masters, Volume One","musicas/10 Long Tall Sally.mp3"],["I Call Your Name","Past Masters, Volume One","musicas/11 I Call Your Name.mp3"],["Slow Down","Past Masters, Volume One","musicas/12 Slow Down.mp3"],["Matchbox","Past Masters, Volume One","musicas/13 Matchbox.mp3"],["I Feel Fine","Past Masters, Volume One","musicas/14 I Feel Fine.mp3"],["She's A Woman","Past Masters, Volume One","musicas/15 She's A Woman.mp3"],["Bad Boy","Past Masters, Volume One","musicas/16 Bad Boy.mp3"],["Yes It Is","Past Masters, Volume One","musicas/17 Yes It Is.mp3"],["I'm Down","Past Masters, Volume One","musicas/18 I'm Down.mp3"],["Day Tripper","Past Masters, Volume Two","musicas/01 Day Tripper.mp3"],["We Can Work It Out","Past Masters, Volume Two","musicas/02 We Can Work It Out.mp3"],["Paperback Writer","Past Masters, Volume Two","musicas/03 Paperback Writer.mp3"],["Rain","Past Masters, Volume Two","musicas/04 Rain.mp3"],["Lady Madonna","Past Masters, Volume Two","musicas/05 Lady Madonna.mp3"],["The Inner Light","Past Masters, Volume Two","musicas/06 The Inner Light.mp3"],["Hey Jude","Past Masters, Volume Two","musicas/07 Hey Jude.mp3"],["Revolution","Past Masters, Volume Two","musicas/08 Revolution.mp3"],["Get Back","Past Masters, Volume Two","musicas/09 Get Back.mp3"],["Don't Let Me Down","Past Masters, Volume Two","musicas/10 Don't Let Me Down.mp3"],["The Ballad Of John And Yoko","Past Masters, Volume Two","musicas/11 The Ballad Of John And Yoko.mp3"],["Old Brown Shoe","Past Masters, Volume Two","musicas/12 Old Brown Shoe.mp3"],["Across The Universe","Past Masters, Volume Two","musicas/13 Across The Universe.mp3"],["Let It Be","Past Masters, Volume Two","musicas/14 Let It Be.mp3"],["You Know My Name (Look Up The Number)","Past Masters, Volume Two","musicas/15 You Know My Name (Look Up The Number).mp3"]]
+];
+
+// configurações de questões
+let perguntasPermitidas = [];
+let filtros = [];
+let tipoResposta;
+let questaoAtual;
+let dicaAtual = 0;
+
+// variáveis de estilo
+let primeiraCor = '#4b538b', segundaCor = '#f7a21b';
+
+// configurações de áudio
+let efeitoSonoro;
+let trechoAtual;
+let quantidadeTrechos = 3;
+let tempoReproducao = 1;
+let audioTocando = false;
+
+// variáveis de controle geral
+let fimJogo = false;
+let respostaDada = false;
+let toleranciaResposta = 2;
+let datasetComAudio = false;
+let configuracoesDefinidas = false;
+let multiplaEscolha = false;
+let quantidadeSugestoes = 3;
+let dicasUsadas = 0;
+let pontuacao = 0;
+let desempenho = 0;
+let fasesJogadas = 0;
+let anterior = null, listaAnteriores = [];
+let maximoOcorrencias = 1;
+let tamanhoMaximoListaAnteriores = maximoOcorrencias * dataset[1].length;
+let finalizarPartidaMaxAnteriores = false;
+let streak = 0;
+let melhorStreak = Number.NEGATIVE_INFINITY;
+let repetirQuestoesErradas = false;
+let questoesErradas = [];
+
+let tempoInicioPergunta, tempoFinalPergunta;
+let melhorTempo = Number.POSITIVE_INFINITY;
+
+// intervalos
+let intervaloPergunta, intervaloGeral;
+let widthGeralAtual = 100, widthPerguntaAtual = 0;
+let tempoJogoMinutos = 5;
+let tempoPerguntaSegundos = 10;
+
+const aleatorio = (min, max) => {
+       return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min);
+}
+const aleatorioLista = (lista, restricao = false) => {
+       posicao = aleatorio(0, lista.length - 1);
+       return lista[posicao];
+}
+
+const posicaoCabecalho = (cabecalho) => {
+    for (let i = 0; i < dataset[0].length; i++) {
+        if (cabecalho === dataset[0][i])
+            return i;
+    }
+
+    return -1;
+}
+
+const algumIgual = (elemento, lista) => {
+    for (let i = 0; i < lista.length; i++) {
+        if (lista[i] === elemento)
+            return true;
+    }
+
+    return false;
+}
+
+const algumIgualFiltro = (elemento, lista) => {
+    for (let i = 0; i < elemento.length; i++) {
+        if (algumIgual(elemento[i], lista))
+            return true;
+    }
+
+    return false;
+}
+
+const arraysIguais = (a1, a2) => {
+    if (!a1 || !a2)
+        return false;
+
+    if (a1.length !== a2.length)
+        return false;
+
+    for (let i = 0; i < a1.length; i++) {
+        if (a1[i] !== a2[i])
+            return false;
+    }
+
+    return true;
+}
+
+const copia = (elemento) => {
+    return JSON.parse(JSON.stringify(elemento));
+}
+
+const ocorrenciasNaLista = (elemento, lista) => {
+    let total = 0;
+    for (let i = 0; i < lista.length; i++) {
+        if (lista[i] === elemento || arraysIguais(lista[i], elemento))
+            total++;
+    }
+
+    return total;    
+}
+
+const removeFoguinhos = () => {
+    let foguinhos = document.querySelectorAll('.foguinho');
+    foguinhos.forEach(foguinho => {
+        foguinho.remove();
+    });
+}
+
+const criaFoguinho = () => {
+    let div = document.createElement('div');
+    div.classList.add('foguinho');
+    div.style.setProperty('left', `${aleatorio(0, 100)}%`);
+    document.querySelector('body').appendChild(div);
+}
+
+const geraQuestaoAleatoria = () => {
+    if (questoesErradas.length > 0 && repetirQuestoesErradas) {
+        if (aleatorio(0, 1) === 1) {
+            return questoesErradas.pop();
+        }
+    }
+
+    let posicoesPermitidas = [];
+    for (let i = 0; i < perguntasPermitidas.length; i++) {
+        posicoesPermitidas.push(posicaoCabecalho(perguntasPermitidas[i]));
+    }
+
+    // o dataset possui um número infinito de questões; logo, se o usuário definir um número baixo de ocorrências por questões, uma hora não será possível mais gerar questões novas; isso acontece quando o tamanho da listaAnteriores é igual ao tamanhoMaximoListaAnteriores (que consiste no número de ocorrências por questão vezes a quantidade possível de perguntas); daí, é necessário resetar a listaAnteriores ou finalizar a partida
+    if (listaAnteriores.length >= tamanhoMaximoListaAnteriores) {
+        listaAnteriores = [];
+        if (finalizarPartidaMaxAnteriores) {
+            trataResultadoFinal();
+            return;
+        }
+    }
+
+    let posicaoPerguntaAleatoria, elementoAleatorio, pseudoElemento, maxIter = 1000, iter = 0;
+    do {
+        elementoAleatorio = aleatorioLista(dataset[1]);
+        posicaoPerguntaAleatoria = aleatorio(0, elementoAleatorio.length - 1);
+        // o pseudoElemento é uma forma de manter todas as informações da questão em um array, para que se possa comparar com as questões anteriores e verificar se é igual a anterior ou se já bateu o número máximo de ocorrências; afinal, a questão mesmo adquire formato json no final da função
+        pseudoElemento = copia(elementoAleatorio);
+        pseudoElemento.push(posicaoPerguntaAleatoria);
+
+        iter++;
+
+        if (iter >= maxIter) {
+            alert('Muitas iterações.');
+            break;
+        }
+
+    } while (!algumIgual(posicaoPerguntaAleatoria, posicoesPermitidas) || algumIgualFiltro(elementoAleatorio, filtros) || ocorrenciasNaLista(pseudoElemento, listaAnteriores) >= maximoOcorrencias || arraysIguais(pseudoElemento, anterior));
+
+    anterior = pseudoElemento;
+    listaAnteriores.push(pseudoElemento);
+
+    let perguntaDefinida = elementoAleatorio[posicaoPerguntaAleatoria];
+    let respostaDefinida = elementoAleatorio[posicaoCabecalho(tipoResposta)];
+    let dicas = [];
+
+    for (let i = 0; i < elementoAleatorio.length; i++) {
+        if (!algumIgual(i, posicoesPermitidas) && i !== posicaoCabecalho(tipoResposta)) {
+            let cabecalho = dataset[0][i];
+            let dica = elementoAleatorio[i];
+
+            if (tipoPergunta(dica) !== 'audio') {
+                 dicas.push({
+                    cabecalho,
+                    dica
+                });               
+            }
+        }
+    }
+
+    return {
+        pergunta: perguntaDefinida,
+        resposta: respostaDefinida,
+        dicas
+    };
+}
+
+const executaAudioQuestao = (nome, loop = false, trecho = 0, duracao = 1) => {
+    efeitoSonoro = new Audio(nome);
+    efeitoSonoro.loop = loop;
+    efeitoSonoro.currentTime = trecho;
+    btnPlay.querySelector('i').classList.remove('bi-play-fill');
+    btnPlay.querySelector('i').classList.add('bi-pause-fill');
+    efeitoSonoro.addEventListener('timeupdate', function() {
+        if (efeitoSonoro.currentTime >= trecho + duracao) { // para a a reprodução se o tempo atual for maior ou igual ao tempo gerado aleatoriamente + o incremento de 1 segundo
+            efeitoSonoro.pause();
+            efeitoSonoro.currentTime = trecho;
+            document.querySelector('#btnPlay').querySelector('i').classList.add('bi-play-fill');
+            document.querySelector('#btnPlay').querySelector('i').classList.remove('bi-pause-fill');
+            audioTocando = false;
+        }
+    });
+
+    efeitoSonoro.play();
+    audioTocando = true;
+}
+
+const executaEfeitoSonoro = (nome) => {
+    efeitoSonoro = new Audio(nome);
+    efeitoSonoro.play();
+}
+
+const resetaBgControles = () => {
+    let controlesPlay = document.querySelectorAll('.controlesPlay div');
+    controlesPlay.forEach(controlePlay => {
+        controlePlay.style.backgroundColor = primeiraCor;
+    });
+}
+
+const geraAudio = (quantidadeTrechos, nome = 'audio-teste.mp3') => {
+    pergunta.innerHTML = '';
+    let btnPlay = document.createElement('button');
+    btnPlay.id = 'btnPlay';
+
+    let iconPlay = document.createElement('i');
+    iconPlay.classList.add('bi');
+    iconPlay.classList.add('bi-play-fill');
+
+    btnPlay.appendChild(iconPlay);
+
+    btnPlay.addEventListener('click', () => {
+        if (!audioTocando) {
+            audioTocando = true;
+            executaAudioQuestao(nome, false, trechoAtual, tempoReproducao);
+        } else {
+            if (!respostaDada) {
+                audioTocando = false
+                efeitoSonoro.pause();
+                document.querySelector('#btnPlay').querySelector('i').classList.add('bi-play-fill');
+                document.querySelector('#btnPlay').querySelector('i').classList.remove('bi-pause-fill');
+            }
+        }
+    });
+
+    pergunta.appendChild(btnPlay);
+
+    if (quantidadeTrechos > 1) {
+        let controlesPlay = document.createElement('div');
+        controlesPlay.classList.add('controlesPlay');
+
+        const tmpEfeitoSonoro = new Audio(nome);
+        tmpEfeitoSonoro.addEventListener('loadedmetadata', function() {
+            let duracaoEfeitoSonoro = tmpEfeitoSonoro.duration;
+            for (let i = 0; i < quantidadeTrechos; i++) {
+                let controle = document.createElement('div');
+                controle.setAttribute('data-inicio', aleatorio(0, duracaoEfeitoSonoro - 15))
+                controle.addEventListener('click', () => {
+                    dicasUsadas++;
+                    resetaBgControles();
+                    controle.style.backgroundColor = segundaCor;
+                    trechoAtual = parseInt(controle.dataset.inicio);
+
+                    if (!audioTocando) {
+                        audioTocando = true;
+                        executaAudioQuestao(nome, false, trechoAtual, tempoReproducao);
+                    } else {
+                        audioTocando = false
+                        efeitoSonoro.pause();
+                        document.querySelector('#btnPlay').querySelector('i').classList.add('bi-play-fill');
+                        document.querySelector('#btnPlay').querySelector('i').classList.remove('bi-pause-fill');
+                    }
+                });
+
+                if (i === 0)
+                    controle.style.backgroundColor = segundaCor;
+
+                controlesPlay.appendChild(controle);
+            }
+
+            pergunta.appendChild(controlesPlay);
+        });
+    }
+}
+
+const geraImagem = (src) => {
+    pergunta.innerHTML = '';
+    const img = document.createElement('img');
+    img.src = src;
+    pergunta.append(img);
+}
+
+const geraTexto = (conteudo) => {
+    pergunta.innerHTML = '';
+    const txt = document.createElement('p');
+    txt.innerText = conteudo + '?';
+    pergunta.append(txt);
+}
+
+const tipoPergunta = (pergunta) => {
+    if (pergunta.search('mp3') !== -1) {
+        return 'audio';
+    } else if (pergunta.search('png') !== -1 || pergunta.search('jpg') !== -1) {
+        return 'imagem';
+    } else {
+        return 'texto';
+    }
+}
+
+const insereQuestaoAleatoria = () => {
+    if (fimJogo) return;
+
+    questaoAtual = geraQuestaoAleatoria();
+
+    if (!questaoAtual) return;
+
+    switch (tipoPergunta(questaoAtual.pergunta)) {
+        case 'audio':
+            geraAudio(quantidadeTrechos, questaoAtual.pergunta);
+            break;
+        case 'imagem':
+            geraImagem(questaoAtual.pergunta);
+            break;
+        case 'texto':
+            geraTexto(questaoAtual.pergunta);
+            break;
+    }
+}
+
+function removerAcentos(texto) {
+    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+const levenshteinDistance = (a, b, corte = true) => {
        if (a.length === 0) return b.length;
        if (b.length === 0) return a.length;
+
+       a = removerAcentos(a.toLowerCase());
+       b = removerAcentos(b.toLowerCase());
+
+       if (corte) {
+           if (a.length > b.length) {
+                let diferenca = a.length - b.length;
+                a = a.slice(0, a.length - diferenca);
+           } else if (a.length < b.length) {
+                let diferenca = b.length - a.length;
+                b = b.slice(0, b.length - diferenca);
+           }
+       }
 
        let matrix = [];
 
@@ -29,525 +397,543 @@ const levenshteinDistance = (a, b) => {
        return matrix[b.length][a.length];
 }
 
-const buscaAutor = (musica) => {
-       let maisProxima = Number.POSITIVE_INFINITY;
-       let autor;
-       for (let i = 0; i < autores.length; i++) {
-              let musicaNormalizada = musica.slice(3);
-              let distancia = levenshteinDistance(musicaNormalizada, autores[i].titulo);
-              if (distancia < maisProxima) {
-                     maisProxima = distancia;
-                     autor = autores[i].autores;
-              }
-       }
-
-       return autor;
-};
-
-const aleatorio = (min, max) => {
-       return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min);
-}
-const aleatorioLista = (lista, restricao = false) => {
-       posicao = aleatorio(0, lista.length - 1);
-       return lista[posicao];
-}
-
-const restricaoAlbuns = () => {
-       let considerados = [];
-       let checks = [... document.querySelectorAll('.check')];
-       checks.forEach(check => {
-              if (check.checked) {
-                     considerados.push(parseInt(check.id));
-              }
-       });
-
-       albunsConsiderados = considerados;
-}
-
-const btnPlay = document.querySelector('#btnPlay');
-const btnProxima = document.querySelector('#btnProxima');
-const btnDica = document.querySelector('#btnDica');
-const btnNovoTrecho = document.querySelector('#btnNovoTrecho');
-const resposta = document.querySelector('#resposta');
-const dicas = document.querySelector('#dicas');
-const templateAudio = document.querySelector('#templateAudio');
-const btnDuracao = document.querySelector('#btnDuracao');
-const toast = document.querySelector('#toast');
-const infoStreak = document.querySelector('#infoStreak');
-const modal = document.querySelector('.bg-modal');
-const fecharModal = document.querySelector('#fecharModal');
-
-let limiteDicas = 3;
-let limiteToques = 2;
-let incremento = 1;
-let incrementoInicial = incremento;
-
-let toquesUsados = 0;
-let musicasTocadas = 1;
-let acertos = 0;
-let desempenho = 0;
-let streak = 0;
-let errou = false;
-let houveTentativa = false;
-let incrementoLimiteToques = limiteToques;
-let toastAtivo = true;
-let albunsConsiderados;
-
-let configuracao = JSON.parse(localStorage.getItem('configuracao'));
-const config_tempoReproducao = document.querySelector('#config_tempoReproducao');
-const config_limiteToques = document.querySelector('#config_limiteToques');
-const config_limiteDicas = document.querySelector('#config_limiteDicas');
-const toggleToast = document.getElementById('toggleToast');
-const switchToast = document.getElementById('switchToast');
-
-let trechosGerados = [];
-const escolhaTrechosGerados = document.getElementById('escolhaTrechosGerados');
-const listaTrechos = document.getElementById('listaTrechos');
-const respostaUsuario = document.getElementById('respostaUsuario');
-
-const trataTrechosGerados = () => {
-       listaTrechos.innerHTML = '';
-       let ul = document.createElement('ul');
-       listaTrechos.appendChild(ul);
-       let contador = 1;
-       trechosGerados.forEach(trecho => {
-              let li = document.createElement('li');
-              li.classList.add('trecho-gerado');
-              li.setAttribute('tempo', trecho);
-              li.textContent = `Trecho ${contador}`;
-              ul.appendChild(li);
-              contador++;
-       });
-
-       let todosTrechosGerados = [... document.querySelectorAll('.trecho-gerado')];
-       todosTrechosGerados.forEach(trecho => {
-              trecho.addEventListener('click', () => {
-              	       if (toquesUsados < limiteToques) {
-							toquesUsados++;
-							console.log(trecho.getAttribute('tempo'));
-							tempoAleatorio = parseInt(trecho.getAttribute('tempo'));
-							audio.currentTime = parseInt(trecho.getAttribute('tempo'));
-							audio.play();
-							document.querySelector('#vinil img').style.animation = 'rotate 5s linear infinite';
-							btnPlay.querySelector('i').classList.remove('bi-play-fill');
-							btnPlay.querySelector('i').classList.add('bi-pause-fill');
-              	       } else {
-              	       		exibeToast('Você atingiu seu limite de toques.', 'brown');
-              	       }
-              });
-       });
-}
-
-if (configuracao) {
-       limiteDicas = configuracao.limiteDicas;
-       config_limiteDicas.value = limiteDicas;
-       limiteToques = configuracao.limiteToques;
-       config_limiteToques.value = limiteToques;
-       incremento = configuracao.incremento;
-       config_tempoReproducao.value = incremento;
-       toastAtivo = configuracao.toastAtivo;
-
-       if (!toastAtivo) {
-              toastAtivo = false;
-              switchToast.style.marginRight = '0';
-              switchToast.style.marginLeft = '50%';
-              switchToast.style.backgroundColor = 'brown';
-       } else {
-              toastAtivo = true;
-              switchToast.style.marginRight = '50%';
-              switchToast.style.marginLeft = '0';
-              switchToast.style.backgroundColor = 'green';
-       }
-}
-
-
-const btnSalvar = document.querySelector('#btnSalvar');
-let musica = document.querySelector('#musica');
-let albumEscolhido, musicaEscolhida, audio, tempoAleatorio;
-
-toggleToast.addEventListener('click', () => {
-       if (toastAtivo) {
-              toastAtivo = false;
-              switchToast.style.marginRight = '0';
-              switchToast.style.marginLeft = '50%';
-              switchToast.style.backgroundColor = 'brown';
-       } else {
-              toastAtivo = true;
-              switchToast.style.marginRight = '50%';
-              switchToast.style.marginLeft = '0';
-              switchToast.style.backgroundColor = 'green';
-       }
-});
-
-let pontuacao = 0;
-let pontuacaoAtual = 10;
-let dicasUsadas = 0;
-infoStreak.textContent = streak;
-document.getElementById('pontuacaoJogador').textContent = pontuacao;
-
-const trataNovaDuracao = () => {
-       if (dicasUsadas < limiteDicas) {
-              pontuacaoAtual -= 1;
-              incremento += 0.5;
-              dicasUsadas++;
-              exibeToast(`Agora a música vai tocar por ${incremento} segundos. Você tem mais ${limiteDicas - dicasUsadas} dica(s)`);
-       } else {
-              exibeToast('Você atingiu o seu limite de dicas.', 'brown');
-       }
-}
-
-btnDuracao.addEventListener('click', trataNovaDuracao);
-
-const geraMusica = () => {
-	tocando = false;
-	musica.innerHTML = '';
-	let clone = templateAudio.content.cloneNode(true);
-	musica.appendChild(clone);
-	audio = document.querySelector('audio');
-       let posAlbum = aleatorioLista(albunsConsiderados);
-       albumEscolhido = novoDataset[posAlbum];
-	musicaEscolhida = aleatorioLista(albumEscolhido.musicas);
-	audio.setAttribute('src', `musicas/${musicaEscolhida}.mp3`);
-	audio.addEventListener('loadedmetadata', function() {
-		// loadedmetadata para esperar até que os metadados do arquivo de áudio sejam carregados
-		tempoAleatorio = aleatorio(0, audio.duration - 15);
-              trechosGerados.push(tempoAleatorio);
-              trataTrechosGerados();
-		audio.currentTime = tempoAleatorio; // começa a reproduzir 60 segundos após o início
-		audio.addEventListener('timeupdate', function() {
-			if (audio.currentTime >= tempoAleatorio + incremento) { // para a a reprodução se o tempo atual for maior ou igual ao tempo gerado aleatoriamente + o incremento de 1 segundo
-				document.querySelector('#vinil img').style.animation = '';
-                            audio.pause();
-				btnPlay.querySelector('i').classList.add('bi-play-fill');
-				btnPlay.querySelector('i').classList.remove('bi-pause-fill');
-				audio.currentTime = tempoAleatorio;
-				tocando = false;
-			}
-		});
-	});
-
-       
-}
-
-const exibeToast = (msg, color = 'green', tempo = 2000, essencial = false) => {
-       if (toastAtivo || essencial) {
-              toast.textContent = msg;
-              toast.style.display = 'block'
-              toast.style.backgroundColor = color;
-              setTimeout(() => {
-                     toast.style.display = 'none'
-              }, tempo);
-       }
-}
-
-const trataPlay = () => {
-       if (toquesUsados < limiteToques) {
-              toquesUsados++;
-              if (!tocando) {
-                     btnPlay.querySelector('i').classList.remove('bi-play-fill');
-                     btnPlay.querySelector('i').classList.add('bi-pause-fill');
-                     audio.pause();
-                     audio.currentTime = tempoAleatorio;
-                     audio.play();
-                     tocando = true;
-                     document.querySelector('#vinil img').style.animation = 'rotate 5s linear infinite';
-              } else {
-                     btnPlay.querySelector('i').classList.add('bi-play-fill');
-                     btnPlay.querySelector('i').classList.remove('bi-pause-fill');
-                     audio.pause();
-                     tocando = false;
-                     document.querySelector('#vinil img').style.animation = '';
-              }
-       } else {
-              exibeToast('Você atingiu seu limite de toques para este trecho.');
-       }
-}
-
-let tocando = false;
-btnPlay.addEventListener('click', trataPlay);
-
-const trataProxima = () => {
-       if (houveTentativa) {
-              respostaUsuario.removeAttribute('readonly');
-              document.querySelector('.prosseguimento').style.bottom = '9.5rem';
-              trechosGerados = [];
-              listaTrechos.innerHTML = '';
-              document.querySelector('#btnEnviar').style.display = 'inline-block';
-              respostaUsuario.style.border = '3px solid #1e0c42';
-              btnDica.style.display = 'inline-block';
-              btnNovoTrecho.style.display = 'inline-block';
-              btnDuracao.style.display = 'inline-block';
-              document.querySelector('#escolhaTrechosGerados').style.display = 'block';
-              errou = false;
-              houveTentativa = false;
-              desempenho = (pontuacao / (musicasTocadas * 10)) * 100 || 0;
-              musicasTocadas++;
-              document.getElementById('pontuacaoJogador').textContent = `${pontuacao} (${Math.round(desempenho).toFixed(0)}%)`;
-              pontuacaoAtual = 10;
-              document.querySelector('#vinil img').style.animation = '';
-              document.querySelector('#respostaUsuario').value = '';
-              dicasUsadas = 0;
-              dicaAtual = 0;
-              limiteToques = 3;
-              toquesUsados = 0;
-              infoStreak.textContent = streak;
-              incremento = incrementoInicial;
-              resposta.textContent = '';
-              resposta.classList.add('borrado');
-              dicas.textContent = '';
-              dicas.style.display = 'none';
-              btnPlay.querySelector('i').classList.remove('bi-pause-fill');
-              btnPlay.querySelector('i').classList.add('bi-play-fill');
-              geraMusica();
-              exibeToast('Uma nova música foi gerada. Boa sorte.');
-       } else {
-              exibeToast('Você deve palpitar antes de partir para a próxima.', 'brown');
-       }
-}
-
-const trataNovoTrecho = () => {
-       if (dicasUsadas < limiteDicas) {
-              limiteToques += incrementoLimiteToques;
-              tempoAleatorio = aleatorio(0, audio.duration - 10);
-              trechosGerados.push(tempoAleatorio);
-              trataTrechosGerados();
-              audio.currentTime = tempoAleatorio;
-              dicasUsadas++;
-              exibeToast(`Novo trecho gerado. Você tem mais ${limiteDicas - dicasUsadas} dica(s).`);
-              pontuacaoAtual -= 1;
-       } else {
-              exibeToast('Você atingiu o limite de dicas.', 'brown');
-       }
-}
-
-btnProxima.addEventListener('click', trataProxima);
-btnNovoTrecho.addEventListener('click', trataNovoTrecho);
-
-const elementoNaLista = (elemento, lista) => {
-	for (let i = 0; i < lista.length; i++) {
-		if (elemento === lista[i])
-			return true;
-	}
-
-	return false;
-};
-
-const trataDicaTextual = () => {
-       if (dicasUsadas < limiteDicas && dicaAtual < 2) {
-              let li = document.createElement('li');
-              let span = document.createElement('span');
-              switch(dicaAtual) {
-                     case 0:
-                            pontuacaoAtual -= 1;
-                            span.textContent = `${albumEscolhido.album}`;
-                            li.textContent = `Do álbum `;
-                            li.appendChild(span);
-                            break;
-                     case 1:
-                            pontuacaoAtual -= 1;
-                            span.textContent = `${buscaAutor(musicaEscolhida)}`;
-                            li.textContent = `Composta por `;
-                            li.appendChild(span);
-                            break;
-              }
-              dicas.style.display = 'block';
-              dicas.appendChild(li);
-              dicasUsadas++;
-              dicaAtual++;
-              exibeToast(`Você tem mais ${limiteDicas - dicasUsadas} dica(s).`);
-
-       } else {
-              exibeToast('Você atingiu o limite de dicas ou não é possível pegar mais dicas desse tipo.', 'brown');
-       }
-};
-
-let dicaAtual = 0;
-btnDica.addEventListener('click', trataDicaTextual);
-
-abrirConfig.addEventListener('click', () => {
-	modal.style.display = 'flex';
-});
-
-fecharModal.addEventListener('click', () => {
-	modal.style.display = 'none';
-});
-
-document.addEventListener('click', (e) => {
-       if (e.target !== modal.querySelector('.modal') && e.target === modal) {
-              modal.style.display = 'none';
-       }
-});
-
-btnSalvar.addEventListener('click', () => {
-	incremento = parseFloat(config_tempoReproducao.value);
-       limiteDicas = parseInt(config_limiteDicas.value);
-       limiteToques = parseInt(config_limiteToques.value);
-	incrementoInicial = parseFloat(config_tempoReproducao.value);
-
-       configuracao = {
-              limiteDicas,
-              limiteToques,
-              incremento,
-              toastAtivo
-       };
-
-       restricaoAlbuns();
-
-       localStorage.setItem('configuracao', JSON.stringify(configuracao));
-	exibeToast('Configurações salvas.', color = 'green', tempo = 2000, essencial = true);
-});
 
 const trataEnvio = () => {
-       // exibe as dicas no final, independente de ter acertado ou errado, para que o jogador tenha acesso a essa informação e possa aprender, caso já não saiba
-       dicas.innerHTML = '';
-       document.querySelector('.prosseguimento').style.bottom = '10%';
-       let li_1 = document.createElement('li');
-       let span_1 = document.createElement('span');
-       span_1.textContent = `${albumEscolhido.album}`;
-       li_1.textContent = `Do álbum `;
-       li_1.appendChild(span_1);
-       dicas.appendChild(li_1);
+    if (fimJogo) return;
 
-       let li_2 = document.createElement('li');
-       let span_2 = document.createElement('span');
-       span_2.textContent = `${buscaAutor(musicaEscolhida)}`;
-       li_2.textContent = `Composta por `;
-       li_2.appendChild(span_2);
-       dicas.appendChild(li_2);
+    if (efeitoSonoro) efeitoSonoro.pause();
 
-       dicas.style.display = 'block';
+    if (levenshteinDistance(questaoAtual.resposta, respostaUsuario.value, corte = false) <= toleranciaResposta) {
+        respostaCorreta.innerText =  "Parabéns, você acertou!";
+        respostaCorreta.style.color = primeiraCor;
+        pontuacao += 10 - dicasUsadas;
+        
+        // tempo
+        const d = new Date();
+        tempoFinalPergunta = d.getTime();
+        let tempoResposta = tempoFinalPergunta - tempoInicioPergunta;
+        if (tempoResposta < melhorTempo)
+            melhorTempo = tempoResposta;
 
-       resposta.classList.remove('borrado');
-       respostaDada = respostaUsuario.value;
+        // streak
+        streak++;
+        if (streak % 3 === 0) {
+            criaFoguinho();
+        }
 
-       let nomeNormalizado = musicaEscolhida.slice(3);
-       if (respostaDada.toLowerCase() === nomeNormalizado.toLowerCase() && !errou) {
-              pontuacao += pontuacaoAtual;
-              resposta.textContent = nomeNormalizado;
-              incremento = 10;
-              streak++;
-              switch(streak) {
-                     case 1:
-                     case 2:
-                            exibeToast('Parabéns, você acertou!', 'darkgreen', tempo = 2000, essencial = true);
-                            break;
-                     case 3:
-                            exibeToast('Uau, é seu terceiro acerto seguido!', 'darkgreen', tempo = 2000, essencial = true);
-                            break;
-                     case 5:
-                            exibeToast('Incrível, cinco acertos seguidos não é pra qualquer um!', 'darkgreen', tempo = 2000, essencial = true);
-                            break;
-                     case 7:
-                            exibeToast('Fabuloso, são sete vezes sem errar!', 'darkgreen', tempo = 2000, essencial = true);
-                            break;
-                     case 10:
-                            exibeToast('Estou sem palavras! DEZ acertos seguidos!', 'darkgreen', tempo = 2000, essencial = true);
-                            break;
-                     case 15:
-                            exibeToast('Ok... Isso não é normal! 15 acertos seguidos!', 'darkgreen', tempo = 2000, essencial = true);
-                            break;
-                     case 25:
-                            exibeToast('Isso sequer deveria ser possível! Você está trapaceando?', 'darkgreen', tempo = 2000, essencial = true);
-                            break;
-                     case 50:
-                            exibeToast('Você é mesmo humano?', 'darkgreen', tempo = 2000, essencial = true);
-                            break;
-                     case 75:
-                            exibeToast('Impossível.', 'darkgreen', tempo = 2000, essencial = true);
-                            break;
-                     case 100:
-                            exibeToast('Uma máquina!', 'darkgreen', tempo = 2000, essencial = true);
-                            break;
-                     case 150:
-                            exibeToast('Profundo conhecedor dos Beatles.', 'purple', tempo = 5000, essencial = true);
-                            break;
-              }
+        executaEfeitoSonoro('1.wav');
+    } else {
+        questoesErradas.push(questaoAtual);
+        respostaCorreta.innerText =  `Oops! A resposta é "${questaoAtual.resposta}"!`;
+        respostaCorreta.style.color = segundaCor;
+        if (streak > melhorStreak)
+            melhorStreak = streak;
+        streak = 0;
+        removeFoguinhos();
+        executaEfeitoSonoro('0.wav');
+    }
 
-              respostaUsuario.style.border = '3px solid green';
-       } else {
-              errou = true;
-              exibeToast('Oops! Você errou! Continue tentando.', 'brown');
-              resposta.textContent = nomeNormalizado;
-              incremento = 10;
-              streak = 0;
-              pontuacaoAtual = 0;
-              respostaUsuario.style.border = '3px solid brown';
-       }
+    respostaCorreta.style.display = 'block';
+    controlesUsuario.style.display = 'none';
+    widthPerguntaAtual = 0;
+    window.clearInterval(intervaloPergunta);
+    intervaloPergunta = null;
+    fasesJogadas++;
 
-       btnPlay.querySelector('i').classList.remove('bi-play-fill');
-       btnPlay.querySelector('i').classList.add('bi-pause-fill');
-       document.querySelector('#vinil img').style.animation = 'rotate 5s linear infinite';
-       audio.pause();
-       audio.currentTime = tempoAleatorio;
-       audio.play();
-       tocando = true;
-       document.querySelector('#btnEnviar').style.display = 'none';
-       btnDica.style.display = 'none';
-       btnNovoTrecho.style.display = 'none';
-       btnDuracao.style.display = 'none';
-       document.querySelector('#escolhaTrechosGerados').style.display = 'none';
-       houveTentativa = true;
-       infoStreak.textContent = streak;
-       respostaUsuario.setAttribute('readonly', 'true');
+    if (datasetComAudio) {
+        if (!audioTocando) {
+            executaAudioQuestao(questaoAtual.pergunta, false, trechoAtual, 10);
+            audioTocando = true;
+        } else {
+            efeitoSonoro.pause();
+            audioTocando = false;
+            document.querySelector('#btnPlay').querySelector('i').classList.remove('bi-play-fill');
+            document.querySelector('#btnPlay').querySelector('i').classList.add('bi-pause-fill');
+            executaAudioQuestao(questaoAtual.pergunta, false, trechoAtual, 10);
+        }
+    }
+
+    respostaDada = true; 
 }
 
-document.addEventListener("keydown", (event) => {
-       switch(event.key) {
-              case 'Enter':
-                     if (!houveTentativa) {
-                            trataEnvio();
-                     } else {
-                            trataProxima();
-                     }
-                     break;
-              case '1':
-                     trataDicaTextual();
-                     break;
-              case '2':
-                     trataNovoTrecho();
-                     break;
-              case '3':
-                     trataNovaDuracao();
-                     break;
+const trataProxima = () => {
+    if (fimJogo) return;
+
+    const d = new Date();
+    tempoInicioPergunta = d.getTime();
+
+    respostaCorreta.innerText = '???';
+    respostaUsuario.value = '';
+    respostaDada = false;
+    respostaCorreta.style.display = 'none';
+    controlesUsuario.style.display = 'block';
+    dicasUsadas = 0;
+    dicaAtual = 0;
+
+    if (datasetComAudio) {
+        efeitoSonoro.pause();
+        audioTocando = false;
+    }
+
+    insereQuestaoAleatoria();
+    setaIntervaloPergunta(tempoPerguntaSegundos);
+
+    if (multiplaEscolha)
+        insereSugestoes(quantidadeSugestoes);
+}
+
+const menorDistancia = (elemento, lista, ignorar) => {
+    let maisProximo = Number.POSITIVE_INFINITY;
+    let resultado;
+    for (let i = 0; i < lista.length; i++) {
+        let distancia = levenshteinDistance(elemento, lista[i]);
+        if (distancia < maisProximo && !algumIgual(lista[i], ignorar)) {
+            maisProximo = distancia; 
+            resultado = lista[i];
+        }
+    }
+
+    return resultado;
+}
+
+function pegaColuna(matriz, posicaoColuna = 0, somenteEstasPosicoes = []) {
+       let coluna = [];
+       for (let i = 0; i < matriz.length; i++) {
+              coluna.push(matriz[i][posicaoColuna]);
        }
+
+       return coluna;
+}
+
+const insereSugestoes = (quantidade = 5) => {
+    if (fimJogo) return;
+    if (respostaUsuario.value === '' && !multiplaEscolha) return;
+
+    sugestoes.innerHTML = '';
+    let considerados = [];
+    let sugestoesGeradas = [];
+    let lista = pegaColuna(dataset[1], questaoAtual.posicaoResposta);
+    let maxIter = 100;
+    let iter = 0;
+    if (multiplaEscolha) {
+        let posicaoAleatoriaResposta = aleatorio(0, quantidade - 1);
+        for (let i = 0; i < quantidade; i++) {
+             if (i !== posicaoAleatoriaResposta) {
+                let alternativa;
+                iter = 0;
+                do {
+                    alternativa = aleatorioLista(lista);
+                    iter++;
+                    if (iter >= maxIter)
+                        break;
+                } while (alternativa === questaoAtual.resposta || algumIgual(alternativa, considerados));
+                considerados.push(alternativa);
+                sugestoesGeradas.push(alternativa);
+             } else {
+                sugestoesGeradas.push(questaoAtual.resposta);
+             }
+        }
+    } else {
+        for (let i = 0; i < quantidade; i++) {
+            let sugestao = menorDistancia(respostaUsuario.value, lista, considerados);
+            sugestoesGeradas.push(sugestao);
+            considerados.push(sugestao);
+        }        
+    }
+
+    for (let i = 0; i < quantidade; i++) {
+        let span = document.createElement('span');
+        span.classList.add('sugestao');
+        span.innerText = sugestoesGeradas[i];
+
+        span.addEventListener('click', () => {
+            respostaUsuario.value = span.innerText;
+        });
+
+        sugestoes.appendChild(span);
+    }
+}
+
+btnProxima.addEventListener('click', () => {
+    if (respostaDada) {
+        trataProxima();
+    } else {
+        respostaUsuario.focus();
+    }
 });
-document.querySelector('#btnEnviar').addEventListener("click", trataEnvio);
+btnEnviar.addEventListener('click', trataEnvio);
 
-restricaoAlbuns();
-geraMusica();
+document.addEventListener('keydown', e => {
+    switch(e.keyCode) {
+        case 13:
+            respostaUsuario.focus();
+            if (!respostaDada) {
+                trataEnvio();
+            } else {
+                trataProxima();
+            }
+            break;
+        case 9:
+            e.preventDefault();
+            respostaUsuario.focus();
+            break;
+        default:
+            if (configuracoesDefinidas && !multiplaEscolha)
+                insereSugestoes(quantidadeSugestoes);
+    }
+});
 
-// const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-// const audioSrc = "musicas/Because.mp3";
+// modais
+const fecharModal = document.querySelectorAll('.fecharModal');
+const bgModais = document.querySelectorAll('.bgModal');
 
-// async function tmp() {
-// 	const audioData = await fetchAudio(audioSrc);
-// 	audioContext.decodeAudioData(audioData, onDecoded, onDecodeError);
-// }
+const fechaModais = () => {
+    bgModais.forEach(bm => {
+        bm.style.display = 'none';
+    });
+}
 
-// function fetchAudio(url) {
-//   return new Promise((resolve, reject) => {
-// 	const request = new XMLHttpRequest();
-// 	request.open("GET", url, true);
-// 	request.responseType = "arraybuffer";
-// 	request.onload = () => resolve(request.response);
-// 	request.onerror = (e) => reject(e);
-// 	request.send();
-//   });
-// }
+btnConfig.addEventListener('click', () => {
+    configuracoes.style.display = 'flex';
+});
 
-// function onDecoded(buffer) {
-// 	// Play the song
-// 	console.log("Got the decoded buffer now play the song", buffer);
-// 	const source = audioContext.createBufferSource();
-// 	source.buffer = buffer;
-// 	source.connect(audioContext.destination);
-// 	source.loop = true;
-// 	source.start();
-// }
+btnDica.addEventListener('click', () => {
+    if (!questaoAtual) return;
 
-// function onDecodeError(e) {
-// 	console.log("Error decoding buffer: " + e.message);
-// 	console.log(e);
-// }
+    dicasUsadas++;
+    dicas.style.display = 'flex';
 
-// tmp();
+    if (dicaAtual < questaoAtual.dicas.length) {
+        let dica = document.createElement('p');
+        dica.classList.add('dica');
+        
+        if (tipoPergunta(questaoAtual.dicas[dicaAtual].dica) === 'imagem') {
+            let img = document.createElement('img');
+            img.src = questaoAtual.dicas[dicaAtual].dica;
+            dica.appendChild(img);
+        } else if (tipoPergunta(questaoAtual.dicas[dicaAtual].dica) === 'texto') {
+            dica.innerText = `${questaoAtual.dicas[dicaAtual].cabecalho}: ${questaoAtual.dicas[dicaAtual].dica}`;
+        }
+
+        document.querySelector('#secaoDicas').innerHTML = '';
+        document.querySelector('#secaoDicas').appendChild(dica);
+        dicaAtual++;
+    }
+        
+});
+
+function elementoNaLista(elemento, lista, obterPosicao = false) {
+       for (let i = 0; i < lista.length; i++) {
+              if (elemento === lista[i]) {
+                     if (!obterPosicao) {
+                            return true;
+                     } else {
+                            return i;
+                     }
+              }
+       }
+
+       return false;      
+}
+
+function distingueValores(lista) {
+       let distinguidos = [];
+       for (let i = 0; i < lista.length; i++) {
+              if (!elementoNaLista(lista[i], distinguidos)) {
+                     distinguidos.push(lista[i]);
+              }
+       }
+
+       return distinguidos;
+}
+
+function criaHTMLConfigFiltragem(cabecalho) {
+    let coluna = posicaoCabecalho(cabecalho);
+    let lista = pegaColuna(dataset[1], coluna);
+    let distinguidos = distingueValores(lista);
+
+    let h3 = document.createElement('h3');
+    let div = document.createElement('div');
+    div.classList.add('divModal');
+
+    h3.innerText = `Filtra ${cabecalho}`;
+    div.appendChild(h3);
+
+    for (let i = 0; i < distinguidos.length; i++) {
+        div.innerHTML += `<input type="checkbox" class="cb_filtragem" id="filtragem_${cabecalho}_${distinguidos[i]}" value="${distinguidos[i]}"> <label for="filtragem_${cabecalho}_${distinguidos[i]}">${distinguidos[i]}</label>`
+    }
+
+    document.querySelector('#configFiltros').appendChild(div);
+}
+
+
+function criaHTMLConfigPerguntas() {
+    let lista = dataset[0];
+
+    let h3 = document.createElement('h3');
+    let div = document.createElement('div');
+    div.classList.add('divModal');
+
+    h3.innerText = "Perguntas";
+    div.appendChild(h3);
+
+    for (let i = 0; i < lista.length; i++) {
+        if (i === lista.length - 1) {
+            div.innerHTML += `<input checked type="checkbox" class="cb_perguntas" id="perguntas_${lista[i]}" value="${lista[i]}"> <label for="perguntas_${lista[i]}">${lista[i]}</label>`
+        } else {
+            div.innerHTML += `<input type="checkbox" class="cb_perguntas" id="perguntas_${lista[i]}" value="${lista[i]}"> <label for="perguntas_${lista[i]}">${lista[i]}</label>`
+        }
+    }
+
+   document.querySelector('#configFiltros').appendChild(div);
+}
+
+function criaHTMLConfigResposta() {
+    let lista = dataset[0];
+
+    let h3 = document.createElement('h3');
+    let select = document.createElement('select');
+    let div = document.createElement('div');
+    div.classList.add('divModal');
+
+    h3.innerText = "Resposta";
+    div.appendChild(h3);
+    select.id = "config_resposta";
+
+    for (let i = 0; i < lista.length; i++) {
+        if (i === 0) {
+            select.innerHTML += `<option selected value="${lista[i]}">${lista[i]}</option>`
+        } else {
+            select.innerHTML += `<option value="${lista[i]}">${lista[i]}</option>`
+        }
+    }
+
+    div.appendChild(select);
+
+    document.querySelector('#configFiltros').appendChild(div);
+    configuracoes.querySelector('.modal').innerHTML += '<button id="btnIniciar">Iniciar</button>';
+    document.getElementById('btnIniciar').addEventListener('click', captaConfiguracaoDefinida);
+}
+
+const trataResultadoFinal = () => {
+    if (streak > melhorStreak)
+        melhorStreak = streak;
+
+    fimJogo = true;
+    removeFoguinhos();
+    window.clearInterval(intervaloPergunta);
+    window.clearInterval(intervaloGeral);
+    widthPerguntaAtual = 100;
+    widthGeralAtual = 100;
+    intervaloPergunta = null;
+    intervaloGeral = null;
+    resultadoFinal.style.display = 'flex';
+    geraTexto('Que tal iniciar uma nova partida nas configurações');
+
+    const pMelhorStreak = document.getElementById('melhorStreak');
+    const pMelhorTempo = document.getElementById('melhorTempo');
+    const pFasesJogadas = document.getElementById('fasesJogadas');
+    const pPontuacao = document.getElementById('pontuacao');
+    const pDesempenho = document.getElementById('desempenho');
+
+    const pRecordePontuacao = document.getElementById('recordePontuacao');
+    const pRecordeTempo = document.getElementById('recordeTempo');
+    const pRecordeStreak = document.getElementById('recordeStreak');
+
+    melhorTempo = melhorTempo / 1000;
+
+    pMelhorStreak.innerText = melhorStreak;
+    pMelhorTempo.innerText = `${melhorTempo} segundo(s)`;
+
+    pFasesJogadas.innerText = fasesJogadas;
+    desempenho = (pontuacao / (fasesJogadas * 10)) * 100;
+
+    pPontuacao.innerText = pontuacao;
+    pDesempenho.innerText = `${desempenho.toFixed(2)}%`;
+
+    // define recordes
+    let rp = localStorage.getItem('recordePontuacao');
+    let rt = localStorage.getItem('recordeTempo');
+    let rs = localStorage.getItem('recordeStreak');
+
+    if (!rp) {
+        localStorage.setItem('recordePontuacao', pontuacao);
+        pRecordePontuacao.innerText = pontuacao;
+    } else {
+        if (parseInt(rp) < pontuacao) {
+            localStorage.setItem('recordePontuacao', pontuacao);
+            pRecordePontuacao.innerText = pontuacao;
+        } else {
+            pRecordePontuacao.innerText = rp;
+        }
+    }
+
+    if (!rt) {
+        localStorage.setItem('recordeTempo', melhorTempo);
+        pRecordeTempo.innerText = `${melhorTempo} segundo(s)`;
+    } else {
+        if (melhorTempo < parseFloat(rt)) {
+            localStorage.setItem('recordeTempo', melhorTempo);
+            pRecordeTempo.innerText = `${melhorTempo} segundo(s)`;
+        } else {
+            pRecordeTempo.innerText = `${rt} segundo(s)`;
+        }
+    }
+
+    if (!rs) {
+        localStorage.setItem('recordeStreak', melhorStreak);
+        pRecordeStreak.innerText = melhorStreak;
+    } else {
+        if (parseFloat(rs) < melhorStreak) {
+            localStorage.setItem('recordeStreak', melhorStreak);
+            pRecordeStreak.innerText = melhorStreak;
+        } else {
+            pRecordeStreak.innerText = rs;
+        }
+    }
+}
+
+btnCompartilhar.addEventListener('click', () => {
+    navigator.clipboard.writeText(`💥 Resultado Final - Quiz💥\n\n🗨 Recorde de pontuação: ${localStorage.getItem('recordePontuacao')}\n🗨 Recorde de tempo: ${localStorage.getItem('recordeTempo')} segundo(s) \n🗨 Recorde de streak: ${localStorage.getItem('recordeStreak')}\n🗨 Fases jogadas: ${fasesJogadas}\n🗨 Pontuação: ${pontuacao}\n🗨 Melhor tempo: ${melhorTempo}\n🗨 Melhor streak: ${melhorStreak}\n🗨 Desempenho: ${desempenho}\n\n👉Acesse: ${window.location.href} para jogar!`);
+    btnCompartilhar.innerText = 'Copiado!';
+});
+
+function setaIntervaloGeral(tempo) {
+    let tempoReal = ((60 * 100) / 10) * tempo;
+    intervaloGeral = window.setInterval(() => {
+        tempoGeral.style.width = `${widthGeralAtual}%`;
+        if (widthGeralAtual > 0) {
+            widthGeralAtual -= 1;
+        } else {
+            trataResultadoFinal();
+        }
+    }, tempoReal);
+}
+
+function setaIntervaloPergunta(tempo) {
+    let tempoReal = (tempo * 100) / 10;
+    intervaloPergunta = window.setInterval(() => {
+        tempoPergunta.style.width = `${widthPerguntaAtual}%`;
+        if (widthPerguntaAtual < 100) {
+            widthPerguntaAtual += 1;
+        } else {
+            trataEnvio();
+        }
+    }, tempoReal);
+}
+
+const captaConfiguracaoDefinida = () => {
+    fimJogo = false;
+    sugestoes.innerHTML = '';
+    filtros = [];
+    perguntasPermitidas = [];
+    anterior = null;
+
+    window.clearInterval(intervaloPergunta);
+    window.clearInterval(intervaloGeral);
+    intervaloPergunta = null;
+    intervaloGeral = null;
+    respostaCorreta.innerText = '???';
+    respostaUsuario.value = '';
+    respostaDada = false;
+    respostaCorreta.style.display = 'none';
+    controlesUsuario.style.display = 'block';
+    dicasUsadas = 0;
+    
+    if (efeitoSonoro)
+        efeitoSonoro.pause();
+
+    const input_respostaEscrita = document.getElementById('respostaEscrita');
+    const input_naoQuebra = document.getElementById('naoQuebra');
+    const input_quantidadeTrechos = document.getElementById('quantidadeTrechos');
+    const input_simMultiplaEscolha = document.getElementById('simMultiplaEscolha');
+    const input_quantidadeSugestoes = document.getElementById('quantidadeSugestoes');
+    const input_numMaxOcorrencias = document.getElementById('numMaxOcorrencias');
+    const input_simFinalizar = document.getElementById('simFinalizar');
+    const input_simRepetir = document.getElementById('simRepetir');
+
+    maximoOcorrencias = parseInt(input_numMaxOcorrencias.value);
+
+    if (input_simRepetir.checked) {
+        repetirQuestoesErradas = true;
+    }
+
+    if (input_simMultiplaEscolha.checked) {
+        multiplaEscolha = true;
+    }
+
+    if (input_simFinalizar.checked) {
+        finalizarPartidaMaxAnteriores = true;
+        listaAnteriores = [];
+    }
+
+    quantidadeSugestoes = parseInt(input_quantidadeSugestoes.value);
+
+    if (naoQuebra.checked) {
+        quantidadeTrechos = 1;
+        tempoReproducao = 60;
+    } else {
+        quantidadeTrechos = parseInt(input_quantidadeTrechos.value);
+    }
+
+    // filtragem
+    let cb_filtragem = document.querySelectorAll('.cb_filtragem');
+    cb_filtragem.forEach(cb => {
+        if (cb.checked) {
+            filtros.push(cb.value);
+        }
+    });
+    // perguntas
+    let cb_perguntas = document.querySelectorAll('.cb_perguntas');
+    cb_perguntas.forEach(cb => {
+        if (cb.checked) {
+            perguntasPermitidas.push(cb.value);
+
+            if (cb.value === 'Áudio')
+                datasetComAudio = true;
+        }
+    });
+    // resposta
+    let config_resposta = document.getElementById('config_resposta');
+    tipoResposta = config_resposta.value;
+
+    widthGeralAtual = 100;
+    widthPerguntaAtual = 0;
+
+    tempoGeral.style.width = '100%';
+    tempoPergunta.style.width = '0';
+
+    fasesJogadas = 0;
+    pontuacao = 0;
+    desempenho = 0;
+
+    tempoJogoMinutos = parseInt(document.getElementById('tempoJogo').value);
+    tempoPerguntaSegundos = parseInt(document.getElementById('tempoPorPergunta').value);
+
+    setaIntervaloGeral(tempoJogoMinutos);
+    setaIntervaloPergunta(tempoPerguntaSegundos);
+    removeFoguinhos();
+
+    configuracoesDefinidas = true;
+    fechaModais();
+    insereQuestaoAleatoria();
+    if (multiplaEscolha)
+        insereSugestoes(quantidadeSugestoes);
+}
+
+criaHTMLConfigFiltragem('Álbum');
+
+criaHTMLConfigPerguntas();
+criaHTMLConfigResposta();
+
+configuracoes.querySelector('.fecharModal').addEventListener('click', () => {
+    fechaModais();
+});
+
+dicas.querySelector('.fecharModal').addEventListener('click', () => {
+    fechaModais();
+});
+
+resultadoFinal.querySelector('.fecharModal').addEventListener('click', () => {
+    fechaModais();
+});
