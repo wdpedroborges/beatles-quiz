@@ -97,7 +97,7 @@ img {
 	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	height: 5vh;
+	height: 10vh;
 }
 
 #controles button {

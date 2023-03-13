@@ -401,6 +401,23 @@ const levenshteinDistance = (a, b, corte = true) => {
        return matrix[b.length][a.length];
 }
 
+const distanciaPorPalavra = (a, b) => {
+   a = removerAcentos(a.toLowerCase());
+   b = removerAcentos(b.toLowerCase());
+    
+    a = a.split(' ');
+    b = b.split(' ');
+    let distancia = 100;
+    for (let i = 0; i < a.length; i++) {
+        for (let j = 0; j < b.length; j++) {
+            if (a[i] === b[j]) {
+                distancia--;
+            }
+        }
+    }
+
+    return distancia;
+}
 
 const trataEnvio = () => {
     if (fimJogo) return;
@@ -491,7 +508,7 @@ const menorDistancia = (elemento, lista, ignorar) => {
     let maisProximo = Number.POSITIVE_INFINITY;
     let resultado;
     for (let i = 0; i < lista.length; i++) {
-        let distancia = levenshteinDistance(elemento, lista[i]);
+        let distancia = distanciaPorPalavra(elemento, lista[i]);
         if (distancia < maisProximo && !algumIgual(lista[i], ignorar)) {
             maisProximo = distancia; 
             resultado = lista[i];
