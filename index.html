@@ -56,6 +56,12 @@
 			</div>
 
 			<div>
+				<h3>Jogar sem tempo</h3>
+				<input type="radio" id="simSemTempo" name="semTempo"> <label for="simSemTempo">Sim</label>
+				<input checked type="radio" id="naoSemTempo" name="semTempo"> <label for="naoSemTempo">Não</label>
+			</div>
+
+			<div>
 				<h3>Número máximo de ocorrências por questão</h3>
 				<input type="number" id="numMaxOcorrencias" placeholder="Digite um valor inteiro" value="1">
 			</div>
@@ -109,8 +115,8 @@
 	</div>
 </div>
 
-<div class="temporizador" id="tempoGeral"></div>
-<div class="temporizador" id="tempoPergunta"></div>
+<div class="containerTempo"><div class="temporizador" id="tempoGeral"></div></div>
+<div class="containerTempo"><div class="temporizador" id="tempoPergunta"></div></div>
 
 <div id="controles">
 	<button id="btnConfig"><i class="bi bi-gear"></i></button>

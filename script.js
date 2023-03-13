@@ -57,6 +57,7 @@ let streak = 0;
 let melhorStreak = Number.NEGATIVE_INFINITY;
 let repetirQuestoesErradas = false;
 let questoesErradas = [];
+let jogarSemTempo = false;
 
 let tempoInicioPergunta, tempoFinalPergunta;
 let melhorTempo = Number.POSITIVE_INFINITY;
@@ -254,7 +255,7 @@ const geraAudio = (quantidadeTrechos, nome = 'audio-teste.mp3') => {
 
     btnPlay.appendChild(iconPlay);
 
-    btnPlay.addEventListener('click', () => {
+    btnPlay.addEventListener('click', (e) => {
         if (!audioTocando) {
             audioTocando = true;
             executaAudioQuestao(nome, false, trechoAtual, tempoReproducao);
@@ -266,9 +267,9 @@ const geraAudio = (quantidadeTrechos, nome = 'audio-teste.mp3') => {
                 document.querySelector('#btnPlay').querySelector('i').classList.remove('bi-pause-fill');
             }
         }
-    });
 
-    pergunta.appendChild(btnPlay);
+        respostaUsuario.focus();
+    });
 
     if (quantidadeTrechos > 1) {
         let controlesPlay = document.createElement('div');
@@ -295,6 +296,8 @@ const geraAudio = (quantidadeTrechos, nome = 'audio-teste.mp3') => {
                         document.querySelector('#btnPlay').querySelector('i').classList.add('bi-play-fill');
                         document.querySelector('#btnPlay').querySelector('i').classList.remove('bi-pause-fill');
                     }
+
+                    respostaUsuario.focus();
                 });
 
                 if (i === 0)
@@ -302,10 +305,11 @@ const geraAudio = (quantidadeTrechos, nome = 'audio-teste.mp3') => {
 
                 controlesPlay.appendChild(controle);
             }
-
+            pergunta.appendChild(btnPlay);
             pergunta.appendChild(controlesPlay);
         });
     }
+
 }
 
 const geraImagem = (src) => {
@@ -402,6 +406,7 @@ const trataEnvio = () => {
     if (fimJogo) return;
 
     if (efeitoSonoro) efeitoSonoro.pause();
+    sugestoes.style.display = 'none';
 
     if (levenshteinDistance(questaoAtual.resposta, respostaUsuario.value, corte = false) <= toleranciaResposta) {
         respostaCorreta.innerText =  "Parabéns, você acertou!";
@@ -509,6 +514,7 @@ const insereSugestoes = (quantidade = 5) => {
     if (fimJogo) return;
     if (respostaUsuario.value === '' && !multiplaEscolha) return;
 
+    sugestoes.style.display = 'flex';
     sugestoes.innerHTML = '';
     let considerados = [];
     let sugestoesGeradas = [];
@@ -799,6 +805,7 @@ btnCompartilhar.addEventListener('click', () => {
 });
 
 function setaIntervaloGeral(tempo) {
+    if (jogarSemTempo) return;
     let tempoReal = ((60 * 100) / 10) * tempo;
     intervaloGeral = window.setInterval(() => {
         tempoGeral.style.width = `${widthGeralAtual}%`;
@@ -811,6 +818,7 @@ function setaIntervaloGeral(tempo) {
 }
 
 function setaIntervaloPergunta(tempo) {
+    if (jogarSemTempo) return;
     let tempoReal = (tempo * 100) / 10;
     intervaloPergunta = window.setInterval(() => {
         tempoPergunta.style.width = `${widthPerguntaAtual}%`;
@@ -851,8 +859,27 @@ const captaConfiguracaoDefinida = () => {
     const input_numMaxOcorrencias = document.getElementById('numMaxOcorrencias');
     const input_simFinalizar = document.getElementById('simFinalizar');
     const input_simRepetir = document.getElementById('simRepetir');
+    const input_simSemTempo = document.getElementById('simSemTempo');
 
     maximoOcorrencias = parseInt(input_numMaxOcorrencias.value);
+
+    if (input_simSemTempo.checked) {
+        jogarSemTempo = true;
+        tempoGeral.style.display = 'none';
+        tempoPergunta.style.display = 'none';
+        let containerTempo = document.querySelectorAll('.containerTempo');
+        containerTempo.forEach(container => {
+            container.style.display = 'none';
+        })
+    } else {
+        jogarSemTempo = false;
+        tempoGeral.style.display = 'block';
+        tempoPergunta.style.display = 'block';
+        let containerTempo = document.querySelectorAll('.containerTempo');
+        containerTempo.forEach(container => {
+            container.style.display = 'block';
+        })        
+    }
 
     if (input_simRepetir.checked) {
         repetirQuestoesErradas = true;
@@ -910,6 +937,9 @@ const captaConfiguracaoDefinida = () => {
     tempoJogoMinutos = parseInt(document.getElementById('tempoJogo').value);
     tempoPerguntaSegundos = parseInt(document.getElementById('tempoPorPergunta').value);
 
+    if (tempoJogoMinutos > 9999) tempoJogoMinutos = 9999;
+    if (tempoPerguntaSegundos > 9999) tempoPerguntaSegundos = 9999;
+
     setaIntervaloGeral(tempoJogoMinutos);
     setaIntervaloPergunta(tempoPerguntaSegundos);
     removeFoguinhos();
@@ -936,4 +966,14 @@ dicas.querySelector('.fecharModal').addEventListener('click', () => {
 
 resultadoFinal.querySelector('.fecharModal').addEventListener('click', () => {
     fechaModais();
+});
+
+document.getElementById('simSemTempo').addEventListener('click', () => {
+    document.getElementById('tempoJogo').disabled = true;
+    document.getElementById('tempoPorPergunta').disabled = true;
+});
+
+document.getElementById('naoSemTempo').addEventListener('click', () => {
+    document.getElementById('tempoJogo').disabled = false;
+    document.getElementById('tempoPorPergunta').disabled = false;
 });
