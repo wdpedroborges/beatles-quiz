@@ -3,7 +3,7 @@
 
 ---
 
-Beatles Quiz is a quiz for those who have interest in learning how to identify a Beatles' song having listened to only 1s of the song.
+The Beatles Quiz is a fun and challenging game for fans of the legendary British band, The Beatles. The quiz is designed to test your ability to identify a Beatles song from just one second of listening. It requires a good ear for music and a deep knowledge of The Beatles' discography.
 
 ---
 
