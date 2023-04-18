@@ -1,12 +1,3 @@
-# Beatles Quiz
-## A quiz based in the model Better Quiz
-
----
-
-The Beatles Quiz is a fun and challenging game for fans of the legendary British band, The Beatles. The quiz is designed to test your ability to identify a Beatles song from just one second of listening. It requires a good ear for music and a deep knowledge of The Beatles' discography.
-
----
-
 ![badge](https://img.shields.io/github/watchers/wdpedroborges/beatles-quiz?style=social)
 ![badge](https://img.shields.io/github/stars/wdpedroborges/beatles-quiz?style=social)
 ![badge](https://img.shields.io/github/license/wdpedroborges/beatles-quiz)
@@ -15,11 +6,14 @@ The Beatles Quiz is a fun and challenging game for fans of the legendary British
 ![badge](https://img.shields.io/badge/powered%20by-typescript-blue)
 ![badge](https://img.shields.io/badge/powered%20by-sass.js-blue)
 
----
+# Beatles Quiz
+## A quiz based in the model Better Quiz
+
+The Beatles Quiz is a fun and challenging game for fans of the legendary British band, The Beatles. The quiz is designed to test your ability to identify a Beatles song from just one second of listening. It requires a good ear for music and a deep knowledge of The Beatles' discography.
 
 ## Live Demo
 
-[Click here to see it]((wdpedroborges.github.io/beatles-quiz))
+wdpedroborges.github.io/beatles-quiz
 
 ## Features
 

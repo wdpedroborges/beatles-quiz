@@ -236,9 +236,19 @@ function App() {
     if (!wasGivenAnswer) return
 
     if (result) {
-      return 'You are correct!'
+      return (
+        <div>
+          <div className="resultMessage">You are correct!</div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/hL0tnrl2L_U?controls=0&?autoplay=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+        </div>
+      )
     } else {
-      return `Oops! The answer was "${currentQuestion.current!.answer}"!`
+      return (
+        <div>
+          <div className="resultMessage">{`Oops! The answer was "${currentQuestion.current!.answer}"!`}</div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/hL0tnrl2L_U?controls=0&?autoplay=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+        </div>
+      )
     }
   }
 
@@ -347,9 +357,7 @@ function App() {
           />
 
           {wasGivenAnswer &&
-            <div className="resultMessage">
-              {handleMessageGivenResult()}
-            </div>
+           handleMessageGivenResult()
           }
 
 
